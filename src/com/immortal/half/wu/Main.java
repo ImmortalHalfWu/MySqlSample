@@ -17,7 +17,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        nativeSqlTest();
 
+    }
+
+    private static void nativeSqlTest() {
         Connection connection = null;
         SqlUtl sqlUtl = new SqlUtl();
 //        try {
@@ -51,7 +55,6 @@ public class Main {
         }
 
         System.out.println("Hello MySql!");
-
     }
 
 
