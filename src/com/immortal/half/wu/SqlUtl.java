@@ -87,8 +87,8 @@ public class SqlUtl {
                 statement.setInt(1, id);
                 statement.setString(2, name == null ? "" : name);
                 statement.setString(3, password == null ? "" : password);
-                statement.executeUpdate();
-                log("移除成功");
+                int i = statement.executeUpdate();
+                log("移除成功"+i);
             } catch (SQLException e) {
                 e.printStackTrace();
                 log("移除失败");
@@ -114,8 +114,8 @@ public class SqlUtl {
                 statement.setInt(3, id);
                 statement.setString(1, name == null ? "null" : name);
                 statement.setString(2, password == null ? "null" : password);
-                statement.executeUpdate();
-                log("更新成功");
+                int i = statement.executeUpdate();
+                log("更新成功" + i);
             } catch (SQLException e) {
                 e.printStackTrace();
                 log("更新失败");
@@ -133,15 +133,14 @@ public class SqlUtl {
      * @param connection
      */
      boolean queryAllUser(@NotNull Connection connection) {
-        Statement statement = null;
+        PreparedStatement statement = null;
         ResultSet resultSet = null;
         if (connection != null) {
             try {
-                statement = connection.createStatement();
-                resultSet = statement.executeQuery(
+                statement = connection.prepareStatement(
                         "SELECT id, name, password from login_user"
                 );
-
+                resultSet = statement.executeQuery();
                 log("id\t\tname\t\tpassword");
                 while (resultSet.next()) {
                     log(

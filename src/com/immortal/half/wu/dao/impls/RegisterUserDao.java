@@ -16,22 +16,22 @@ public class RegisterUserDao implements SQLDao<RegisterUserBean> {
     }
 
     @Override
-    public void add(Connection connection, RegisterUserBean bean) throws Exception {
+    public void addToSQL(Connection connection, RegisterUserBean bean) throws Exception {
 
     }
 
     @Override
-    public void del(Connection connection, RegisterUserBean bean) throws Exception {
+    public void deleteFromSQL(Connection connection, RegisterUserBean bean) throws Exception {
 
     }
 
     @Override
-    public void updata(Connection connection, RegisterUserBean bean) throws Exception {
+    public void updataToSQL(Connection connection, RegisterUserBean bean) throws Exception {
 
     }
 
     @Override
-    public void find(Connection connection, RegisterUserBean bean) throws Exception {
+    public void selectFromSQL(Connection connection, RegisterUserBean bean) throws Exception {
 
     }
 }

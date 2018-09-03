@@ -7,22 +7,22 @@ import java.sql.Connection;
 public class AbsSQLDao<T> implements SQLDao<T> {
 
     @Override
-    public void add(Connection connection, T bean) throws Exception {
+    public void addToSQL(Connection connection, T bean) throws Exception {
 
     }
 
     @Override
-    public void del(Connection connection, T bean) throws Exception {
+    public void deleteFromSQL(Connection connection, T bean) throws Exception {
 
     }
 
     @Override
-    public void updata(Connection connection, T bean) throws Exception {
+    public void updataToSQL(Connection connection, T bean) throws Exception {
 
     }
 
     @Override
-    public void find(Connection connection, T bean) throws Exception {
+    public void selectFromSQL(Connection connection, T bean) throws Exception {
 
     }
 }
