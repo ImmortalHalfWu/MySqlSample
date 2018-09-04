@@ -1,19 +1,17 @@
 package com.immortal.half.wu;
 
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.PropertyFilter;
-import com.immortal.half.wu.bean.ScanInfoBean;
-import com.immortal.half.wu.bean.TestUserBean;
-import com.immortal.half.wu.bean.enums.ORDER_TYPE;
+import com.immortal.half.wu.bean.*;
+import com.immortal.half.wu.bean.enums.*;
 import com.immortal.half.wu.bean.utils.BeanUtil;
+import com.immortal.half.wu.dao.DaoManager;
 import com.immortal.half.wu.dao.utils.SqlUtil;
 
 import java.sql.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 
 public class Main {
@@ -21,104 +19,133 @@ public class Main {
 
     static {
         try {
-            String driverClass = "com.mysql.cj.jdbc.Driver";
-            Class.forName(driverClass);
-        } catch (ClassNotFoundException e) {
+            DaoManager.init();
+//            String driverClass = "com.mysql.cj.jdbc.Driver";
+//            Class.forName(driverClass);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
+//        List<UserInfoBean> userInfoBeans = DaoManager.instance().selectSQLForBean(new UserInfoBean(null, null, null, null, null, null, null));
+//        for (UserInfoBean bean : userInfoBeans) {
+//            System.out.println(bean.toString());
+//        }
 
-        ScanInfoBean scanInfoBean = new ScanInfoBean(1,1,null,"tag", ORDER_TYPE.ORDER_TYPE_ALL, 1, false);
-        PropertyFilter propertyFilter = (o, s, o1) -> {
-//            System.out.println("o = " + o.getClass().getName() + "___o1 = " + o1.getClass().getName());
-            return o1 != null && !o1.getClass().isEnum();
-        };
-        String s = JSON.toJSONString(scanInfoBean, propertyFilter);
-        System.out.println(s);
+//        DaoManager.instance().deleteBeanForSQL(UserInfoBean.newInstance());
+//        DaoManager.instance().deleteBeanForSQL(UserVipInfoBean.newInstance());
+//        DaoManager.instance().deleteBeanForSQL(ScanInfoBean.newInstance());
+//        DaoManager.instance().deleteBeanForSQL(HistoricalRecordsBean.newInstance());
+//        DaoManager.instance().deleteBeanForSQL(DocumentaryInfoBean.newInstance());
 
-        JSONObject jsonObject = (JSONObject) JSON.parse(s);
-        Set<Map.Entry<String,Object>> entrySet = jsonObject.entrySet();
-        System.out.println(entrySet);
-        Map<String, Object> map = new HashMap<>();
-        for (Map.Entry<String, Object> entry : entrySet) {
-//            System.out.println("k = " + entry.getKey() + "___v = " + entry.getValue() + "___type" + entry.getValue().getClass().getSimpleName());
-            map.put(entry.getKey(), entry.getValue());
-        }
-        System.out.println(map.keySet());
-        System.out.println(map.values());
+        /* 增删跟投 */
+//        DocumentaryInfoBean documentaryInfoBean = DocumentaryInfoBean.newInstance(
+//                1, "www.baidu.com", "备注", ORDER_TYPE.ORDER_TYPE_ALL,
+//                5, true, 20, DOCUMENTARY_TYPE.DOCUMENTARY_TYPE_STRICT
+//        );
+//
+//        DaoManager.instance().insertBeanToSQL(documentaryInfoBean);
+//        List<DocumentaryInfoBean> documentaryInfoBeans = DaoManager.instance().selectSQLForBean(DocumentaryInfoBean.newInstance());
+//        System.out.println(documentaryInfoBeans.get(0));
+//        DaoManager.instance().updataBeanForSQL(
+//                DocumentaryInfoBean.newInstance(
+//                        1, "www.baiduUpdata.com", "备注Updata", ORDER_TYPE.ORDER_TYPE_ALL,
+//                        5, true, 20, DOCUMENTARY_TYPE.DOCUMENTARY_TYPE_STRICT),
+//                documentaryInfoBean
+//        );
+//        documentaryInfoBeans = DaoManager.instance().selectSQLForBean(DocumentaryInfoBean.newInstance());
+//        System.out.println(documentaryInfoBeans.get(0));
+//        DaoManager.instance().deleteBeanForSQL(DocumentaryInfoBean.newInstance());
 
-//        SqlUtil.insertObjectToSQL(null, new SqlQueryBean("login_user" , map));
-        /*
-            bean to sql
-            bean --> json --> map --> keySet valueSet -->
-            "insert into 表名 (keySet)"
-                                + "values (?,?,? keyset 长度)"
-            for (valueSet) {
-                if value is Integer
-                   statement.setInt(index, value);
-                if value is String
-                   statement.setString(index, value);
-                if value is Boolean
-                   statement.setBoolean(index, value);
-                   ........
-            }
-         */
 
-        nativeSqlTest();
+
+
+
+        /* 增加历史记录 */
+//        DaoManager.instance().deleteBeanForSQL(HistoricalRecordsBean.newInstance());
+//
+//        HistoricalRecordsBean historicalRecordsBean = HistoricalRecordsBean.newInstance(
+//                PLATFORM_TYPE.PLATFORM_TYPE_JD,
+//                "备注",
+//                ORDER_TYPE.ORDER_TYPE_ALL,
+//                "2018-09-04 17:01:00",
+//                "321554",
+//                "45.1",
+//                "20",
+//                true,
+//                "",
+//                SCAN_OR_ORDER_TYPE.SCAN_OR_ORDER_TYPE_SCAN
+//        );
+//        DaoManager.instance().insertBeanToSQL(historicalRecordsBean);
+//        List<HistoricalRecordsBean> historicalRecordsBeans = DaoManager.instance().selectSQLForBean(historicalRecordsBean);
+//        log(historicalRecordsBean.toString());
+
+
+
+        /*   增删扫描    */
+//        DaoManager.instance().updataBeanForSQL(
+//                ScanInfoBean.newInstance(
+//                        13,"www.baiduupdata.com","备注updata", ORDER_TYPE.ORDER_TYPE_ALL,20, true
+//                ),
+//                ScanInfoBean.newInstanceByUrl("www.baidu.com")
+//        );
+//
+//        DaoManager.instance().selectSQLForBean(ScanInfoBean.newInstance());
+//
+//        DaoManager.instance().deleteBeanForSQL(ScanInfoBean.newInstanceByUrl("www.baidu.com"));
+//        DaoManager.instance().selectSQLForBean(ScanInfoBean.newInstance());
+
+
+
+        DaoManager.instance().release();
+
     }
 
+    private static void registerUserInfo() {
+        Calendar calendar = Calendar.getInstance();
+//        calendar.
+        // 用户注册操作
+        UserInfoBean addUserInfoBean = new UserInfoBean(
+                null, null,
+                0, "13613571331",
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime()),
+                false, "123456"
+        );
 
-    private static void nativeSqlTest() {
-        Connection connection = null;
-        SqlUtl sqlUtl = new SqlUtl();
+        DaoManager.instance().insertBeanToSQL(addUserInfoBean);
+        List<UserInfoBean> userInfoBeans1 = DaoManager.instance().selectSQLForBean(addUserInfoBean);
+        log(userInfoBeans1.toString());
+        if (userInfoBeans1.size() > 0) {
 
-        String sqlUrl = "jdbc:mysql://localhost:3306/java_sql?useSSL=false&serverTimezone=GMT%2B8";
-        String sqlUser = "root";
-        String sqlPassWord = "mysql2b";
+            UserInfoBean userInfoBean = userInfoBeans1.get(0);
 
-        log("连接数据库");
-        try {
-            connection = DriverManager.getConnection(sqlUrl, sqlUser, sqlPassWord);
-
-//            SqlUtil.selectObjectToSQL(connection, BeanUtil.object2SqlBean("login_user", new TestUserBean(null,null,null)));
-//            SqlUtil.insertObjectToSQL(connection, BeanUtil.object2SqlBean("login_user", new TestUserBean(null, "nullIDnewUserName", "nullIDnewPassWord")));
-//            SqlUtil.insertObjectToSQL(connection, BeanUtil.object2SqlBean("login_user", new TestUserBean(null, "nullIDnewUserName", "nullIDnewPassWord")));
-//            SqlUtil.insertObjectToSQL(connection, BeanUtil.object2SqlBean("login_user", new TestUserBean(null, "nullIDnewUserName", "nullIDnewPassWord")));
-//            SqlUtil.insertObjectToSQL(connection, BeanUtil.object2SqlBean("login_user", new TestUserBean(null, "nullIDnewUserName", "nullIDnewPassWord")));
-//            SqlUtil.insertObjectToSQL(connection, BeanUtil.object2SqlBean("login_user", new TestUserBean(null, "nullIDnewUserName", "nullIDnewPassWord")));
-//            SqlUtil.insertObjectToSQL(connection, BeanUtil.object2SqlBean("login_user", new TestUserBean(null, "nullIDnewUserName", "nullIDnewPassWord")));
-            SqlUtil.selectObjectToSQL(connection, BeanUtil.object2SqlBean("login_user", new TestUserBean(null,null,null)));
-            SqlUtil.updataObjectToSQL(
-                    connection,
-                    BeanUtil.object2SqlBean("login_user", new TestUserBean(null,"updataName","updataPass")),
-                    BeanUtil.object2SqlBean("login_user", new TestUserBean(21,"nullIDnewUserName","nullIDnewPassWord"))
+            // 插入vip数据
+            Date time = calendar.getTime();
+            calendar.set(Calendar.MONTH, calendar.get(Calendar.MONTH) + 1);
+            UserVipInfoBean userVipInfoBean = UserVipInfoBean.newInstanceByVipType(
+                    null, userInfoBean.getId(), String.valueOf(time.getTime()), String.valueOf(calendar.getTime().getTime()),
+                    VIP_TYPE.VIP_TYPE_SUPER
             );
-//            SqlUtil.delObjectToSQL(connection, BeanUtil.object2SqlBean("login_user", new TestUserBean(null,null,null)));
-            SqlUtil.selectObjectToSQL(connection, BeanUtil.object2SqlBean("login_user", new TestUserBean(null,null,null)));
 
-//            sqlUtl.queryAllUser(connection);
-//            sqlUtl.updataUser(connection, 14, "changeUserName", "changePassWord");
-//            sqlUtl.queryAllUser(connection);
-//            sqlUtl.removeUserInfo(connection, 14, "changeUserName", "changePassWord");
-//            sqlUtl.queryAllUser(connection);
+            if (DaoManager.instance().insertBeanToSQL(userVipInfoBean)) {
+                List<UserVipInfoBean> userVipInfoBeans = DaoManager.instance().selectSQLForBean(userVipInfoBean);
+                log(userVipInfoBeans.toString());
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                if (userVipInfoBeans.size() > 0) {
+
+                    UserVipInfoBean userVipInfoBean1 = userVipInfoBeans.get(0);
+                    Integer id = userVipInfoBean1.getId();
+                    UserInfoBean newUserInfoBean = UserInfoBean.newInstanceByVipId(id);
+
+                    DaoManager.instance().updataBeanForSQL(newUserInfoBean, userInfoBean);
+                    List<UserInfoBean> userInfoBeans = DaoManager.instance().selectSQLForBean(UserInfoBean.newInstance());
+                    log(userInfoBeans.toString());
+
                 }
             }
         }
-
-        System.out.println("Hello MySql!");
     }
-
 
     private static void log(String text) {
         System.out.println(text);

@@ -110,10 +110,10 @@ public class AsyncQueryTest extends BaseCollectionTestCase {
         List<CompletableFuture<DocResult>> futures = new ArrayList<>();
         for (int i = 0; i < NUMBER_OF_QUERIES; ++i) {
             if (i % 5 == 0) {
-                //System.out.println("\nfutures.add(CompletableFuture.completedFuture(coll.find(\"mode = 'sync'\").execute()));");
+                //System.out.println("\nfutures.addToSQL(CompletableFuture.completedFuture(coll.selectFromSQL(\"mode = 'sync'\").execute()));");
                 futures.add(CompletableFuture.completedFuture(coll.find("mode = 'sync'").execute()));
             } else {
-                //System.out.println("\nfutures.add(coll.find(\"mode = 'async'\").executeAsync());");
+                //System.out.println("\nfutures.addToSQL(coll.selectFromSQL(\"mode = 'async'\").executeAsync());");
                 futures.add(coll.find("mode = 'async'").executeAsync());
             }
         }

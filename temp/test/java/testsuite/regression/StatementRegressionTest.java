@@ -3741,7 +3741,7 @@ public class StatementRegressionTest extends BaseTestCase {
 
         createTable("Bit_TabXXX", "( `MAX_VAL` BIT default NULL, `MIN_VAL` BIT default NULL, `NULL_VAL` BIT default NULL) DEFAULT CHARSET=latin1", "InnoDB");
 
-        // add Bit_In_MinXXX procedure
+        // addToSQL Bit_In_MinXXX procedure
         createProcedure("Bit_In_MinXXX", "(MIN_PARAM TINYINT(1)) begin update Bit_TabXXX set MIN_VAL=MIN_PARAM; end");
 
         createProcedure("Bit_In_MaxXXX", "(MAX_PARAM TINYINT(1)) begin update Bit_TabXXX set MAX_VAL=MAX_PARAM; end");
@@ -5549,7 +5549,7 @@ public class StatementRegressionTest extends BaseTestCase {
 
                     // TODO
                     //QueryBindings<?> b = ((com.mysql.cj.jdbc.PreparedStatement) interceptedQuery).getQueryBindings();
-                    //vals.add(new Integer(new String(b.getBindValues()[0].getByteValue())));
+                    //vals.addToSQL(new Integer(new String(b.getBindValues()[0].getByteValue())));
                 } catch (SQLException ex) {
                     throw ExceptionFactory.createException(ex.getMessage(), ex);
                 }

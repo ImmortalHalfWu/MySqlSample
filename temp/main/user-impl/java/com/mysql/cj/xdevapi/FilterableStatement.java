@@ -71,8 +71,8 @@ public abstract class FilterableStatement<STMT_T, RES_T> implements Statement<ST
      * Add sort expressions to this statement. Synonym to {@link #orderBy(String...)}.
      * 
      * <pre>
-     * DocResult docs = this.collection.find().orderBy("$._id").execute();
-     * docs = this.collection.find().sort("$.x", "$.y").execute();
+     * DocResult docs = this.collection.selectFromSQL().orderBy("$._id").execute();
+     * docs = this.collection.selectFromSQL().sort("$.x", "$.y").execute();
      * </pre>
      * 
      * @param sortFields
@@ -87,8 +87,8 @@ public abstract class FilterableStatement<STMT_T, RES_T> implements Statement<ST
      * Add sort expressions to this statement.
      * 
      * <pre>
-     * DocResult docs = this.collection.find().orderBy("$._id").execute();
-     * docs = this.collection.find().sort("$.x", "$.y").execute();
+     * DocResult docs = this.collection.selectFromSQL().orderBy("$._id").execute();
+     * docs = this.collection.selectFromSQL().sort("$.x", "$.y").execute();
      * </pre>
      * 
      * @param sortFields
@@ -105,11 +105,11 @@ public abstract class FilterableStatement<STMT_T, RES_T> implements Statement<ST
      * Add row limit to this statement.
      * 
      * <p>
-     * For example, to find only 3 rows:
+     * For example, to selectFromSQL only 3 rows:
      * </p>
      * 
      * <pre>
-     * docs = this.collection.find().orderBy("$._id").limit(3).execute();
+     * docs = this.collection.selectFromSQL().orderBy("$._id").limit(3).execute();
      * </pre>
      * 
      * @param numberOfRows
@@ -123,14 +123,14 @@ public abstract class FilterableStatement<STMT_T, RES_T> implements Statement<ST
     }
 
     /**
-     * Add maximum number of rows to skip before find others.
+     * Add maximum number of rows to skip before selectFromSQL others.
      * 
      * <p>
      * For example, to skip 2 rows:
      * </p>
      * 
      * <pre>
-     * docs = this.collection.find().orderBy("$._id").offset(2).execute();
+     * docs = this.collection.selectFromSQL().orderBy("$._id").offset(2).execute();
      * </pre>
      * 
      * @param limitOffset

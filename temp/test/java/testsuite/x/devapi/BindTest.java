@@ -135,5 +135,5 @@ public class BindTest extends BaseCollectionTestCase {
     }
 
     // TODO: more tests with unnamed (x = ?) and different bind value types
-    // TODO: more tests find & modify
+    // TODO: more tests selectFromSQL & modify
 }

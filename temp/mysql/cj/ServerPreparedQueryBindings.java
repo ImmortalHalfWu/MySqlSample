@@ -152,7 +152,7 @@ public class ServerPreparedQueryBindings extends AbstractQueryBindings<ServerPre
     @Override
     public void setAsciiStream(int parameterIndex, InputStream x, long length) {
         setAsciiStream(parameterIndex, x, (int) length);
-        this.bindValues[parameterIndex].setMysqlType(MysqlType.TEXT); // TODO was Types.CLOB, check; use length to find right TEXT type
+        this.bindValues[parameterIndex].setMysqlType(MysqlType.TEXT); // TODO was Types.CLOB, check; use length to selectFromSQL right TEXT type
     }
 
     @Override

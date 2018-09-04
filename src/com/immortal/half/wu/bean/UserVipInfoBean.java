@@ -1,19 +1,22 @@
 package com.immortal.half.wu.bean;
 
 import com.immortal.half.wu.bean.enums.VIP_TYPE;
-import com.sun.istack.internal.NotNull;
 
 public class UserVipInfoBean extends BaseBean{
 
-    private final String startTime;
-    private final String endTime;
-    private final transient VIP_TYPE vipType;
+    private String startTime;
+    private String endTime;
+    private VIP_TYPE vipTypeEnum;
+    private Integer vipType;
 
-    public UserVipInfoBean(Integer id, Integer userId, String startTime, String endTime, VIP_TYPE vipType) {
+    public UserVipInfoBean(Integer id, Integer userId, String startTime, String endTime, Integer vipType) {
         super(id, userId);
         this.startTime = startTime;
         this.endTime = endTime;
-        this.vipType = vipType;
+        if (vipType != null) {
+            this.vipTypeEnum = VIP_TYPE.valueOf(vipType);
+            this.vipType = vipTypeEnum.getCode();
+        }
     }
 
     public String getStartTime() {
@@ -24,7 +27,25 @@ public class UserVipInfoBean extends BaseBean{
         return endTime;
     }
 
-    public VIP_TYPE getVipType() {
+    public VIP_TYPE getVipTypeEnum() {
+        return vipTypeEnum;
+    }
+
+    public Integer getVipType() {
         return vipType;
+    }
+
+    public static UserVipInfoBean newInstanceByVipType(Integer id, Integer userId, String startTime, String endTime, VIP_TYPE vipType) {
+        return new UserVipInfoBean(id, userId, startTime, endTime, vipType.getCode());
+    }
+
+    private static UserVipInfoBean NULL_INSTANCE;
+    public static UserVipInfoBean newInstance() {
+        if (NULL_INSTANCE == null) {
+            synchronized (UserVipInfoBean.class) {
+                NULL_INSTANCE = new UserVipInfoBean(null, null, null, null, null);
+            }
+        }
+        return NULL_INSTANCE;
     }
 }

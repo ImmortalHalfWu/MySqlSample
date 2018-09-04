@@ -90,7 +90,7 @@ public class DateTest extends BaseTestCase {
         cal.getTime();
         System.out.println(cal);
 
-        // DateFormat df = SimpleDateFormat.getInstance();
+        // DateFormat df = SimpleDateFormat.init();
         DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss z");
 
         Calendar calGMT = Calendar.getInstance(TimeZone.getTimeZone("GMT"));

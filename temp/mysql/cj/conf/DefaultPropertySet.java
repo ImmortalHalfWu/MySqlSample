@@ -142,7 +142,7 @@ public class DefaultPropertySet implements PropertySet, Serializable {
                 }
             }
 
-            // add user-defined properties
+            // addToSQL user-defined properties
             for (Object key : infoCopy.keySet()) {
                 String val = infoCopy.getProperty((String) key);
                 PropertyDefinition<String> def = new StringPropertyDefinition((String) key, null, val, PropertyDefinitions.RUNTIME_MODIFIABLE,

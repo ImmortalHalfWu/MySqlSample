@@ -18051,7 +18051,7 @@ public final class MysqlxCrud {
       "d.UpdateOperation:\004\210\3520\023\"\372\001\n\006Delete\022+\n\nco" +
       "llection\030\001 \002(\0132\027.Mysqlx.Crud.Collection\022",
       "*\n\ndata_model\030\002 \001(\0162\026.Mysqlx.Crud.DataMo" +
-      "del\022#\n\010criteria\030\003 \001(\0132\021.Mysqlx.Expr.Expr" +
+      "deleteFromSQL\022#\n\010criteria\030\003 \001(\0132\021.Mysqlx.Expr.Expr" +
       "\022&\n\004args\030\006 \003(\0132\030.Mysqlx.Datatypes.Scalar" +
       "\022!\n\005limit\030\004 \001(\0132\022.Mysqlx.Crud.Limit\022!\n\005o" +
       "rder\030\005 \003(\0132\022.Mysqlx.Crud.Order:\004\210\3520\024\"\302\002\n" +

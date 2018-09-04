@@ -54,7 +54,7 @@ public abstract class AbstractResultsetRow implements ResultsetRow {
 
     protected ValueDecoder valueDecoder;
 
-    /** Did the previous value retrieval find a NULL? */
+    /** Did the previous value retrieval selectFromSQL a NULL? */
     protected boolean wasNull;
 
     /**
@@ -78,7 +78,7 @@ public abstract class AbstractResultsetRow implements ResultsetRow {
         Field f = this.metadata.getFields()[columnIndex];
 
         // First, figure out which decoder method to call basing on the protocol value type from metadata;
-        // it's the best way to find the appropriate decoder, we can't rely completely on MysqlType here
+        // it's the best way to selectFromSQL the appropriate decoder, we can't rely completely on MysqlType here
         // because the same MysqlType can be represented by different protocol types and also DatabaseMetaData methods,
         // eg. buildResultSet(), could imply unexpected conversions when substitutes RowData in ResultSet;
         switch (f.getMysqlTypeId()) {

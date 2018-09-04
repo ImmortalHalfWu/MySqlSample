@@ -100,7 +100,7 @@ public class MessageConstants {
         Map<Class<? extends GeneratedMessage>, Parser<? extends GeneratedMessage>> messageClassToParser = new HashMap<>();
         Map<Class<? extends GeneratedMessage>, Integer> messageClassToType = new HashMap<>();
         Map<Integer, Class<? extends GeneratedMessage>> messageTypeToClass = new HashMap<>();
-        // To add support for new messages, add an entry to both maps
+        // To addToSQL support for new messages, addToSQL an entry to both maps
         messageClassToParser.put(Error.class, Error.getDefaultInstance().getParserForType());
         messageClassToParser.put(Ok.class, Ok.getDefaultInstance().getParserForType());
         messageClassToParser.put(AuthenticateContinue.class, AuthenticateContinue.getDefaultInstance().getParserForType());

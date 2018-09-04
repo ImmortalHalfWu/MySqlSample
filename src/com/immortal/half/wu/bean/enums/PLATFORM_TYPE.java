@@ -18,4 +18,17 @@ public enum PLATFORM_TYPE {
         return code;
     }
 
+    public static PLATFORM_TYPE valueOf(Integer code) {
+        if (code == null) {
+            return null;
+        }
+        switch (code) {
+            case 0:
+                return PLATFORM_TYPE_XQ;
+            default:
+                return PLATFORM_TYPE_JD;
+        }
+
+    }
+
 }

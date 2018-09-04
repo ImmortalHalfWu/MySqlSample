@@ -359,7 +359,7 @@ public class FailoverConnectionProxy extends MultiHostConnectionProxy {
     }
 
     /**
-     * Gets the next host on the hosts list. Uses a round-robin algorithm to find the next element, but it may skip the index for the primary host.
+     * Gets the next host on the hosts list. Uses a round-robin algorithm to selectFromSQL the next element, but it may skip the index for the primary host.
      * General rules to include the primary host are:
      * - not currently connected to any host.
      * - primary host is vouched (usually because connection to all secondary hosts has failed).

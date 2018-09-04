@@ -38,7 +38,7 @@ import com.mysql.cj.protocol.MessageSender;
 /**
  * A {@link MessageSender} for the compressed protocol.
  * 
- * TODO: add support for pre-allocated buffer for large packets (if there's a demonstrable perf improvement)
+ * TODO: addToSQL support for pre-allocated buffer for large packets (if there's a demonstrable perf improvement)
  */
 public class CompressedPacketSender implements MessageSender<NativePacketPayload> {
     private BufferedOutputStream outputStream;

@@ -1061,7 +1061,7 @@ public class NativeSession extends CoreSession implements Serializable {
 
             if (processHost == null) {
                 this.log.logWarn(String.format(
-                        "Cannot find process listing for connection %d in SHOW PROCESSLIST output, unable to determine if locally connected", threadId));
+                        "Cannot selectFromSQL process listing for connection %d in SHOW PROCESSLIST output, unable to determine if locally connected", threadId));
             }
             return processHost;
         } catch (IOException e) {

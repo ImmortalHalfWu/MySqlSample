@@ -14,15 +14,15 @@ public class DocumentaryInfoBean extends ScanInfoBean {
             Integer userId,
             String scanUrl,
             String tagName,
-            ORDER_TYPE orderType,
+            Integer orderType,
             Integer frequency,
             Boolean canUser,
             Integer positionRatio,
-            DOCUMENTARY_TYPE documentaryType) {
+            Integer documentaryType) {
         super(id, userId, scanUrl, tagName, orderType, frequency, canUser);
         this.positionRatio = positionRatio;
-        this.documentaryTypeEnum = documentaryType;
-        this.documentaryType = documentaryType.getCode();
+        this.documentaryTypeEnum = DOCUMENTARY_TYPE.valueOf(documentaryType);
+        this.documentaryType = documentaryType;
     }
 
     public Integer getPositionRatio() {
@@ -36,4 +36,43 @@ public class DocumentaryInfoBean extends ScanInfoBean {
     public Integer getDocumentaryType() {
         return documentaryType;
     }
+
+
+    private static DocumentaryInfoBean NULL_INSTANCE;
+
+    public static DocumentaryInfoBean newInstance() {
+        if (NULL_INSTANCE == null) {
+            synchronized (DocumentaryInfoBean.class) {
+                NULL_INSTANCE = new DocumentaryInfoBean(null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null);
+            }
+        }
+        return NULL_INSTANCE;
+    }
+
+    public static DocumentaryInfoBean newInstance(
+            Integer userId,
+            String scanUrl,
+            String tagName,
+            ORDER_TYPE orderType,
+            Integer frequency,
+            Boolean canUser,
+            Integer positionRatio,
+            DOCUMENTARY_TYPE documentaryType) {
+
+        return new DocumentaryInfoBean(
+                null, userId, scanUrl,
+                tagName, orderType.getCode(), frequency,
+                canUser, positionRatio, documentaryType.getCode()
+        );
+
+    }
+
 }

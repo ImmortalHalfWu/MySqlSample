@@ -56,7 +56,7 @@ import com.mysql.cj.protocol.WatchableStream;
 public class Blob implements java.sql.Blob, OutputStreamWatcher {
 
     //
-    // This is a real brain-dead implementation of BLOB. Once I add streamability to the I/O for MySQL this will be more efficiently implemented
+    // This is a real brain-dead implementation of BLOB. Once I addToSQL streamability to the I/O for MySQL this will be more efficiently implemented
     // (except for the position() method, ugh).
     //
 

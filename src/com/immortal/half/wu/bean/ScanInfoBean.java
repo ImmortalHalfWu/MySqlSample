@@ -11,14 +11,16 @@ public class ScanInfoBean extends BaseBean{
     private Boolean canUser;
     private Integer orderType;
 
-    public ScanInfoBean(Integer id, Integer userId, String scanUrl, String tagName, ORDER_TYPE orderType, Integer frequency, Boolean canUser) {
+    public ScanInfoBean(Integer id, Integer userId, String scanUrl, String tagName, Integer orderType, Integer frequency, Boolean canUser) {
         super(id, userId);
         this.scanUrl = scanUrl;
         this.tagName = tagName;
-        this.orderTypeEnum = orderType;
+        if (orderType != null) {
+            this.orderTypeEnum = ORDER_TYPE.valueOf(orderType);
+        }
         this.frequency = frequency;
         this.canUser = canUser;
-        this.orderType = orderType.getCode();
+        this.orderType = orderType;
     }
 
     public String getScanUrl() {
@@ -43,5 +45,27 @@ public class ScanInfoBean extends BaseBean{
 
     public Integer getOrderType() {
         return orderType;
+    }
+
+    private static ScanInfoBean NULL_INSTANCE;
+    public static ScanInfoBean newInstance() {
+        if (NULL_INSTANCE == null) {
+            NULL_INSTANCE = new ScanInfoBean(null, null, null, null, null, null, null);
+        }
+        return NULL_INSTANCE;
+    }
+
+    public static ScanInfoBean newInstance(
+            Integer userId,
+            String scanUrl,
+            String tagName,
+            ORDER_TYPE orderType,
+            Integer frequency,
+            Boolean canUser) {
+        return new ScanInfoBean(null, userId, scanUrl, tagName, orderType.getCode(), frequency, canUser);
+    }
+    public static ScanInfoBean newInstanceByUrl(
+            String scanUrl) {
+        return new ScanInfoBean(null, null, scanUrl, null, null, null, null);
     }
 }

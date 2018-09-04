@@ -17,4 +17,16 @@ public enum DOCUMENTARY_TYPE {
     public int getCode() {
         return code;
     }
+
+    public static DOCUMENTARY_TYPE valueOf(Integer code) {
+        if (code == null) {
+            return null;
+        }
+        switch (code) {
+            case 1:
+                return DOCUMENTARY_TYPE_FAST;
+                default:
+                    return DOCUMENTARY_TYPE_STRICT;
+        }
+    }
 }

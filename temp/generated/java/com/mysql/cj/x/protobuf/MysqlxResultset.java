@@ -1439,7 +1439,7 @@ public final class MysqlxResultset {
    *       the maximum length of characters of the underlying type
    *     ``.flags &amp; 1`` (rightpad)
    *       if the length of the field is less than ``.length``, the receiver is
-   *       supposed to add padding characters to the right end of the string.
+   *       supposed to addToSQL padding characters to the right end of the string.
    *       If the ``.charset`` is "binary", the padding character is ``0x00``,
    *       otherwise it is a space character as defined by that character set.
    *       ============= ======= ======== =======
@@ -2386,7 +2386,7 @@ public final class MysqlxResultset {
      *       the maximum length of characters of the underlying type
      *     ``.flags &amp; 1`` (rightpad)
      *       if the length of the field is less than ``.length``, the receiver is
-     *       supposed to add padding characters to the right end of the string.
+     *       supposed to addToSQL padding characters to the right end of the string.
      *       If the ``.charset`` is "binary", the padding character is ``0x00``,
      *       otherwise it is a space character as defined by that character set.
      *       ============= ======= ======== =======

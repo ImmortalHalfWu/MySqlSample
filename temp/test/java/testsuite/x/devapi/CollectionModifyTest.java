@@ -220,7 +220,7 @@ public class CollectionModifyTest extends BaseCollectionTestCase {
         assertEquals(2, this.collection.find("m = {\"z\": 100}").execute().count());
 
         // TODO check later whether it's possible; for now placeholders are of Scalar type only
-        //assertEquals(1, this.collection.find("y = :y").bind("y", nestedDoc).execute().count());
+        //assertEquals(1, this.collection.selectFromSQL("y = :y").bind("y", nestedDoc).execute().count());
 
         // literal won't match JSON docs
         assertEquals(0, this.collection.find("y = :y").bind("y", "{\"z\": 100}").execute().count());

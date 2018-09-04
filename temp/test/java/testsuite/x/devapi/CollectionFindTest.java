@@ -365,7 +365,7 @@ public class CollectionFindTest extends BaseCollectionTestCase {
         DocResult docs;
 
         // TODO: this is a known problem on the server with JSON value types (with IS NULL too)
-        // docs = this.collection.find("$.c IS TRUE AND $.c IS NOT FALSE").execute();
+        // docs = this.collection.selectFromSQL("$.c IS TRUE AND $.c IS NOT FALSE").execute();
         // docs.next();
 
         docs = this.collection.find("$.b IN (1,100) AND $.b NOT IN (2, 200)").execute();
@@ -673,7 +673,7 @@ public class CollectionFindTest extends BaseCollectionTestCase {
             col1.find("_id = '1'").lockShared().execute();
 
             // session2.startTransaction();
-            // res = col2.find("_id < '3'").lockExclusive().execute(); (Can't test)
+            // res = col2.selectFromSQL("_id < '3'").lockExclusive().execute(); (Can't test)
             // session2.rollback();
 
             session2.startTransaction();
@@ -738,7 +738,7 @@ public class CollectionFindTest extends BaseCollectionTestCase {
             col1.find("_id = '1'").lockExclusive().execute();
 
             // session2.startTransaction();
-            // res = col2.find("_id < '3'").lockShared().execute(); (Can't test)
+            // res = col2.selectFromSQL("_id < '3'").lockShared().execute(); (Can't test)
             // session2.rollback();
 
             session2.startTransaction();
@@ -803,7 +803,7 @@ public class CollectionFindTest extends BaseCollectionTestCase {
             col1.find("_id = '1'").lockExclusive().execute();
 
             // session2.startTransaction();
-            // res = col2.find("_id < '3'").lockExclusive().execute(); (Can't test)
+            // res = col2.selectFromSQL("_id < '3'").lockExclusive().execute(); (Can't test)
             // session2.rollback();
 
             session2.startTransaction();

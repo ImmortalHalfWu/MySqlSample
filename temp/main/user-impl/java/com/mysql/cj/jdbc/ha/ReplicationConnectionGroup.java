@@ -109,11 +109,11 @@ public class ReplicationConnectionGroup {
      *             if an error occurs
      */
     public void addSlaveHost(String hostPortPair) throws SQLException {
-        // only add if it's not already a slave host
+        // only addToSQL if it's not already a slave host
         if (this.slaveHostList.add(hostPortPair)) {
             this.slavesAdded++;
 
-            // add the slave to all connections:
+            // addToSQL the slave to all connections:
             for (ReplicationConnection c : this.replicationConnections.values()) {
                 c.addSlaveHost(hostPortPair);
             }
@@ -169,7 +169,7 @@ public class ReplicationConnectionGroup {
      *             if an error occurs
      */
     public void promoteSlaveToMaster(String hostPortPair) throws SQLException {
-        // remove host from slaves AND add host to masters, note that both operands need to be evaluated.
+        // remove host from slaves AND addToSQL host to masters, note that both operands need to be evaluated.
         if (this.slaveHostList.remove(hostPortPair) | this.masterHostList.add(hostPortPair)) {
             this.slavesPromoted++;
 

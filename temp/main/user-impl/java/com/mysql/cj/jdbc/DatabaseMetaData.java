@@ -91,7 +91,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
     /**
      * Default max buffer size. See {@link PropertyDefinitions#PNAME_maxAllowedPacket}.
      */
-    protected static int maxBufferSize = 65535; // TODO find a way to use actual (not default) value
+    protected static int maxBufferSize = 65535; // TODO selectFromSQL a way to use actual (not default) value
 
     protected abstract class IteratorWithCleanup<T> {
         abstract void close() throws SQLException;
@@ -1015,7 +1015,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
      * Extracts foreign key info for one table.
      * 
      * @param rows
-     *            the list of rows to add to
+     *            the list of rows to addToSQL to
      * @param rs
      *            the result set from 'SHOW CREATE TABLE'
      * @param catalog
@@ -2549,7 +2549,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
      * @param keysComment
      *            the comment from 'show table status'
      * @param tuples
-     *            the rows to add results to
+     *            the rows to addToSQL results to
      * @param fkTableName
      *            the foreign key table name
      * @throws SQLException
@@ -2684,7 +2684,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
      * @param keysComment
      *            the comment from 'show table status'
      * @param tuples
-     *            the rows to add results to
+     *            the rows to addToSQL results to
      * @throws SQLException
      *             if a database access error occurs
      */
@@ -3705,7 +3705,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
                         } catch (SQLException sqlEx) {
 
                             // We should probably check SQLState here, but that can change depending on the server version and user properties, however,
-                            // we'll get a 'true' SQLException when we actually try to find the 'Type' column
+                            // we'll get a 'true' SQLException when we actually try to selectFromSQL the 'Type' column
                             // 
                             try {
                                 typeColumnIndex = results.findColumn("Type");
@@ -4010,7 +4010,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
         tuples.add(new ByteArrayRow(getTypeInfo("DATETIME"), getExceptionInterceptor()));
         tuples.add(new ByteArrayRow(getTypeInfo("TIMESTAMP"), getExceptionInterceptor()));
 
-        // TODO add missed types (aliases)
+        // TODO addToSQL missed types (aliases)
 
         return this.resultSetFactory.createFromResultsetRows(ResultSet.CONCUR_READ_ONLY, ResultSet.TYPE_SCROLL_INSENSITIVE,
                 new ResultsetRowsStatic(tuples, new DefaultColumnDefinition(fields)));

@@ -42,7 +42,7 @@ import com.mysql.cj.jdbc.exceptions.SQLError;
 import com.mysql.cj.result.Field;
 
 /**
- * A ResultSetMetaData object can be used to find out about the types and properties of the columns in a ResultSet
+ * A ResultSetMetaData object can be used to selectFromSQL out about the types and properties of the columns in a ResultSet
  */
 public class ResultSetMetaData implements java.sql.ResultSetMetaData {
     private static int clampedGetLength(Field f) {

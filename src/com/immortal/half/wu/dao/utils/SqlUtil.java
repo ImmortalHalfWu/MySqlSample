@@ -10,14 +10,7 @@ import java.util.*;
 
 public class SqlUtil {
 
-    public static void sqlClose(@Nullable Connection connection, @Nullable Statement statement, @Nullable ResultSet resultSet) {
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+    private static void sqlClose(@Nullable Statement statement, @Nullable ResultSet resultSet) {
         if (statement != null) {
             try {
                 statement.close();
@@ -36,7 +29,7 @@ public class SqlUtil {
     }
 
     // =================================== =增= ================================================
-    public static void insertObjectToSQL(@NotNull Connection connection, @NotNull SqlQueryBean sqlQueryBean) {
+    public static void insertObjectToSQL(@NotNull Connection connection, @NotNull SqlQueryBean sqlQueryBean)throws SQLException {
         String queryString = createInsertQueryString(QUERY_STRING_ADD, sqlQueryBean);
         System.out.println(
                 queryString
@@ -54,8 +47,9 @@ public class SqlUtil {
 
             } catch (SQLException e) {
                 e.printStackTrace();
+                throw e;
             } finally {
-                sqlClose(null, statement, resultSet);
+                sqlClose(statement, resultSet);
             }
 
         }
@@ -104,7 +98,7 @@ public class SqlUtil {
 
 
     // =================================== =删= ================================================
-    public static void delObjectToSQL(@NotNull Connection connection, @NotNull SqlQueryBean sqlQueryBean) {
+    public static void delObjectToSQL(@NotNull Connection connection, @NotNull SqlQueryBean sqlQueryBean) throws SQLException {
         // 生成删除语句
         String queryString = QUERY_STRING_DELETE
                 .replace(QUERY_PLEACE_HOLD_TABLE, sqlQueryBean.getTableName());
@@ -132,17 +126,13 @@ public class SqlUtil {
                 statement = connection.prepareStatement(
                         queryString
                 );
+                statement.executeUpdate();
 
-                int i = statement.executeUpdate();
-//                resultSet = statement.executeQuery();
-
-                // 查询结果转换为JsonArray
-//                JSONArray beansJsonArry = ResultSetUtil.getBeansJsonArray(sqlQueryBean.getBeanClass(), resultSet);
-                System.out.println(i);
             } catch (SQLException e) {
                 e.printStackTrace();
+                throw e;
             } finally {
-                sqlClose(null, statement, resultSet);
+                sqlClose(statement, resultSet);
             }
         }
 
@@ -153,7 +143,7 @@ public class SqlUtil {
             @NotNull Connection connection,
             @NotNull SqlQueryBean sqlQueryBeanNewValue,
             @NotNull SqlQueryBean sqlQueryBeanOldValue
-    ) throws IllegalArgumentException{
+    ) throws IllegalArgumentException, SQLException{
 
         // 生成删除语句
         String queryString = QUERY_STRING_UPADTA
@@ -187,24 +177,20 @@ public class SqlUtil {
                 statement = connection.prepareStatement(
                         queryString
                 );
+                statement.executeUpdate();
 
-                int i = statement.executeUpdate();
-//                resultSet = statement.executeQuery();
-
-                // 查询结果转换为JsonArray
-//                JSONArray beansJsonArry = ResultSetUtil.getBeansJsonArray(sqlQueryBean.getBeanClass(), resultSet);
-                System.out.println(i);
             } catch (SQLException e) {
                 e.printStackTrace();
+                throw e;
             } finally {
-                sqlClose(null, statement, resultSet);
+                sqlClose(statement, resultSet);
             }
         }
     }
 
 
     // =================================== =查= ================================================
-    public static JSONArray selectObjectToSQL(@NotNull Connection connection, @NotNull SqlQueryBean sqlQueryBean) {
+    public static JSONArray selectObjectToSQL(@NotNull Connection connection, @NotNull SqlQueryBean sqlQueryBean) throws SQLException{
 
         // 生成查表语句
         String queryString = QUERY_STRING_SELECT
@@ -241,8 +227,9 @@ public class SqlUtil {
                 return beansJsonArry;
             } catch (SQLException e) {
                 e.printStackTrace();
+                throw e;
             } finally {
-                sqlClose(null, statement, resultSet);
+                sqlClose(statement, resultSet);
             }
         }
         return new JSONArray();
@@ -277,7 +264,7 @@ public class SqlUtil {
         /*
             "orderType = 2"
          */
-        whereQueryString = new StringBuilder(firstKey + " = " + getWhereValueString(firstValue));
+        whereQueryString = new StringBuilder(firstKey).append(" = ").append(getWhereValueString(firstValue));
 
         while (keyIterator.hasNext() && valueIterator.hasNext()) {
             // "orderType = 2 AND"

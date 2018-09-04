@@ -2450,7 +2450,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
             }
         }
 
-        assertTrue("Didn't find any columns for table named 'testBug31187' in database " + this.conn.getCatalog(), found);
+        assertTrue("Didn't selectFromSQL any columns for table named 'testBug31187' in database " + this.conn.getCatalog(), found);
     }
 
     public void testBug44508() throws Exception {

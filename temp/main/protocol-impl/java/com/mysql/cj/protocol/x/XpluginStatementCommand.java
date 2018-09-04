@@ -33,7 +33,7 @@ public enum XpluginStatementCommand {
     XPLUGIN_STMT_CREATE_COLLECTION("create_collection"), XPLUGIN_STMT_CREATE_COLLECTION_INDEX("create_collection_index"),
     XPLUGIN_STMT_DROP_COLLECTION("drop_collection"), XPLUGIN_STMT_DROP_COLLECTION_INDEX("drop_collection_index"), XPLUGIN_STMT_PING("ping"),
     XPLUGIN_STMT_LIST_OBJECTS("list_objects"), XPLUGIN_STMT_ENABLE_NOTICES("enable_notices"), XPLUGIN_STMT_DISABLE_NOTICES("disable_notices"),
-    XPLUGIN_STMT_LIST_NOTICES("list_notices"); // TODO add support for "ping", "list_clients", "kill_client" and "ensure_collection" commands
+    XPLUGIN_STMT_LIST_NOTICES("list_notices"); // TODO addToSQL support for "ping", "list_clients", "kill_client" and "ensure_collection" commands
 
     public String commandName;
 

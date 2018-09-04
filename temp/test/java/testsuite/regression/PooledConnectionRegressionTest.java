@@ -547,7 +547,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
         assertEquals(cw.getServerVersion().meetsMinimum(new ServerVersion(8, 0, 3)) ? DatabaseMetaDataUsingInfoSchema.class : DatabaseMetaData.class,
                 cw.getMetaData().getClass());
 
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.getId();
         //        cw.getIdleFor();
         //        cw.getMetadataSafeStatement();
@@ -558,7 +558,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
         cw.setFailedOver(false);
         cw.setHoldability(ResultSet.CLOSE_CURSORS_AT_COMMIT);
         cw.setInGlobalTx(false);
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.setNetworkTimeout(executor, milliseconds);
         //        cw.setProxy(this.conn);
         //        cw.setReadOnly(readOnly);
@@ -568,7 +568,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
         //        cw.setTypeMap(map);
         assertEquals(((JdbcConnection) this.conn).storesLowerCaseTableName(), cw.storesLowerCaseTableName());
 
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.getQueryInterceptorsInstances();
         //        cw.initializeSafeQueryInterceptors();
         //        cw.unSafeQueryInterceptors();
@@ -581,7 +581,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
         assertEquals(Connection.TRANSACTION_READ_UNCOMMITTED, cw.getTransactionIsolation());
         cw.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
         assertEquals(Connection.TRANSACTION_READ_COMMITTED, cw.getTransactionIsolation());
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //cw.transactionBegun();
         //cw.transactionCompleted();
         //        cw.commit();
@@ -592,13 +592,13 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
         //        cw.releaseSavepoint(arg0);
         cw.setAutoCommit(true);
 
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.registerStatement(this.stmt);
         //        cw.unregisterStatement(this.stmt);
         //        cw.decachePreparedStatement(this.pstmt);
         //        cw.recachePreparedStatement(this.pstmt);
 
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.clearHasTriedMaster();
         //        cw.clearWarnings();
         //        cw.ping();
@@ -615,7 +615,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
         assertEquals(0, cw.getActiveStatementCount());
         checkReallyClosedConnection(cw);
 
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.realClose(calledExplicitly, issueRollback, skipLocalTeardown, reason);
         //        cw.cleanup(whyCleanedUp);
         //        cw.abort(executor);
@@ -952,7 +952,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
             }
         });
 
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.getId();
         //        cw.getIdleFor();
         //        cw.getMetadataSafeStatement();
@@ -977,7 +977,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
         });
 
         cw.setInGlobalTx(false);
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.setNetworkTimeout(executor, milliseconds);
         //        cw.setProxy(this.conn);
         //        cw.setReadOnly(readOnly);
@@ -987,7 +987,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
         //        cw.setTypeMap(map);
         assertEquals(((JdbcConnection) this.conn).storesLowerCaseTableName(), cw.storesLowerCaseTableName());
 
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.getQueryInterceptorsInstances();
         //        cw.initializeSafeQueryInterceptors();
         //        cw.unSafeQueryInterceptors();
@@ -1052,7 +1052,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
             }
         });
 
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.registerStatement(this.stmt);
         //        cw.unregisterStatement(this.stmt);
         //        cw.decachePreparedStatement(this.pstmt);
@@ -1414,7 +1414,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
             }
         });
 
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.getId();
         //        cw.getIdleFor();
         //        cw.getMetadataSafeStatement();
@@ -1439,7 +1439,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
         });
 
         cw.setInGlobalTx(false);
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.setNetworkTimeout(executor, milliseconds);
         //        cw.setProxy(this.conn);
         //        cw.setReadOnly(readOnly);
@@ -1449,7 +1449,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
         //        cw.setTypeMap(map);
         assertEquals(((JdbcConnection) this.conn).storesLowerCaseTableName(), cw.storesLowerCaseTableName());
 
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.getQueryInterceptorsInstances();
         //        cw.initializeSafeQueryInterceptors();
         //        cw.unSafeQueryInterceptors();
@@ -1514,7 +1514,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
             }
         });
 
-        // TODO find a way to test following methods
+        // TODO selectFromSQL a way to test following methods
         //        cw.registerStatement(this.stmt);
         //        cw.unregisterStatement(this.stmt);
         //        cw.decachePreparedStatement(this.pstmt);

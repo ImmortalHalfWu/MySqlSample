@@ -93,7 +93,7 @@ public class AsyncMessageSender implements MessageSender<XMessage> {
         ByteBuffer messageBuf = ByteBuffer.allocate(HEADER_LEN + size).order(ByteOrder.LITTLE_ENDIAN).putInt(payloadSize);
         messageBuf.put((byte) type);
         try {
-            // directly access the ByteBuffer's backing array as protobuf's CodedOutputStream.newInstance(ByteBuffer) is giving a stream that doesn't actually
+            // directly access the ByteBuffer's backing array as protobuf's CodedOutputStream.newInstanceByVipType(ByteBuffer) is giving a stream that doesn't actually
             // write any data
             msg.writeTo(CodedOutputStream.newInstance(messageBuf.array(), HEADER_LEN, size + HEADER_LEN));
             messageBuf.position(messageBuf.limit());

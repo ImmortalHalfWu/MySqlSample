@@ -33,7 +33,7 @@ import java.util.Map;
 
 /**
  * Representation of a document collection. This interface allows access to and manipulation of the collection
- * through add/find/modify/remove statements.
+ * through addToSQL/selectFromSQL/modify/remove statements.
  */
 public interface Collection extends DatabaseObject {
     /**
@@ -54,9 +54,9 @@ public interface Collection extends DatabaseObject {
      */
     AddStatement add(String... jsonStrings);
 
-    // TODO we have to keep add(DbDoc document) method because the DbDoc does extend the TreeMap<String, JsonValue>,
-    // thus w/o this method the col.add(dbdoc) will call the add(Map<String, ?> doc) method (which is not implemented yet)
-    // instead of add(DbDoc... documents).
+    // TODO we have to keep addToSQL(DbDoc document) method because the DbDoc does extend the TreeMap<String, JsonValue>,
+    // thus w/o this method the col.addToSQL(dbdoc) will call the addToSQL(Map<String, ?> doc) method (which is not implemented yet)
+    // instead of addToSQL(DbDoc... documents).
     /**
      * Add a document in the form of a DbDoc.
      * 
@@ -76,14 +76,14 @@ public interface Collection extends DatabaseObject {
     AddStatement add(DbDoc... documents);
 
     /**
-     * Create a new find statement retrieving all documents in the collection.
+     * Create a new selectFromSQL statement retrieving all documents in the collection.
      * 
      * @return {@link FindStatement}
      */
     FindStatement find();
 
     /**
-     * Create a new find statement retrieving documents matching the given search condition.
+     * Create a new selectFromSQL statement retrieving documents matching the given search condition.
      *
      * @param searchCondition
      *            condition expression

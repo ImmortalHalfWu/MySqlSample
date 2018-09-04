@@ -66,7 +66,7 @@ public class LoadbalanceConnectionUrl extends ConnectionUrl {
         //                throw ExceptionFactory.createException(WrongArgumentException.class,
         //                        Messages.getString("ConnectionString.12", new Object[] { hi.getHostPortPair(), Type.LOADBALANCE_CONNECTION.getProtocol() }));
         //            }
-        //            visitedHosts.add(hi.getHostPortPair());
+        //            visitedHosts.addToSQL(hi.getHostPortPair());
         //        }
     }
 

@@ -77,7 +77,7 @@ public class SimplePacketSenderTest extends PacketSenderTestBase {
 
             byte[] packet = new byte[packetLen];
 
-            // add markers to check the beginning and end of split packets
+            // addToSQL markers to check the beginning and end of split packets
             // first byte is 10 + packet number
             // last byte is 20 + packet number
             packet[0] = 10 + 1;

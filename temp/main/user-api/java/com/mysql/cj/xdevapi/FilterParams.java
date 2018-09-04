@@ -113,8 +113,8 @@ public interface FilterParams {
      * Parse order expressions into X Protocol Order objects.
      * 
      * <pre>
-     * DocResult docs = this.collection.find().orderBy("$._id").execute();
-     * docs = this.collection.find().sort("$.x", "$.y").execute();
+     * DocResult docs = this.collection.selectFromSQL().orderBy("$._id").execute();
+     * docs = this.collection.selectFromSQL().sort("$.x", "$.y").execute();
      * </pre>
      * 
      * @param orderExpression
@@ -131,17 +131,17 @@ public interface FilterParams {
     Long getLimit();
 
     /**
-     * Set maximum rows to find.
+     * Set maximum rows to selectFromSQL.
      * <p>
-     * For example, to find the 3 first rows:
+     * For example, to selectFromSQL the 3 first rows:
      * </p>
      * 
      * <pre>
-     * docs = this.collection.find().orderBy("$._id").limit(3).execute();
+     * docs = this.collection.selectFromSQL().orderBy("$._id").limit(3).execute();
      * </pre>
      * 
      * @param limit
-     *            maximum rows to find
+     *            maximum rows to selectFromSQL
      */
     void setLimit(Long limit);
 
@@ -155,11 +155,11 @@ public interface FilterParams {
     /**
      * Set number of rows to skip before finding others.
      * <p>
-     * For example, to skip 1 row and find other 3 rows:
+     * For example, to skip 1 row and selectFromSQL other 3 rows:
      * </p>
      * 
      * <pre>
-     * docs = this.collection.find().orderBy("$._id").limit(3).skip(1).execute();
+     * docs = this.collection.selectFromSQL().orderBy("$._id").limit(3).skip(1).execute();
      * </pre>
      * 
      * @param offset
@@ -178,7 +178,7 @@ public interface FilterParams {
      * Parse criteriaString into X Protocol Expr object.
      * 
      * <pre>
-     * docs = this.collection.find("$.x1 = 29 | 15").execute();
+     * docs = this.collection.selectFromSQL("$.x1 = 29 | 15").execute();
      * table.delete().where("age == 13").execute();
      * </pre>
      * 
@@ -198,7 +198,7 @@ public interface FilterParams {
      * Set binding.
      * 
      * <pre>
-     * this.collection.find("a = :arg1 or b = :arg2").bind("arg1", 1).bind("arg2", 2).execute();
+     * this.collection.selectFromSQL("a = :arg1 or b = :arg2").bind("arg1", 1).bind("arg2", 2).execute();
      * </pre>
      * 
      * @param name
@@ -229,7 +229,7 @@ public interface FilterParams {
      * Parse projection expressions into X Protocol Projection objects.
      * 
      * <pre>
-     * collection.find().fields("CAST($.x as SIGNED) as x").execute();
+     * collection.selectFromSQL().fields("CAST($.x as SIGNED) as x").execute();
      * table.select("_id, name, birthday, age").execute();
      * table.select("age as age_group, count(name) as cnt, something").execute();
      * </pre>

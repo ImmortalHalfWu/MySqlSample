@@ -124,7 +124,7 @@ public class ClientPreparedQueryBindings extends AbstractQueryBindings<ClientPre
     @Override
     public void setAsciiStream(int parameterIndex, InputStream x, long length) {
         setAsciiStream(parameterIndex, x, (int) length);
-        this.bindValues[parameterIndex].setMysqlType(MysqlType.TEXT); // TODO was Types.CLOB, check; use length to find right TEXT type
+        this.bindValues[parameterIndex].setMysqlType(MysqlType.TEXT); // TODO was Types.CLOB, check; use length to selectFromSQL right TEXT type
     }
 
     @Override
@@ -153,7 +153,7 @@ public class ClientPreparedQueryBindings extends AbstractQueryBindings<ClientPre
         } else {
             this.bindValues[parameterIndex].setNull(false);
             this.bindValues[parameterIndex].setIsStream(true);
-            this.bindValues[parameterIndex].setMysqlType(MysqlType.BLOB); // TODO use length to find the right BLOB type
+            this.bindValues[parameterIndex].setMysqlType(MysqlType.BLOB); // TODO use length to selectFromSQL the right BLOB type
             this.bindValues[parameterIndex].setStreamValue(x, length);
         }
     }
@@ -493,7 +493,7 @@ public class ClientPreparedQueryBindings extends AbstractQueryBindings<ClientPre
                     setNString(parameterIndex, buf.toString());
                 }
 
-                this.bindValues[parameterIndex].setMysqlType(MysqlType.TEXT); // TODO was Types.NCLOB; use length to find right TEXT type
+                this.bindValues[parameterIndex].setMysqlType(MysqlType.TEXT); // TODO was Types.NCLOB; use length to selectFromSQL right TEXT type
             } catch (Throwable t) {
                 throw ExceptionFactory.createException(t.getMessage(), t, this.session.getExceptionInterceptor());
             }

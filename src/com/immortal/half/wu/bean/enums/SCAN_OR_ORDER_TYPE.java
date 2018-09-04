@@ -18,4 +18,16 @@ public enum SCAN_OR_ORDER_TYPE {
         return code;
     }
 
+    public static SCAN_OR_ORDER_TYPE valueOf(Integer code) {
+        if (code == null) {
+            return null;
+        }
+        switch (code) {
+            case 0:
+                return SCAN_OR_ORDER_TYPE_SCAN;
+                default:
+                    return SCAN_OR_ORDER_TYPE_ORDER;
+        }
+    }
+
 }

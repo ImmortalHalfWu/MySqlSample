@@ -30,7 +30,7 @@
 package com.mysql.cj.xdevapi;
 
 /**
- * A statement to <i>find</i> the set of documents according to the given specification.
+ * A statement to <i>selectFromSQL</i> the set of documents according to the given specification.
  */
 public interface FindStatement extends Statement<FindStatement, DocResult> {
     /**

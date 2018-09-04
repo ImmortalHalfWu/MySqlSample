@@ -820,7 +820,7 @@ public class ExprParser {
                 } else if (currentTokenTypeEquals(TokenType.UNSIGNED) || currentTokenTypeEquals(TokenType.SIGNED)) {
                     this.tokenPos++;
                     if (currentTokenTypeEquals(TokenType.INTEGER)) {
-                        // don't add optional INTEGER to type string argument
+                        // don't addToSQL optional INTEGER to type string argument
                         consumeToken(TokenType.INTEGER);
                     }
                 } else if (currentTokenTypeEquals(TokenType.JSON) || currentTokenTypeEquals(TokenType.DATE) || currentTokenTypeEquals(TokenType.DATETIME)
@@ -877,7 +877,7 @@ public class ExprParser {
             default:
                 break;
         }
-        throw new WrongArgumentException("Cannot find atomic expression at token pos: " + (this.tokenPos - 1));
+        throw new WrongArgumentException("Cannot selectFromSQL atomic expression at token pos: " + (this.tokenPos - 1));
     }
 
     /**
@@ -1025,7 +1025,7 @@ public class ExprParser {
                         params.add(unquoteWorkaround(compExpr()));
                         if (currentTokenTypeEquals(TokenType.ESCAPE)) {
                             consumeToken(TokenType.ESCAPE);
-                            // add as a third (optional) param
+                            // addToSQL as a third (optional) param
                             params.add(unquoteWorkaround(compExpr()));
                         }
                         break;

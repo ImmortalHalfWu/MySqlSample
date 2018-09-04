@@ -129,7 +129,7 @@ public class XProtocolRow implements com.mysql.cj.result.Row {
         //            DecoderFunction decoderFunction = XProtocolDecoder.MYSQL_TYPE_TO_DECODER_FUNCTION.get(f.getMysqlTypeId());
         //            if (decoderFunction != null) {
         //                this.wasNull = false;
-        //                return decoderFunction.apply(CodedInputStream.newInstance(byteString.toByteArray()), vf);
+        //                return decoderFunction.apply(CodedInputStream.newInstanceByVipType(byteString.toByteArray()), vf);
         //            }
         //            throw new DataReadException("Unknown MySQL type constant: " + f.getMysqlTypeId());
         //} catch (IOException ex) {

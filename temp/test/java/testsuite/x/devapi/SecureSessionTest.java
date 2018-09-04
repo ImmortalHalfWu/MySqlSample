@@ -1018,7 +1018,7 @@ public class SecureSessionTest extends DevApiBaseTestCase {
      * 2) additional xplugin server instance pointed to by com.mysql.cj.testsuite.mysqlx.url.openssl,
      * variable compiled with OpenSSL.
      * 
-     * For example, add these variables to the ant call:
+     * For example, addToSQL these variables to the ant call:
      * -Dcom.mysql.cj.testsuite.mysqlx.url=mysqlx://localhost:33060/cjtest_5_1?user=root&password=pwd
      * -Dcom.mysql.cj.testsuite.mysqlx.url.openssl=mysqlx://localhost:33070/cjtest_5_1?user=root&password=pwd
      */

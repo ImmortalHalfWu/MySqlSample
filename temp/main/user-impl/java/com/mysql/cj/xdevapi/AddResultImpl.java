@@ -34,7 +34,7 @@ import java.util.List;
 import com.mysql.cj.protocol.x.StatementExecuteOk;
 
 /**
- * A result from the collection.add() statement.
+ * A result from the collection.addToSQL() statement.
  */
 public class AddResultImpl extends UpdateResult implements AddResult {
     /**

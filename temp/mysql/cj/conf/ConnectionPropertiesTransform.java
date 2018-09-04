@@ -33,7 +33,7 @@ import java.util.Properties;
 
 /**
  * Implement this interface, and pass the class name as the 'propertiesTransform' property in your URL, and the driver will pass the properties it has
- * parsed to your transform implementation so that you can modify/substitute/add any that you desire.
+ * parsed to your transform implementation so that you can modify/substitute/addToSQL any that you desire.
  */
 public interface ConnectionPropertiesTransform {
     /**

@@ -1497,7 +1497,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
             numThreadsNamedTimer = findNamedThreadCount(root, "MySQL Statement Cancellation Timer");
         }
 
-        // Notice that this seems impossible to test on JDKs prior to 1.5, as there is no reliable way to find the TimerThread, so we have to rely on new JDKs
+        // Notice that this seems impossible to test on JDKs prior to 1.5, as there is no reliable way to selectFromSQL the TimerThread, so we have to rely on new JDKs
         // for this test.
         assertTrue("More than one timer for cancel was created", numThreadsNamedTimer <= 1);
     }
@@ -1545,9 +1545,9 @@ public class ConnectionRegressionTest extends BaseTestCase {
         propertyNames.add("portNumber");
         propertyNames.add("serverName");
         propertyNames.add("user");
-        // propertyNames.add("dataSourceName"); // TODO not supported
-        // propertyNames.add("networkProtocol"); // TODO not supported
-        // propertyNames.add("roleName"); // TODO not supported
+        // propertyNames.addToSQL("dataSourceName"); // TODO not supported
+        // propertyNames.addToSQL("networkProtocol"); // TODO not supported
+        // propertyNames.addToSQL("roleName"); // TODO not supported
 
         DriverPropertyInfo[] dpi = new NonRegisteringDriver().getPropertyInfo(dbUrl, null);
         for (int i = 0; i < dpi.length; i++) {
@@ -2072,7 +2072,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
         assertEquals(0, ReplicationConnectionGroupManager.getConnectionCountWithHostAsMaster(replicationGroup1, thirdHost));
         assertEquals(0, ReplicationConnectionGroupManager.getConnectionCountWithHostAsSlave(replicationGroup1, thirdHost));
 
-        // add "third" back into slave pool:
+        // addToSQL "third" back into slave pool:
         conn2.addSlaveHost(thirdHost);
 
         assertEquals(0, ReplicationConnectionGroupManager.getConnectionCountWithHostAsMaster(replicationGroup1, thirdHost));
@@ -2140,7 +2140,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
         assertFalse(conn2.isHostSlave(thirdHost));
         assertFalse(conn2.isHostMaster(thirdHost));
 
-        // add "third" back into slave pool:
+        // addToSQL "third" back into slave pool:
         conn2.addSlaveHost(thirdHost);
         assertTrue(conn2.isHostSlave(thirdHost));
         assertFalse(conn2.isHostMaster(thirdHost));
@@ -2199,7 +2199,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
             // won't work now even though master is back up connection has already been implicitly closed when a new master host cannot be found:
             Statement lstmt = conn2.createStatement();
             lstmt.execute("SELECT 1");
-            fail("Will fail because inability to find new master host implicitly closes connection.");
+            fail("Will fail because inability to selectFromSQL new master host implicitly closes connection.");
         } catch (SQLException e) {
             assertEquals("08003", e.getSQLState());
         }
@@ -3938,7 +3938,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
      * variable configured with default-authentication-plugin=sha256_password
      * and RSA encryption enabled.
      * 
-     * To run this test please add this variable to ant call:
+     * To run this test please addToSQL this variable to ant call:
      * -Dcom.mysql.cj.testsuite.url.openssl=jdbc:mysql://localhost:3307/test?user=root&password=pwd
      * 
      * @throws Exception
@@ -4511,7 +4511,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
                 assertEquals("Table '" + dbname + ".\u307B\u3052\u307b\u3052' doesn't exist", e1.getMessage());
             } else if (e1.getErrorCode() == MysqlErrorNumbers.ER_FILE_NOT_FOUND) {
                 // this could happen on Windows with 5.5 and 5.6 servers where BUG#14642248 exists
-                assertTrue(e1.getMessage().contains("Can't find file"));
+                assertTrue(e1.getMessage().contains("Can't selectFromSQL file"));
             } else {
                 throw e1;
             }
@@ -4563,7 +4563,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
                 assertEquals("Table '" + dbname + ".\u307B\u3052\u307b\u3052' doesn't exist", e1.getMessage());
             } else if (e1.getErrorCode() == MysqlErrorNumbers.ER_FILE_NOT_FOUND) {
                 // this could happen on Windows with 5.5 and 5.6 servers where BUG#14642248 exists
-                assertTrue(e1.getMessage().contains("Can't find file"));
+                assertTrue(e1.getMessage().contains("Can't selectFromSQL file"));
             } else {
                 throw e1;
             }
@@ -5767,7 +5767,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
      * This test requires additional server instance configured with
      * default-authentication-plugin=sha256_password and RSA encryption enabled.
      * 
-     * To run this test please add this variable to ant call:
+     * To run this test please addToSQL this variable to ant call:
      * -Dcom.mysql.cj.testsuite.url.openssl=jdbc:mysql://localhost:3307/test?user=root&password=pwd
      * 
      * @throws Exception
@@ -6106,7 +6106,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
         rs1.close();
         s.close();
 
-        // add a slave and make sure we are NOT on a new connection
+        // addToSQL a slave and make sure we are NOT on a new connection
         replConn.addSlaveHost(masterHost);
         s = replConn.createStatement();
         rs1 = s.executeQuery("select CONNECTION_ID()");
@@ -6157,7 +6157,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
         rs1.close();
         s.close();
 
-        // add a slave and make sure we are on a new connection
+        // addToSQL a slave and make sure we are on a new connection
         replConn.addSlaveHost(masterHost);
         s = replConn.createStatement();
         rs1 = s.executeQuery("select CONNECTION_ID()");
@@ -6355,7 +6355,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
      * This test requires additional server instance configured with
      * default-authentication-plugin=sha256_password and RSA encryption enabled.
      * 
-     * To run this test please add this variable to ant call:
+     * To run this test please addToSQL this variable to ant call:
      * -Dcom.mysql.cj.testsuite.url.openssl=jdbc:mysql://localhost:3307/test?user=root&password=pwd
      * 
      * @throws Exception
@@ -8763,13 +8763,13 @@ public class ConnectionRegressionTest extends BaseTestCase {
      */
     public void testBug22848249() throws Exception {
         /*
-         * Remove and add hosts to the connection group, other than the one from the active underlying connection.
+         * Remove and addToSQL hosts to the connection group, other than the one from the active underlying connection.
          * Changes affecting active l/b connections.
          */
         subTestBug22848249A();
 
         /*
-         * Remove and add hosts to the connection group, including the host from the active underlying connection.
+         * Remove and addToSQL hosts to the connection group, including the host from the active underlying connection.
          * Changes affecting active l/b connections.
          */
         subTestBug22848249B();
@@ -9390,7 +9390,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
         /*
          * Case B:
          * - Initialize a replication connection with one master and no slaves.
-         * - Then remove the master and add it back as a slave, followed by a promotion to master.
+         * - Then remove the master and addToSQL it back as a slave, followed by a promotion to master.
          */
         replConnGroup = "Bug22678872B";
         props.put(PropertyDefinitions.PNAME_replicationConnectionGroup, replConnGroup);
@@ -9429,7 +9429,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
         /*
          * Case C:
          * - Initialize a replication connection with no masters and one slave.
-         * - Then remove the slave and add it back, followed by a promotion to master.
+         * - Then remove the slave and addToSQL it back, followed by a promotion to master.
          */
         replConnGroup = "Bug22678872C";
         props.put(PropertyDefinitions.PNAME_replicationConnectionGroup, replConnGroup);
@@ -9463,7 +9463,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
          * Case D:
          * - Initialize a replication connection with one master and one slave.
          * - Then remove the master host, followed by removing the slave host.
-         * - Finally add the slave host back and promote it to master.
+         * - Finally addToSQL the slave host back and promote it to master.
          */
         replConnGroup = "Bug22678872D";
         props.put(PropertyDefinitions.PNAME_replicationConnectionGroup, replConnGroup);
@@ -9503,7 +9503,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
          * - Initialize a replication connection with one master and one slave.
          * - Set read-only.
          * - Then remove the slave host, followed by removing the master host.
-         * - Finally add the slave host back and promote it to master.
+         * - Finally addToSQL the slave host back and promote it to master.
          */
         replConnGroup = "Bug22678872E";
         props.put(PropertyDefinitions.PNAME_replicationConnectionGroup, replConnGroup);
@@ -9547,7 +9547,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
          * Case F:
          * - Initialize a replication connection with one master and one slave.
          * - Then remove the slave host, followed by removing the master host.
-         * - Finally add the slave host back and promote it to master.
+         * - Finally addToSQL the slave host back and promote it to master.
          */
         replConnGroup = "Bug22678872F";
         props.put(PropertyDefinitions.PNAME_replicationConnectionGroup, replConnGroup);
@@ -9895,7 +9895,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
      * "caching_sha2_password_private_key_path" and "caching_sha2_password_public_key_path" set to the same values
      * as "sha256_password_private_key_path" and "sha256_password_public_key_path" respectively.
      * 
-     * To run this test, please add this variable to the ant call:
+     * To run this test, please addToSQL this variable to the ant call:
      * -Dcom.mysql.cj.testsuite.url.openssl=jdbc:mysql://localhost:3307/test?user=root&password=pwd
      * 
      * @throws Exception

@@ -306,7 +306,7 @@ public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implem
     synchronized void invalidateConnection(JdbcConnection conn) throws SQLException {
         super.invalidateConnection(conn);
 
-        // add host to the global blacklist, if enabled
+        // addToSQL host to the global blacklist, if enabled
         if (this.isGlobalBlacklistEnabled()) {
             addToGlobalBlacklist(this.connectionsToHostsMap.get(conn));
         }
@@ -634,7 +634,7 @@ public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implem
                         throw e;
                     }
 
-                    // if the Exception is caused by ping connection lifetime checks, don't add to blacklist
+                    // if the Exception is caused by ping connection lifetime checks, don't addToSQL to blacklist
                     if (e.getMessage().equals(Messages.getString("Connection.exceededConnectionLifetime"))) {
                         // only set the return Exception if it's null
                         if (se == null) {

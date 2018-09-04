@@ -178,8 +178,8 @@ public class TestXDevAPIRequirements extends BaseXDevAPITestCase {
      * Collection.createCollection [16]
      * Collection Index Creation [59]
      * Collection.getCollection [16]
-     * Collection.add [17]
-     * Collection.find basics [18]
+     * Collection.addToSQL [17]
+     * Collection.selectFromSQL basics [18]
      * Collection.modify (incl. all array_*) [21]
      * Collection.remove [22]
      * Collection.as [41]
@@ -208,11 +208,11 @@ public class TestXDevAPIRequirements extends BaseXDevAPITestCase {
         // Collection.getCollection [16]
         collection = getSession("").getDefaultSchema().getCollection(""); // TODO set URL and collection name
 
-        // Collection.add [17]
+        // Collection.addToSQL [17]
         collection.add(new HashMap<String, String>()); // TODO set correct parameter
         collection.add("jsonString"); // TODO set correct parameter
 
-        // Collection.find basics [18]
+        // Collection.selectFromSQL basics [18]
         collection.find("searchCondition"); // TODO set correct parameter
 
         // Collection.modify (incl. all array_*) [21]

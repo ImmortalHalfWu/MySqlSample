@@ -45,7 +45,7 @@ public interface ResultsetRows extends RowList, ProtocolEntity {
      * Adds a row.
      * 
      * @param row
-     *            the row to add
+     *            the row to addToSQL
      */
     default void addRow(Row row) {
         throw ExceptionFactory.createException(CJOperationNotSupportedException.class, Messages.getString("OperationNotSupportedException.0"));

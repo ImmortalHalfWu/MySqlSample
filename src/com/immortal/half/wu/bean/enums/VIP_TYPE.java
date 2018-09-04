@@ -21,4 +21,18 @@ public enum VIP_TYPE {
         return code;
     }
 
+    public static VIP_TYPE valueOf(Integer code) {
+        if (code == null) {
+            return null;
+        }
+        switch (code) {
+            case 2:
+                return VIP_TYPE_SUPER;
+            case 1:
+                return VIP_TYPE_SENIOR;
+            default:
+                return VIP_TYPE_ORDINARY;
+        }
+    }
+
 }

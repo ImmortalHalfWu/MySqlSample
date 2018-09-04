@@ -54,7 +54,7 @@ public class MessagesTest {
                 Messages.getString("ConnectionString.8", new Object[] { "Test", "Ten" }));
         assertEquals("Unable to create properties transform instance 'Test' due to underlying exception: " + ex.toString(),
                 Messages.getString("ConnectionString.9", new Object[] { "Test", ex.toString() }));
-        assertEquals("Can't find configuration template named 'Test'", Messages.getString("ConnectionString.10", new Object[] { "Test" }));
+        assertEquals("Can't selectFromSQL configuration template named 'Test'", Messages.getString("ConnectionString.10", new Object[] { "Test" }));
         assertEquals("Unable to load configuration template 'Test' due to underlying IOException",
                 Messages.getString("ConnectionString.11", new Object[] { "Test" }));
         assertEquals("Illegal database URL, host 'Test1' is duplicated but 'Test2' connections can only handle one instance of each host:port pair.",
@@ -95,7 +95,7 @@ public class MessagesTest {
 
         assertEquals("No parameter named 'Test'", Messages.getString("CallableStatement.3", new Object[] { "Test" }));
         assertEquals("Parameter named 'Test' is not an OUT parameter", Messages.getString("CallableStatement.5", new Object[] { "Test" }));
-        assertEquals("Can't find local placeholder mapping for parameter named 'Test'.", Messages.getString("CallableStatement.6", new Object[] { "Test" }));
+        assertEquals("Can't selectFromSQL local placeholder mapping for parameter named 'Test'.", Messages.getString("CallableStatement.6", new Object[] { "Test" }));
         assertEquals("Parameter number 0 is not an OUT parameter", Messages.getString("CallableStatement.9", new Object[] { 0 }));
         assertEquals("Parameter index of 10 is out of range (1, 5)", Messages.getString("CallableStatement.11", new Object[] { 10, 5 }));
         assertEquals("Parameter 0 is not registered as an output parameter", Messages.getString("CallableStatement.21", new Object[] { 0 }));

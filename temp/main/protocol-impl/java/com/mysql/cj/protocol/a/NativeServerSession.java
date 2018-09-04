@@ -367,7 +367,7 @@ public class NativeServerSession implements ServerSession {
             charset = CharsetMapping.getMysqlCharsetNameForCollationIndex(charsetIndex);
         }
 
-        // if we didn't find charset name by index
+        // if we didn't selectFromSQL charset name by index
         if (charset == null) {
             charset = CharsetMapping.getMysqlCharsetForJavaEncoding(javaCharsetName, getServerVersion());
         }

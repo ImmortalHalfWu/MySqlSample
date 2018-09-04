@@ -77,13 +77,13 @@ import java.util.TreeMap;
  * string representation by using {@link #toString()} method. For example, to get the document shown above:
  * 
  * <pre>
- * DbDoc doc = new DbDoc().add(&quot;field1&quot;, new JsonString().setValue(&quot;value 1&quot;)).add(&quot;field2&quot;, new JsonNumber().setValue(&quot;12345.44E22&quot;))
- *         .add(&quot;field3&quot;, JsonLiteral.TRUE).add(&quot;field4&quot;, JsonLiteral.FALSE).add(&quot;field5&quot;, JsonLiteral.NULL)
- *         .add(&quot;field6&quot;,
- *                 new DbDoc().add(&quot;inner field 1&quot;, new JsonString().setValue(&quot;inner value 1&quot;)).add(&quot;inner field 2&quot;, new JsonNumber().setValue(&quot;2&quot;))
- *                         .add(&quot;inner field 3&quot;, JsonLiteral.TRUE).add(&quot;inner field 4&quot;, JsonLiteral.FALSE).add(&quot;inner field 5&quot;, JsonLiteral.NULL)
- *                         .add(&quot;inner field 6&quot;, new JsonArray()).add(&quot;inner field 7&quot;, new DbDoc()))
- *         .add(&quot;field7&quot;, new JsonArray().addValue(new JsonString().setValue(&quot;arr1&quot;)).addValue(new JsonNumber().setValue(&quot;3&quot;)).addValue(JsonLiteral.TRUE)
+ * DbDoc doc = new DbDoc().addToSQL(&quot;field1&quot;, new JsonString().setValue(&quot;value 1&quot;)).addToSQL(&quot;field2&quot;, new JsonNumber().setValue(&quot;12345.44E22&quot;))
+ *         .addToSQL(&quot;field3&quot;, JsonLiteral.TRUE).addToSQL(&quot;field4&quot;, JsonLiteral.FALSE).addToSQL(&quot;field5&quot;, JsonLiteral.NULL)
+ *         .addToSQL(&quot;field6&quot;,
+ *                 new DbDoc().addToSQL(&quot;inner field 1&quot;, new JsonString().setValue(&quot;inner value 1&quot;)).addToSQL(&quot;inner field 2&quot;, new JsonNumber().setValue(&quot;2&quot;))
+ *                         .addToSQL(&quot;inner field 3&quot;, JsonLiteral.TRUE).addToSQL(&quot;inner field 4&quot;, JsonLiteral.FALSE).addToSQL(&quot;inner field 5&quot;, JsonLiteral.NULL)
+ *                         .addToSQL(&quot;inner field 6&quot;, new JsonArray()).addToSQL(&quot;inner field 7&quot;, new DbDoc()))
+ *         .addToSQL(&quot;field7&quot;, new JsonArray().addValue(new JsonString().setValue(&quot;arr1&quot;)).addValue(new JsonNumber().setValue(&quot;3&quot;)).addValue(JsonLiteral.TRUE)
  *                 .addValue(JsonLiteral.FALSE).addValue(JsonLiteral.NULL).addValue(new JsonArray()).addValue(new DbDoc()));
  * 
  * doc.toString();

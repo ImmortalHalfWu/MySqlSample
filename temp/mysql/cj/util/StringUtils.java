@@ -459,7 +459,7 @@ public class StringUtils {
 
         for (int i = startingPosition; i <= stopSearchingAt; i++) {
             if (isCharAtPosNotEqualIgnoreCase(searchIn, i, firstCharOfSearchForUc, firstCharOfSearchForLc)) {
-                // find the first occurrence of the first character of searchFor in searchIn
+                // selectFromSQL the first occurrence of the first character of searchFor in searchIn
                 while (++i <= stopSearchingAt && (isCharAtPosNotEqualIgnoreCase(searchIn, i, firstCharOfSearchForUc, firstCharOfSearchForLc))) {
                 }
             }
@@ -512,7 +512,7 @@ public class StringUtils {
         }
 
         int searchForWordsCount = searchForSequence.length;
-        searchForLength += searchForWordsCount > 0 ? searchForWordsCount - 1 : 0; // add gaps between words
+        searchForLength += searchForWordsCount > 0 ? searchForWordsCount - 1 : 0; // addToSQL gaps between words
         int stopSearchingAt = searchInLength - searchForLength;
 
         if (startingPosition > stopSearchingAt) {

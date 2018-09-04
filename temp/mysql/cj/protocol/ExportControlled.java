@@ -318,7 +318,7 @@ public class ExportControlled {
     }
 
     /**
-     * Implementation of X509TrustManager wrapping JVM X509TrustManagers to add expiration and identity check
+     * Implementation of X509TrustManager wrapping JVM X509TrustManagers to addToSQL expiration and identity check
      */
     public static class X509TrustManagerWrapper implements X509TrustManager {
 

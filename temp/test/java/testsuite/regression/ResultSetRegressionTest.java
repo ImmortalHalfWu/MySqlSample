@@ -3080,7 +3080,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
      * Tests fix for BUG#25787 - java.util.Date should be serialized for
      * PreparedStatement.setObject().
      * 
-     * We add a new configuration option "treatUtilDateAsTimestamp", which is
+     * We addToSQL a new configuration option "treatUtilDateAsTimestamp", which is
      * false by default, as (1) We already had specific behavior to treat
      * java.util.Date as a java.sql.Timestamp because it's useful to many folks,
      * and (2) that behavior will very likely be in JDBC-post-4.0 as a
@@ -3439,7 +3439,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
 
         String localizedMessage = Messages.getString(messageToCheck);
 
-        assertTrue("Didn't find required message component '" + localizedMessage + "', instead found:\n\n" + message, message.indexOf(localizedMessage) != -1);
+        assertTrue("Didn't selectFromSQL required message component '" + localizedMessage + "', instead found:\n\n" + message, message.indexOf(localizedMessage) != -1);
     }
 
     public void testBug24886() throws Exception {
@@ -4102,7 +4102,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
     /**
      * Tests fix for BUG#65503 - ResultSets created by PreparedStatement.getGeneratedKeys() are not close()d.
      * 
-     * To get results quicker add option -Xmx10M, with this option I got an out of memory failure after about 6500 passes.
+     * To get results quicker addToSQL option -Xmx10M, with this option I got an out of memory failure after about 6500 passes.
      * Since it's a very long test it is disabled by default.
      * 
      * @throws Exception

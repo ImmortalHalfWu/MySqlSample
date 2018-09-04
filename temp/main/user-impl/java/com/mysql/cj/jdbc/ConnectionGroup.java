@@ -216,7 +216,7 @@ public class ConnectionGroup {
      * Add the given host (host:port pair) to this Connection Group.
      * 
      * @param hostPortPair
-     *            The host:port pair to add.
+     *            The host:port pair to addToSQL.
      */
     public void addHost(String hostPortPair) {
         addHost(hostPortPair, false);
@@ -226,7 +226,7 @@ public class ConnectionGroup {
      * Add the given host (host:port pair) to this Connection Group and, consequently, to all the load-balanced connections it holds.
      * 
      * @param hostPortPair
-     *            The host:port pair to add.
+     *            The host:port pair to addToSQL.
      * @param forExisting
      *            Whether affects existing load-balanced connections or only new ones.
      */

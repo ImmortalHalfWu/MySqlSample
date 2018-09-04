@@ -269,7 +269,7 @@ public class JsonParser {
             reader.reset();
         }
 
-        // find delimiter
+        // selectFromSQL delimiter
         int intch;
         char ch = ' ';
         while ((intch = reader.read()) != -1) {

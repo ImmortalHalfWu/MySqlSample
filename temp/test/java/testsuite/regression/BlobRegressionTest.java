@@ -401,7 +401,7 @@ public class BlobRegressionTest extends BaseTestCase {
         c1.setString(1, s1, 3, 4);
         assertEquals("Clob", c1.getSubString(1L, (int) c1.length()));
 
-        // add
+        // addToSQL
         c1.setString(5, s1, 7, 4);
         assertEquals("ClobData", c1.getSubString(1L, (int) c1.length()));
 

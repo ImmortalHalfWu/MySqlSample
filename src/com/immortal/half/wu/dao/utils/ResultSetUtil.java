@@ -7,7 +7,9 @@ import com.alibaba.fastjson.JSONObject;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -108,17 +110,30 @@ public class ResultSetUtil {
     static JSONArray getBeansJsonArray(Class<?> calss, ResultSet resultSet) {
         JSONArray jsonArray = new JSONArray();
         try {
-            Field[] fields = calss.getDeclaredFields();
+            List<Field> fieldList = new ArrayList<>();
+            while (calss != null) {
+                fieldList.addAll(Arrays.asList(calss.getDeclaredFields()));
+                calss = calss.getSuperclass();
+            }
+//            Field[] fields = calss.getDeclaredFields();
 
             while (resultSet.next()) {
                 JSONObject jsonObject = new JSONObject();
                 // 遍历fields
-                for (Field field : fields) {
+                for (Field field : fieldList) {
                     // 获取字段名
                     String fieldName = field.getName();
                     if (!fieldName.equalsIgnoreCase("serialVersionUID")) {
-                        Object fieldVlaue = resultSet.getObject(fieldName);
-                        jsonObject.put(fieldName, fieldVlaue);
+                        try {
+                            // 如果列名不存在则catch
+                            resultSet.findColumn(fieldName);
+                            Object fieldVlaue = resultSet.getObject(fieldName);
+                            if (fieldVlaue != null) {
+                                jsonObject.put(fieldName, fieldVlaue);
+                            }
+                        } catch (SQLException e) {
+//                            e.printStackTrace();
+                        }
 //                            System.out.println(fieldName+"  "+fieldVlaue);
                     }
                 }

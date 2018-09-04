@@ -58,7 +58,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_CANT_GET_WD = 1014; //SQLSTATE: HY000 Message: Can't get working directory (errno: %d - %s)
     public final static int ER_CANT_LOCK = 1015; //SQLSTATE: HY000 Message: Can't lock file (errno: %d - %s)
     public final static int ER_CANT_OPEN_FILE = 1016; //SQLSTATE: HY000 Message: Can't open file: '%s' (errno: %d - %s)
-    public final static int ER_FILE_NOT_FOUND = 1017; //SQLSTATE: HY000 Message: Can't find file: '%s' (errno: %d - %s)
+    public final static int ER_FILE_NOT_FOUND = 1017; //SQLSTATE: HY000 Message: Can't selectFromSQL file: '%s' (errno: %d - %s)
     public final static int ER_CANT_READ_DIR = 1018; //SQLSTATE: HY000 Message: Can't read dir of '%s' (errno: %d - %s)
     public final static int ER_CANT_SET_WD = 1019; //SQLSTATE: HY000 Message: Can't change dir to '%s' (errno: %d - %s)
     public final static int ER_CHECKREAD = 1020; //SQLSTATE: HY000 Message: Record has changed since last read in table '%s'
@@ -73,7 +73,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_FORM_NOT_FOUND = 1029; //SQLSTATE: HY000 Message: View '%s' doesn't exist for '%s'
     public final static int ER_GET_ERRNO = 1030; //SQLSTATE: HY000 Message: Got error %d from storage engine...
     public final static int ER_ILLEGAL_HA = 1031; //SQLSTATE: HY000 Message: Table storage engine for '%s' doesn't have this option
-    public final static int ER_KEY_NOT_FOUND = 1032; //SQLSTATE: HY000 Message: Can't find record in '%s'
+    public final static int ER_KEY_NOT_FOUND = 1032; //SQLSTATE: HY000 Message: Can't selectFromSQL record in '%s'
     public final static int ER_NOT_FORM_FILE = 1033; //SQLSTATE: HY000 Message: Incorrect information in file: '%s'
     public final static int ER_NOT_KEYFILE = 1034; //SQLSTATE: HY000 Message: Incorrect key file for table '%s'; try to repair it
     public final static int ER_OLD_KEYFILE = 1035; //SQLSTATE: HY000 Message: Old key file for table '%s'; repair it!
@@ -82,7 +82,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_OUT_OF_SORTMEMORY = 1038; //SQLSTATE: HY001 Message: Out of sort memory, consider increasing server sort buffer size
     public final static int ER_UNEXPECTED_EOF = 1039; //SQLSTATE: HY000 Message: Unexpected EOF found when reading file '%s' (errno: %d - %s)
     public final static int ER_CON_COUNT_ERROR = 1040; //SQLSTATE: 08004 Message: Too many connections
-    public final static int ER_OUT_OF_RESOURCES = 1041; //SQLSTATE: HY000 Message: Out of memory; check if mysqld or some other process uses all available memory; if not, you may have to use 'ulimit' to allow mysqld to use more memory or you can add more swap space
+    public final static int ER_OUT_OF_RESOURCES = 1041; //SQLSTATE: HY000 Message: Out of memory; check if mysqld or some other process uses all available memory; if not, you may have to use 'ulimit' to allow mysqld to use more memory or you can addToSQL more swap space
     public final static int ER_BAD_HOST_ERROR = 1042; //SQLSTATE: 08S01 Message: Can't get hostname for your address
     public final static int ER_HANDSHAKE_ERROR = 1043; //SQLSTATE: 08S01 Message: Bad handshake
     public final static int ER_DBACCESS_DENIED_ERROR = 1044; //SQLSTATE: 42000 Message: Access denied for user '%s'@'%s' to database '%s'
@@ -168,13 +168,13 @@ public final class MysqlErrorNumbers {
     public final static int ER_UDF_NO_PATHS = 1124; //SQLSTATE: HY000 Message: No paths allowed for shared library
     public final static int ER_UDF_EXISTS = 1125; //SQLSTATE: HY000 Message: Function '%s' already exists
     public final static int ER_CANT_OPEN_LIBRARY = 1126; //SQLSTATE: HY000 Message: Can't open shared library '%s' (errno: %d %s)
-    public final static int ER_CANT_FIND_DL_ENTRY = 1127; //SQLSTATE: HY000 Message: Can't find symbol '%s' in library
+    public final static int ER_CANT_FIND_DL_ENTRY = 1127; //SQLSTATE: HY000 Message: Can't selectFromSQL symbol '%s' in library
     public final static int ER_FUNCTION_NOT_DEFINED = 1128; //SQLSTATE: HY000 Message: Function '%s' is not defined
     public final static int ER_HOST_IS_BLOCKED = 1129; //SQLSTATE: HY000 Message: Host '%s' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'
     public final static int ER_HOST_NOT_PRIVILEGED = 1130; //SQLSTATE: HY000 Message: Host '%s' is not allowed to connect to this MySQL server
     public final static int ER_PASSWORD_ANONYMOUS_USER = 1131; //SQLSTATE: 42000 Message: You are using MySQL as an anonymous user and anonymous users are not allowed to change passwords
     public final static int ER_PASSWORD_NOT_ALLOWED = 1132; //SQLSTATE: 42000 Message: You must have privileges to update tables in the mysql database to be able to change passwords for others
-    public final static int ER_PASSWORD_NO_MATCH = 1133; //SQLSTATE: 42000 Message: Can't find any matching row in the user table
+    public final static int ER_PASSWORD_NO_MATCH = 1133; //SQLSTATE: 42000 Message: Can't selectFromSQL any matching row in the user table
     public final static int ER_UPDATE_INFO = 1134; //SQLSTATE: HY000 Message: Rows matched: %ld Changed: %ld Warnings: %ld
     public final static int ER_CANT_CREATE_THREAD = 1135; //SQLSTATE: HY000 Message: Can't create a new thread (errno %d); if you are not out of available memory, you can consult the manual for a possible OS-dependent bug
     public final static int ER_WRONG_VALUE_COUNT_ON_ROW = 1136; //SQLSTATE: 21S01 Message: Column count doesn't match value count at row %ld
@@ -232,7 +232,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_MASTER = 1188; //SQLSTATE: HY000 Message: Error from master: '%s'
     public final static int ER_MASTER_NET_READ = 1189; //SQLSTATE: 08S01 Message: Net error reading from master
     public final static int ER_MASTER_NET_WRITE = 1190; //SQLSTATE: 08S01 Message: Net error writing to master
-    public final static int ER_FT_MATCHING_KEY_NOT_FOUND = 1191; //SQLSTATE: HY000 Message: Can't find FULLTEXT index matching the column list
+    public final static int ER_FT_MATCHING_KEY_NOT_FOUND = 1191; //SQLSTATE: HY000 Message: Can't selectFromSQL FULLTEXT index matching the column list
     public final static int ER_LOCK_OR_ACTIVE_TRANSACTION = 1192; //SQLSTATE: HY000 Message: Can't execute the given command because you have active locked tables or an active transaction
     public final static int ER_UNKNOWN_SYSTEM_VARIABLE = 1193; //SQLSTATE: HY000 Message: Unknown system variable '%s'
     public final static int ER_CRASHED_ON_USAGE = 1194; //SQLSTATE: HY000 Message: Table '%s' is marked as crashed and should be repaired
@@ -256,8 +256,8 @@ public final class MysqlErrorNumbers {
     public final static int ER_UNION_TABLES_IN_DIFFERENT_DIR = 1212; //SQLSTATE: HY000 Message: Incorrect table definition; all MERGE tables must be in the same database
     public final static int ER_LOCK_DEADLOCK = 1213; //SQLSTATE: 40001 Message: Deadlock found when trying to get lock; try restarting transaction
     public final static int ER_TABLE_CANT_HANDLE_FT = 1214; //SQLSTATE: HY000 Message: The used table type doesn't support FULLTEXT indexes
-    public final static int ER_CANNOT_ADD_FOREIGN = 1215; //SQLSTATE: HY000 Message: Cannot add foreign key constraint
-    public final static int ER_NO_REFERENCED_ROW = 1216; //SQLSTATE: 23000 Message: Cannot add or update a child row: a foreign key constraint fails
+    public final static int ER_CANNOT_ADD_FOREIGN = 1215; //SQLSTATE: HY000 Message: Cannot addToSQL foreign key constraint
+    public final static int ER_NO_REFERENCED_ROW = 1216; //SQLSTATE: 23000 Message: Cannot addToSQL or update a child row: a foreign key constraint fails
     public final static int ER_ROW_IS_REFERENCED = 1217; //SQLSTATE: 23000 Message: Cannot delete or update a parent row: a foreign key constraint fails
     public final static int ER_CONNECT_TO_MASTER = 1218; //SQLSTATE: 08S01 Message: Error connecting to master: %s
     public final static int ER_QUERY_ON_MASTER = 1219; //SQLSTATE: HY000 Message: Error running query on master: %s
@@ -493,7 +493,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_NO_SUCH_USER = 1449; //SQLSTATE: HY000 Message: The user specified as a definer ('%s'@'%s') does not exist
     public final static int ER_FORBID_SCHEMA_CHANGE = 1450; //SQLSTATE: HY000 Message: Changing schema from '%s' to '%s' is not allowed.
     public final static int ER_ROW_IS_REFERENCED_2 = 1451; //SQLSTATE: 23000 Message: Cannot delete or update a parent row: a foreign key constraint fails (%s)
-    public final static int ER_NO_REFERENCED_ROW_2 = 1452; //SQLSTATE: 23000 Message: Cannot add or update a child row: a foreign key constraint fails (%s)
+    public final static int ER_NO_REFERENCED_ROW_2 = 1452; //SQLSTATE: 23000 Message: Cannot addToSQL or update a child row: a foreign key constraint fails (%s)
     public final static int ER_SP_BAD_VAR_SHADOW = 1453; //SQLSTATE: 42000 Message: Variable '%s' must be quoted with `...`, or renamed
     public final static int ER_TRG_NO_DEFINER = 1454; //SQLSTATE: HY000 Message: No definer attribute for trigger '%s'.'%s'. The trigger will be activated under the authorization of the invoker, which may have insufficient privileges. Please recreate the trigger.
     public final static int ER_OLD_FILE_FORMAT = 1455; //SQLSTATE: HY000 Message: '%s' has an old format, you should re-create the '%s' object(s)
@@ -863,11 +863,11 @@ public final class MysqlErrorNumbers {
     public final static int ER_INVALID_YEAR_COLUMN_LENGTH = 1818; //SQLSTATE: HY000 Message: YEAR(%lu) column type is deprecated. Creating YEAR(4) column instead.
     public final static int ER_NOT_VALID_PASSWORD = 1819; //SQLSTATE: HY000 Message: Your password does not satisfy the current policy requirements
     public final static int ER_MUST_CHANGE_PASSWORD = 1820; //SQLSTATE: HY000 Message: You must SET PASSWORD before executing this statement
-    public final static int ER_FK_NO_INDEX_CHILD = 1821; //SQLSTATE: HY000 Message: Failed to add the foreign key constaint. Missing index for constraint '%s' in the foreign table '%s'
-    public final static int ER_FK_NO_INDEX_PARENT = 1822; //SQLSTATE: HY000 Message: Failed to add the foreign key constaint. Missing index for constraint '%s' in the referenced table '%s'
-    public final static int ER_FK_FAIL_ADD_SYSTEM = 1823; //SQLSTATE: HY000 Message: Failed to add the foreign key constraint '%s' to system tables
+    public final static int ER_FK_NO_INDEX_CHILD = 1821; //SQLSTATE: HY000 Message: Failed to addToSQL the foreign key constaint. Missing index for constraint '%s' in the foreign table '%s'
+    public final static int ER_FK_NO_INDEX_PARENT = 1822; //SQLSTATE: HY000 Message: Failed to addToSQL the foreign key constaint. Missing index for constraint '%s' in the referenced table '%s'
+    public final static int ER_FK_FAIL_ADD_SYSTEM = 1823; //SQLSTATE: HY000 Message: Failed to addToSQL the foreign key constraint '%s' to system tables
     public final static int ER_FK_CANNOT_OPEN_PARENT = 1824; //SQLSTATE: HY000 Message: Failed to open the referenced table '%s'
-    public final static int ER_FK_INCORRECT_OPTION = 1825; //SQLSTATE: HY000 Message: Failed to add the foreign key constraint on table '%s'. Incorrect options in FOREIGN KEY constraint '%s'
+    public final static int ER_FK_INCORRECT_OPTION = 1825; //SQLSTATE: HY000 Message: Failed to addToSQL the foreign key constraint on table '%s'. Incorrect options in FOREIGN KEY constraint '%s'
     public final static int ER_FK_DUP_NAME = 1826; //SQLSTATE: HY000 Message: Duplicate foreign key constraint name '%s'
     public final static int ER_PASSWORD_FORMAT = 1827; //SQLSTATE: HY000 Message: The password hash doesn't have the expected format. Check if the correct password algorithm is being used with the PASSWORD() function.
     public final static int ER_FK_COLUMN_CANNOT_DROP = 1828; //SQLSTATE: HY000 Message: Cannot drop column '%s': needed in a foreign key constraint '%s'

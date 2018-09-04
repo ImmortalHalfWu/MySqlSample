@@ -88,14 +88,14 @@ public class JsonDocTest {
         assertEquals(" qq ", val.getString());
 
         // don't ignore other symbols before opening quotation mark
-        assertThrows(WrongArgumentException.class, "Attempt to add character '\\\\' to unopened string.", new Callable<Void>() {
+        assertThrows(WrongArgumentException.class, "Attempt to addToSQL character '\\\\' to unopened string.", new Callable<Void>() {
             public Void call() throws Exception {
                 JsonParser.parseString(new StringReader("\\\\ \" "));
                 return null;
             }
         });
 
-        assertThrows(WrongArgumentException.class, "Attempt to add character 'f' to unopened string.", new Callable<Void>() {
+        assertThrows(WrongArgumentException.class, "Attempt to addToSQL character 'f' to unopened string.", new Callable<Void>() {
             public Void call() throws Exception {
                 JsonParser.parseString(new StringReader(" f \" "));
                 return null;
@@ -609,7 +609,7 @@ public class JsonDocTest {
                 return null;
             }
         });
-        assertThrows(WrongArgumentException.class, "Attempt to add character 'a' to unopened string.", new Callable<Void>() {
+        assertThrows(WrongArgumentException.class, "Attempt to addToSQL character 'a' to unopened string.", new Callable<Void>() {
             public Void call() throws Exception {
                 JsonParser.parseDoc(new StringReader("  {a\"key1\" : \"value1\"}"));
                 return null;

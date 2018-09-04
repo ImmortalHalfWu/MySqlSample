@@ -429,7 +429,7 @@ public class ExprParserTest {
 
     @Test
     public void testJsonConstructorAsDocumentProjection() {
-        // same as we use in find().field("{...}")
+        // same as we use in selectFromSQL().field("{...}")
         String projString = "{'a':'value for a', 'b':1+1, 'c'::bindvar, 'd':$.member[22], 'e':{'nested':'doc'}}";
         Projection proj = Projection.newBuilder().setSource(new ExprParser(projString, false).parse()).build();
         assertEquals(Expr.Type.OBJECT, proj.getSource().getType());

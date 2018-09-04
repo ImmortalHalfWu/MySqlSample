@@ -262,9 +262,9 @@ public class ConnectionTest extends BaseTestCase {
                 fail("This test requires user with process privilege");
             }
 
-            assertTrue("Can't find INNODB MONITOR in:\n\n" + sqlEx.getMessage(), sqlEx.getMessage().indexOf("INNODB MONITOR") != -1);
+            assertTrue("Can't selectFromSQL INNODB MONITOR in:\n\n" + sqlEx.getMessage(), sqlEx.getMessage().indexOf("INNODB MONITOR") != -1);
 
-            assertTrue("Can't find thread dump in:\n\n" + sqlEx.getMessage(),
+            assertTrue("Can't selectFromSQL thread dump in:\n\n" + sqlEx.getMessage(),
                     sqlEx.getMessage().indexOf("testsuite.simple.ConnectionTest.testDeadlockDetection") != -1);
 
         } finally {
@@ -965,7 +965,7 @@ public class ConnectionTest extends BaseTestCase {
         assertTrue("false".equals(cannedProps.getProperty(PropertyDefinitions.PNAME_failOverReadOnly)));
 
         // this will fail, but we test that too
-        assertThrows(InvalidConnectionAttributeException.class, "Can't find configuration template named 'clusterBase2'", new Callable<Void>() {
+        assertThrows(InvalidConnectionAttributeException.class, "Can't selectFromSQL configuration template named 'clusterBase2'", new Callable<Void>() {
             public Void call() throws Exception {
                 try {
                     ConnectionUrl.getConnectionUrlInstance("jdbc:mysql:///?useConfigs=clusterBase,clusterBase2", null);
@@ -2080,7 +2080,7 @@ public class ConnectionTest extends BaseTestCase {
             assertEquals(MultiPacketReader.class, reader.getClass());
             assertEquals(SimplePacketReader.class, reader.undecorate().getClass());
 
-            // add maintainTimeStats
+            // addToSQL maintainTimeStats
             p.getPropertySet().getProperty(PropertyDefinitions.PNAME_maintainTimeStats).setValue(true);
             sender = p.getPacketSender();
             reader = p.getPacketReader();
