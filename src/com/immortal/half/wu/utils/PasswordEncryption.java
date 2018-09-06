@@ -1,4 +1,4 @@
-package com.immortal.half.wu;
+package com.immortal.half.wu.utils;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -10,7 +10,7 @@ import java.security.spec.KeySpec;
 
 public class PasswordEncryption {
 
-    private static void passWordTest() {
+    public static void passWordTest() {
         String password = "98452as!AS";
         String salt;
         String ciphertext;
@@ -37,22 +37,22 @@ public class PasswordEncryption {
     }
 
 
-    public static final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA1";
+    private static final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA1";
 
     /**
      * 盐的长度
      */
-    public static final int SALT_BYTE_SIZE = 32 / 2;
+    private static final int SALT_BYTE_SIZE = 32 / 2;
 
     /**
      * 生成密文的长度
      */
-    public static final int HASH_BIT_SIZE = 128 * 4;
+    private static final int HASH_BIT_SIZE = 128 * 4;
 
     /**
      * 迭代次数
      */
-    public static final int PBKDF2_ITERATIONS = 1000;
+    private static final int PBKDF2_ITERATIONS = 1000;
 
     /**
      * 对输入的密码进行验证

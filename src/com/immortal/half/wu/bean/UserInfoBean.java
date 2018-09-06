@@ -1,7 +1,5 @@
 package com.immortal.half.wu.bean;
 
-import com.sun.istack.internal.Nullable;
-
 public class UserInfoBean extends BaseBean{
 
     private Integer vipId;
@@ -9,14 +7,16 @@ public class UserInfoBean extends BaseBean{
     private String registTime;
     private Boolean isLogin;
     private String passWord;
+    private String token;
 
-    public UserInfoBean(Integer id, Integer userId, Integer vipId, String phone, String registTime, Boolean isLogin, String passWord) {
+    public UserInfoBean(Integer id, Integer userId, Integer vipId, String phone, String registTime, Boolean isLogin, String passWord, String token) {
         super(id, userId);
         this.vipId = vipId;
         this.phone = phone;
         this.registTime = registTime;
         this.isLogin = isLogin;
         this.passWord = passWord;
+        this.token = token;
     }
 
     public Integer getVipId() {
@@ -39,6 +39,10 @@ public class UserInfoBean extends BaseBean{
         return passWord;
     }
 
+    public String getToken() {
+        return token;
+    }
+
     @Override
     public String toString() {
         return "UserInfoBean{" +
@@ -47,25 +51,25 @@ public class UserInfoBean extends BaseBean{
                 ", registTime='" + registTime + '\'' +
                 ", isLogin=" + isLogin +
                 ", passWord='" + passWord + '\'' +
+                ", token='" + token + '\'' +
                 '}';
     }
-
 
     private static UserInfoBean NULL_INSTANCE;
     public static UserInfoBean newInstance() {
         if (NULL_INSTANCE == null) {
             synchronized (UserInfoBean.class) {
-                NULL_INSTANCE = new UserInfoBean(null, null, null, null, null, null, null);
+                NULL_INSTANCE = new UserInfoBean(null, null, null, null, null, null, null, null);
             }
         }
         return NULL_INSTANCE;
     }
 
     public static UserInfoBean newInstanceById(int id) {
-        return new UserInfoBean(id, null, null, null, null, null, null);
+        return new UserInfoBean(id, null, null, null, null, null, null, null);
     }
 
     public static UserInfoBean newInstanceByVipId(int vipId) {
-        return new UserInfoBean(null, null, vipId, null, null, null, null);
+        return new UserInfoBean(null, null, vipId, null, null, null, null, null);
     }
 }

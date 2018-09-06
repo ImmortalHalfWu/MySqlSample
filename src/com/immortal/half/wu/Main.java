@@ -3,9 +3,9 @@ package com.immortal.half.wu;
 
 import com.immortal.half.wu.bean.*;
 import com.immortal.half.wu.bean.enums.*;
-import com.immortal.half.wu.bean.utils.BeanUtil;
 import com.immortal.half.wu.dao.DaoManager;
-import com.immortal.half.wu.dao.utils.SqlUtil;
+import com.immortal.half.wu.utils.JwtUtil;
+import com.immortal.half.wu.utils.PasswordEncryption;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -28,10 +28,22 @@ public class Main {
     }
 
     public static void main(String[] args) {
-//        List<UserInfoBean> userInfoBeans = DaoManager.instance().selectSQLForBean(new UserInfoBean(null, null, null, null, null, null, null));
-//        for (UserInfoBean bean : userInfoBeans) {
-//            System.out.println(bean.toString());
-//        }
+
+//        PasswordEncryption.passWordTest();
+//        String s = "eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZSI6IjEzNjEzNTcxMzMxIiwiZXhwIjozMDc1MDE1MDg5LCJ1c2VySWQiOjF9._htAi06VB9bvUPY6r8bAjHkVuvMAI9VSZ9vprtazZrI";
+//        System.out.println(s.length());
+        JwtUtil.tokenTest();
+//        registerUserInfo();
+
+        List<UserInfoBean> userInfoBeans = DaoManager.instance().selectSQLForBean(
+                UserInfoBean.newInstance()
+        );
+        for (UserInfoBean bean : userInfoBeans) {
+            String token = bean.getToken();
+            if (token == null) {
+                System.out.println(token);
+            }
+        }
 
 //        DaoManager.instance().deleteBeanForSQL(UserInfoBean.newInstance());
 //        DaoManager.instance().deleteBeanForSQL(UserVipInfoBean.newInstance());
@@ -110,8 +122,8 @@ public class Main {
                 null, null,
                 0, "13613571331",
                 new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime()),
-                false, "123456"
-        );
+                false, "123456",
+                "eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZSI6IjEzNjEzNTcxMzMxIiwiZXhwIjozMDc1MDE2MDY3LCJ1c2VySWQiOjF9.NpMVB4z6pS7wVtx19tkDLb3w-g7Pa5Dib-C30q9ZavI");
 
         DaoManager.instance().insertBeanToSQL(addUserInfoBean);
         List<UserInfoBean> userInfoBeans1 = DaoManager.instance().selectSQLForBean(addUserInfoBean);
