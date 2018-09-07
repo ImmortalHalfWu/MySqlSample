@@ -4,9 +4,11 @@ package com.immortal.half.wu;
 import com.immortal.half.wu.bean.*;
 import com.immortal.half.wu.bean.enums.*;
 import com.immortal.half.wu.dao.DaoManager;
-import com.immortal.half.wu.utils.JwtUtil;
-import com.immortal.half.wu.utils.PasswordEncryption;
+import com.immortal.half.wu.utils.FileUtil;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
+import java.io.File;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -28,22 +30,26 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
+        Logger log = Logger.getLogger("Log");
+        log.info("inFO~~");
+        log.debug("deBug");
+        String property = System.getProperty("user.dir");
+        log.error("Erro" + property + File.separator + "configs"+File.separator+"log4j2.xml");
 //        PasswordEncryption.passWordTest();
 //        String s = "eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZSI6IjEzNjEzNTcxMzMxIiwiZXhwIjozMDc1MDE1MDg5LCJ1c2VySWQiOjF9._htAi06VB9bvUPY6r8bAjHkVuvMAI9VSZ9vprtazZrI";
 //        System.out.println(s.length());
-        JwtUtil.tokenTest();
+//        JwtUtil.tokenTest();
 //        registerUserInfo();
 
-        List<UserInfoBean> userInfoBeans = DaoManager.instance().selectSQLForBean(
-                UserInfoBean.newInstance()
-        );
-        for (UserInfoBean bean : userInfoBeans) {
-            String token = bean.getToken();
-            if (token == null) {
-                System.out.println(token);
-            }
-        }
+//        List<UserInfoBean> userInfoBeans = DaoManager.instance().selectSQLForBean(
+//                UserInfoBean.newInstance()
+//        );
+//        for (UserInfoBean bean : userInfoBeans) {
+//            String token = bean.getToken();
+//            if (token == null) {
+//                System.out.println(token);
+//            }
+//        }
 
 //        DaoManager.instance().deleteBeanForSQL(UserInfoBean.newInstance());
 //        DaoManager.instance().deleteBeanForSQL(UserVipInfoBean.newInstance());
