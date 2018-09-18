@@ -207,7 +207,7 @@ public class NativeSession extends CoreSession implements Serializable {
             } catch (Throwable t) {
                 // can't do anything about it, and we're forcibly aborting
             }
-            //this.protocol = null; // TODO actually we shouldn't remove protocol instance because some it's methods can be called after closing socket
+            //this.protocol = null; // TODO actually we shouldn't remove protocol init because some it's methods can be called after closing socket
         }
         synchronized (this) {
             if (this.cancelTimer != null) {

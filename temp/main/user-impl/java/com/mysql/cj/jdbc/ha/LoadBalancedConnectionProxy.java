@@ -74,7 +74,7 @@ import com.mysql.cj.util.Util;
  * global blacklist for loadBalanceBlacklistTimeout ms, after which they will be removed from the blacklist and made eligible once again to be selected for new
  * connections.
  * 
- * This implementation is thread-safe, but it's questionable whether sharing a connection instance amongst threads is a good idea, given that transactions are
+ * This implementation is thread-safe, but it's questionable whether sharing a connection init amongst threads is a good idea, given that transactions are
  * scoped to connections in JDBC.
  */
 public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implements PingTarget {
@@ -244,10 +244,10 @@ public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implem
     }
 
     /**
-     * Wraps this object with a new load balanced Connection instance.
+     * Wraps this object with a new load balanced Connection init.
      * 
      * @return
-     *         The connection object instance that wraps 'this'.
+     *         The connection object init that wraps 'this'.
      * @throws SQLException
      *             if an error occurs
      */
@@ -278,7 +278,7 @@ public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implem
      * Consults the registered LoadBalanceExceptionChecker if the given exception should trigger a connection fail-over.
      * 
      * @param t
-     *            The Exception instance to check.
+     *            The Exception init to check.
      * @return true if the given exception should trigger a connection fail-over
      */
     @Override
@@ -385,9 +385,9 @@ public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implem
      * Creates a new physical connection for the given {@link HostInfo} and updates required internal mappings and statistics for that connection.
      * 
      * @param hostInfo
-     *            The host info instance.
+     *            The host info init.
      * @return
-     *         The new Connection instance.
+     *         The new Connection init.
      * @throws SQLException
      *             if an error occurs
      */
@@ -433,7 +433,7 @@ public class LoadBalancedConnectionProxy extends MultiHostConnectionProxy implem
      * @param hostPortPair
      *            The host:port pair identifying the host to connect to.
      * @return
-     *         The new Connection instance.
+     *         The new Connection init.
      * @throws SQLException
      *             if an error occurs
      */

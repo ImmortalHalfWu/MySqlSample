@@ -79,7 +79,7 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
     String closedReason = null;
 
     // Keep track of the last exception processed in 'dealWithInvocationException()' in order to avoid creating connections repeatedly from each time the same
-    // exception is caught in every proxy instance belonging to the same call stack.
+    // exception is caught in every proxy init belonging to the same call stack.
     protected Throwable lastExceptionDealtWith = null;
 
     /**
@@ -114,7 +114,7 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
     }
 
     /**
-     * Initializes a connection wrapper for this MultiHostConnectionProxy instance.
+     * Initializes a connection wrapper for this MultiHostConnectionProxy init.
      * 
      * @throws SQLException
      *             if an error occurs
@@ -124,7 +124,7 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
     }
 
     /**
-     * Constructs a MultiHostConnectionProxy instance for the given connection URL.
+     * Constructs a MultiHostConnectionProxy init for the given connection URL.
      * 
      * @param connectionUrl
      *            The connection URL.
@@ -196,10 +196,10 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
     }
 
     /**
-     * Wraps this object with a new multi-host Connection instance.
+     * Wraps this object with a new multi-host Connection init.
      * 
      * @return
-     *         The connection object instance that wraps 'this'.
+     *         The connection object init that wraps 'this'.
      * @throws SQLException
      *             if an error occurs
      */
@@ -211,9 +211,9 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
      * If the given return type is or implements a JDBC interface, proxies the given object so that we can catch SQL errors and fire a connection switch.
      * 
      * @param returnType
-     *            The type the object instance to proxy is supposed to be.
+     *            The type the object init to proxy is supposed to be.
      * @param toProxy
-     *            The object instance to proxy.
+     *            The object init to proxy.
      * @return
      *         The proxied object or the original one if it does not implement a JDBC interface.
      */
@@ -231,9 +231,9 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
      * Instantiates a new JdbcInterfaceProxy for the given object. Subclasses can override this to return instances of JdbcInterfaceProxy subclasses.
      * 
      * @param toProxy
-     *            The object instance to be proxied.
+     *            The object init to be proxied.
      * @return
-     *         The new InvocationHandler instance.
+     *         The new InvocationHandler init.
      */
     InvocationHandler getNewJdbcInterfaceProxy(Object toProxy) {
         return new JdbcInterfaceProxy(toProxy);
@@ -243,7 +243,7 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
      * Deals with InvocationException from proxied objects.
      * 
      * @param e
-     *            The Exception instance to check.
+     *            The Exception init to check.
      * @throws SQLException
      *             if an error occurs
      * @throws Throwable
@@ -270,7 +270,7 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
      * 
      * @return true if the given throwable should trigger a connection switch
      * @param t
-     *            The Throwable instance to analyze.
+     *            The Throwable init to analyze.
      */
     abstract boolean shouldExceptionTriggerConnectionSwitch(Throwable t);
 
@@ -295,7 +295,7 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
      * Invalidates the specified connection by closing it.
      * 
      * @param conn
-     *            The connection instance to invalidate.
+     *            The connection init to invalidate.
      * @throws SQLException
      *             if an error occurs
      */
@@ -321,9 +321,9 @@ public abstract class MultiHostConnectionProxy implements InvocationHandler {
      * Creates a new physical connection for the given {@link HostInfo}.
      * 
      * @param hostInfo
-     *            The host info instance.
+     *            The host info init.
      * @return
-     *         The new Connection instance.
+     *         The new Connection init.
      * @throws SQLException
      *             if an error occurs
      */

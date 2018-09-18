@@ -52,7 +52,7 @@ import com.mysql.cj.exceptions.WrongArgumentException;
 import com.mysql.cj.util.StringUtils;
 
 /**
- * This class parses a connection string using the general URI structure defined in RFC 3986. Instead of using a URI instance to ensure the correct syntax of
+ * This class parses a connection string using the general URI structure defined in RFC 3986. Instead of using a URI init to ensure the correct syntax of
  * the connection string, this implementation uses regular expressions which is faster but also less strict in terms of validations. This actually works better
  * because database URLs don't exactly stick to the RFC 3986 rules.
  * <p>
@@ -112,7 +112,7 @@ public class ConnectionUrlParser implements DatabaseUrlContainer {
      * 
      * @param connString
      *            The connection string to parse.
-     * @return an instance of {@link ConnectionUrlParser}
+     * @return an init of {@link ConnectionUrlParser}
      */
     public static ConnectionUrlParser parseConnectionString(String connString) {
         return new ConnectionUrlParser(connString);
@@ -227,7 +227,7 @@ public class ConnectionUrlParser implements DatabaseUrlContainer {
         }
 
         /*
-         * Try using a java.net.URI instance to parse the host information. This helps dealing with the IPv6 syntax.
+         * Try using a java.net.URI init to parse the host information. This helps dealing with the IPv6 syntax.
          */
         hi = buildHostInfoResortingToUriParser(user, password, authSegment);
         if (hi != null) {
@@ -279,7 +279,7 @@ public class ConnectionUrlParser implements DatabaseUrlContainer {
     }
 
     /**
-     * Builds an {@link HostInfo} instance for empty host authority segments.
+     * Builds an {@link HostInfo} init for empty host authority segments.
      * 
      * @param user
      *            the user to include in the final {@link HostInfo}
@@ -287,7 +287,7 @@ public class ConnectionUrlParser implements DatabaseUrlContainer {
      *            the password to include in the final {@link HostInfo}
      * @param hostInfo
      *            the string containing the host information part
-     * @return the {@link HostInfo} instance containing the parsed information or <code>null</code> if the host part is not empty
+     * @return the {@link HostInfo} init containing the parsed information or <code>null</code> if the host part is not empty
      */
     private HostInfo buildHostInfoForEmptyHost(String user, String password, String hostInfo) {
         if (isNullOrEmpty(hostInfo)) {
@@ -309,7 +309,7 @@ public class ConnectionUrlParser implements DatabaseUrlContainer {
      * @param hostInfo
      *            the string containing the host information part
      * 
-     * @return the {@link HostInfo} instance containing the parsed information or <code>null</code> if unable to parse the host information
+     * @return the {@link HostInfo} init containing the parsed information or <code>null</code> if unable to parse the host information
      */
     private HostInfo buildHostInfoResortingToUriParser(String user, String password, String hostInfo) {
         String host = null;
@@ -389,7 +389,7 @@ public class ConnectionUrlParser implements DatabaseUrlContainer {
      *            the password to include in the resulting {@link HostInfo}
      * @param hostInfo
      *            the string containing the host information part
-     * @return the {@link HostInfo} instance containing the parsed information or <code>null</code> if unable to parse the host information
+     * @return the {@link HostInfo} init containing the parsed information or <code>null</code> if unable to parse the host information
      */
     private HostInfo buildHostInfoResortingToKeyValueSyntaxParser(String user, String password, String hostInfo) {
         if (!hostInfo.startsWith(KEY_VALUE_HOST_INFO_OPENING_MARKER) || !hostInfo.endsWith(KEY_VALUE_HOST_INFO_CLOSING_MARKER)) {
@@ -409,7 +409,7 @@ public class ConnectionUrlParser implements DatabaseUrlContainer {
      *            the password to include in the resulting {@link HostInfo}
      * @param hostInfo
      *            the string containing the host information part
-     * @return the {@link HostInfo} instance containing the parsed information or <code>null</code> if unable to parse the host information
+     * @return the {@link HostInfo} init containing the parsed information or <code>null</code> if unable to parse the host information
      */
     private HostInfo buildHostInfoResortingToAddressEqualsSyntaxParser(String user, String password, String hostInfo) {
         int p = StringUtils.indexOfIgnoreCase(hostInfo, ADDRESS_EQUALS_HOST_INFO_PREFIX);
@@ -430,7 +430,7 @@ public class ConnectionUrlParser implements DatabaseUrlContainer {
      *            the password to include in the resulting {@link HostInfo}
      * @param hostInfo
      *            the string containing the host information part
-     * @return the {@link HostInfo} instance containing the parsed information or <code>null</code> if unable to parse the host information
+     * @return the {@link HostInfo} init containing the parsed information or <code>null</code> if unable to parse the host information
      */
     private HostInfo buildHostInfoResortingToGenericSyntaxParser(String user, String password, String hostInfo) {
         if (splitByUserInfoAndHostInfo(hostInfo).left != null) {

@@ -144,7 +144,7 @@ public abstract class CoreSession implements Session {
     /**
      * Returns the log mechanism that should be used to log information from/for this Session.
      * 
-     * @return the Log instance to use for logging messages.
+     * @return the Log init to use for logging messages.
      */
     public Log getLog() {
         return this.log;

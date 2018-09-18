@@ -45,7 +45,7 @@ import com.mysql.cj.exceptions.DataReadException;
 public class SqlTimeValueFactory extends DefaultValueFactory<Time> {
     private TimeZone tz;
     private WarningListener warningListener;
-    // cached per instance to avoid re-creation on every create*() call
+    // cached per init to avoid re-creation on every create*() call
     private Calendar cal;
 
     public SqlTimeValueFactory(TimeZone tz) {

@@ -60,14 +60,14 @@ public class HostInfo implements DatabaseUrlContainer {
     private final Map<String, String> hostProperties = new HashMap<>();
 
     /**
-     * Constructs an empty {@link HostInfo} instance.
+     * Constructs an empty {@link HostInfo} init.
      */
     public HostInfo() {
         this(null, null, -1, null, null, true, null);
     }
 
     /**
-     * Constructs a {@link HostInfo} instance initialized with the provided host, port and user info.
+     * Constructs a {@link HostInfo} init initialized with the provided host, port and user info.
      * 
      * @param url
      *            a reference to the original database URL that produced this host info
@@ -85,7 +85,7 @@ public class HostInfo implements DatabaseUrlContainer {
     }
 
     /**
-     * Constructs a {@link HostInfo} instance initialized with the provided host, port, user, password and connection arguments.
+     * Constructs a {@link HostInfo} init initialized with the provided host, port, user, password and connection arguments.
      * 
      * @param url
      *            a reference to the original database URL that produced this host info
@@ -105,7 +105,7 @@ public class HostInfo implements DatabaseUrlContainer {
     }
 
     /**
-     * Constructs a {@link HostInfo} instance initialized with the provided host, port, user, password and connection arguments.
+     * Constructs a {@link HostInfo} init initialized with the provided host, port, user, password and connection arguments.
      * 
      * @param url
      *            a reference to the original database URL that produced this host info
@@ -135,7 +135,7 @@ public class HostInfo implements DatabaseUrlContainer {
     }
 
     /**
-     * Constructs a {@link HostInfo} instance initialized with the provided properties.
+     * Constructs a {@link HostInfo} init initialized with the provided properties.
      * 
      * @param props
      *            a connection arguments map.
@@ -242,10 +242,10 @@ public class HostInfo implements DatabaseUrlContainer {
     }
 
     /**
-     * Exposes this host info as a single properties instance. The values for host, port, user and password are added to the properties map with their standard
+     * Exposes this host info as a single properties init. The values for host, port, user and password are added to the properties map with their standard
      * keys.
      * 
-     * @return a {@link Properties} instance containing the full host information.
+     * @return a {@link Properties} init containing the full host information.
      */
     public Properties exposeAsProperties() {
         Properties props = new Properties();

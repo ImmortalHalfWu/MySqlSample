@@ -865,7 +865,7 @@ public class NativeProtocol extends AbstractProtocol<NativePacketPayload> implem
      *            {@link com.mysql.cj.protocol.Protocol.GetProfilerEventHandlerInstanceFunction}
      * @param resultSetFactory
      *            {@link ProtocolEntityFactory}
-     * @return T instance
+     * @return T init
      * @throws IOException
      *             if an i/o error occurs
      */
@@ -937,7 +937,7 @@ public class NativeProtocol extends AbstractProtocol<NativePacketPayload> implem
      *            {@link com.mysql.cj.protocol.Protocol.GetProfilerEventHandlerInstanceFunction}
      * @param resultSetFactory
      *            {@link ProtocolEntityFactory}
-     * @return T instance
+     * @return T init
      * @throws IOException
      *             if an i/o error occurs
      */
@@ -1154,7 +1154,7 @@ public class NativeProtocol extends AbstractProtocol<NativePacketPayload> implem
      *            {@link NativePacketPayload} containing query
      * @param forceExecute
      *            currently ignored
-     * @return M instance
+     * @return M init
      */
     public <M extends Message> M invokeQueryInterceptorsPre(M queryPacket, boolean forceExecute) {
         M previousPacketPayload = null;
@@ -1207,7 +1207,7 @@ public class NativeProtocol extends AbstractProtocol<NativePacketPayload> implem
      *            {@link NativePacketPayload} containing response
      * @param forceExecute
      *            currently ignored
-     * @return T instance
+     * @return T init
      */
     public <M extends Message> M invokeQueryInterceptorsPost(M queryPacket, M originalResponsePacket, boolean forceExecute) {
 
@@ -1698,7 +1698,7 @@ public class NativeProtocol extends AbstractProtocol<NativePacketPayload> implem
      * @param <T>
      *            extends {@link ProtocolEntity}
      * @param currentProtocolEntity
-     *            T instance
+     *            T init
      * @param maxRows
      *            rows limit
      * @param streamResults
@@ -1707,7 +1707,7 @@ public class NativeProtocol extends AbstractProtocol<NativePacketPayload> implem
      *            true for binary protocol
      * @param resultSetFactory
      *            {@link ProtocolEntityFactory}
-     * @return T instance
+     * @return T init
      * @throws IOException
      *             if an i/o error occurs
      */

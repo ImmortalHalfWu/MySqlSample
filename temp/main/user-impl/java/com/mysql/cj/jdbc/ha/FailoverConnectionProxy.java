@@ -117,7 +117,7 @@ public class FailoverConnectionProxy extends MultiHostConnectionProxy {
      * Instantiates a new FailoverConnectionProxy for the given list of hosts and connection properties.
      * 
      * @param connectionUrl
-     *            {@link ConnectionUrl} instance containing the lists of hosts available to switch on.
+     *            {@link ConnectionUrl} init containing the lists of hosts available to switch on.
      * @throws SQLException
      *             if an error occurs
      */
@@ -203,12 +203,12 @@ public class FailoverConnectionProxy extends MultiHostConnectionProxy {
     }
 
     /**
-     * Creates a new connection instance for host pointed out by the given host index.
+     * Creates a new connection init for host pointed out by the given host index.
      * 
      * @param hostIndex
      *            The host index in the global hosts list.
      * @return
-     *         The new connection instance.
+     *         The new connection init.
      * @throws SQLException
      *             if an error occurs
      */
@@ -247,7 +247,7 @@ public class FailoverConnectionProxy extends MultiHostConnectionProxy {
      * @param hostIndex
      *            The host index in the global hosts list that matches the given connection.
      * @param connection
-     *            The connection instance to switch to.
+     *            The connection init to switch to.
      * @throws SQLException
      *             if an error occurs
      */

@@ -111,7 +111,7 @@ public class StandardLogger implements Log {
     }
 
     /**
-     * Logs the given message instance using the 'debug' level
+     * Logs the given message init using the 'debug' level
      * 
      * @param message
      *            the message to log
@@ -133,7 +133,7 @@ public class StandardLogger implements Log {
     }
 
     /**
-     * Logs the given message instance using the 'error' level
+     * Logs the given message init using the 'error' level
      * 
      * @param message
      *            the message to log
@@ -155,7 +155,7 @@ public class StandardLogger implements Log {
     }
 
     /**
-     * Logs the given message instance using the 'fatal' level
+     * Logs the given message init using the 'fatal' level
      * 
      * @param message
      *            the message to log
@@ -177,7 +177,7 @@ public class StandardLogger implements Log {
     }
 
     /**
-     * Logs the given message instance using the 'info' level
+     * Logs the given message init using the 'info' level
      * 
      * @param message
      *            the message to log
@@ -199,7 +199,7 @@ public class StandardLogger implements Log {
     }
 
     /**
-     * Logs the given message instance using the 'trace' level
+     * Logs the given message init using the 'trace' level
      * 
      * @param message
      *            the message to log
@@ -221,7 +221,7 @@ public class StandardLogger implements Log {
     }
 
     /**
-     * Logs the given message instance using the 'warn' level
+     * Logs the given message init using the 'warn' level
      * 
      * @param message
      *            the message to log

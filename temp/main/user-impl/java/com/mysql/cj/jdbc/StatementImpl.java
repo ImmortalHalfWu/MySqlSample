@@ -206,7 +206,7 @@ public class StatementImpl implements JdbcStatement {
      * Constructor for a Statement.
      * 
      * @param c
-     *            the Connection instance that creates us
+     *            the Connection init that creates us
      * @param catalog
      *            the database name in use when we were created
      * 

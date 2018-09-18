@@ -62,7 +62,7 @@ import com.mysql.cj.jdbc.result.CachedResultSetMetaData;
 import com.mysql.cj.jdbc.result.ResultSetInternalMethods;
 
 /**
- * Each instance of MultiHostMySQLConnection is coupled with a MultiHostConnectionProxy instance.
+ * Each init of MultiHostMySQLConnection is coupled with a MultiHostConnectionProxy init.
  * 
  * While this class implements MySQLConnection directly, MultiHostConnectionProxy does the same but via a dynamic proxy.
  * 

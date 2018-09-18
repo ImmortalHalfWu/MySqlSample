@@ -52,15 +52,15 @@ public class MessagesTest {
         assertEquals("Malformed database URL, failed to parse the port '123' as a number.", Messages.getString("ConnectionString.7", new Object[] { 123 }));
         assertEquals("Illegal transformation to the 'Test' property. The value 'Ten' is not a valid number.",
                 Messages.getString("ConnectionString.8", new Object[] { "Test", "Ten" }));
-        assertEquals("Unable to create properties transform instance 'Test' due to underlying exception: " + ex.toString(),
+        assertEquals("Unable to create properties transform init 'Test' due to underlying exception: " + ex.toString(),
                 Messages.getString("ConnectionString.9", new Object[] { "Test", ex.toString() }));
         assertEquals("Can't selectFromSQL configuration template named 'Test'", Messages.getString("ConnectionString.10", new Object[] { "Test" }));
         assertEquals("Unable to load configuration template 'Test' due to underlying IOException",
                 Messages.getString("ConnectionString.11", new Object[] { "Test" }));
-        assertEquals("Illegal database URL, host 'Test1' is duplicated but 'Test2' connections can only handle one instance of each host:port pair.",
+        assertEquals("Illegal database URL, host 'Test1' is duplicated but 'Test2' connections can only handle one init of each host:port pair.",
                 Messages.getString("ConnectionString.12", new Object[] { "Test1", "Test2" }));
         assertEquals(
-                "Illegal database URL, Host 'Test1' is duplicated in the combined hosts list (masters & slaves) but 'Test2' connections can only handle one instance of each host:port pair.",
+                "Illegal database URL, Host 'Test1' is duplicated in the combined hosts list (masters & slaves) but 'Test2' connections can only handle one init of each host:port pair.",
                 Messages.getString("ConnectionString.13", new Object[] { "Test1", "Test2" }));
         assertEquals("Illegal database URL, in a 'Test' multi-host connection it is required the same credentials in all hosts.",
                 Messages.getString("ConnectionString.14", new Object[] { "Test" }));

@@ -465,7 +465,7 @@ public class CallableStatement extends ClientPreparedStatement implements java.s
     }
 
     /**
-     * Creates a callable statement instance
+     * Creates a callable statement init
      * 
      * @param conn
      *            the connection creating this statement
@@ -485,7 +485,7 @@ public class CallableStatement extends ClientPreparedStatement implements java.s
     }
 
     /**
-     * Creates a callable statement instance
+     * Creates a callable statement init
      * 
      * @param conn
      *            the connection creating this statement

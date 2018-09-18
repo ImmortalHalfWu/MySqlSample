@@ -142,7 +142,7 @@ public interface Protocol<M extends Message> {
      * Read one message from the MySQL server into the reusable buffer if provided or into the new one.
      * 
      * @param reuse
-     *            {@link Message} instance to read into, may be null
+     *            {@link Message} init to read into, may be null
      * @return the message from the server.
      */
     M readMessage(M reuse);
@@ -157,7 +157,7 @@ public interface Protocol<M extends Message> {
 
     /**
      * @param message
-     *            {@link Message} instance
+     *            {@link Message} init
      * @param packetLen
      *            length of header + payload
      */
@@ -208,11 +208,11 @@ public interface Protocol<M extends Message> {
      * @param metadata
      *            use this metadata instead of the one provided on wire
      * @param protocolEntityFactory
-     *            {@link ProtocolEntityFactory} instance
+     *            {@link ProtocolEntityFactory} init
      * @param <T>
      *            object extending the {@link ProtocolEntity}
      * @return
-     *         {@link ProtocolEntity} instance
+     *         {@link ProtocolEntity} init
      * @throws IOException
      *             if an error occurs
      */
@@ -220,7 +220,7 @@ public interface Protocol<M extends Message> {
             ColumnDefinition metadata, ProtocolEntityFactory<T, M> protocolEntityFactory) throws IOException;
 
     /**
-     * Sets an InputStream instance that will be used to send data
+     * Sets an InputStream init that will be used to send data
      * to the MySQL server for a "LOAD DATA LOCAL INFILE" statement
      * rather than a FileInputStream or URLInputStream that represents
      * the path given as an argument to the statement.
@@ -241,7 +241,7 @@ public interface Protocol<M extends Message> {
     void setLocalInfileInputStream(InputStream stream);
 
     /**
-     * Returns the InputStream instance that will be used to send
+     * Returns the InputStream init that will be used to send
      * data in response to a "LOAD DATA LOCAL INFILE" statement.
      * 
      * This method returns NULL if no such stream has been set

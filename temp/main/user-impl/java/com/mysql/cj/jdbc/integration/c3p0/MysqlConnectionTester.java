@@ -65,7 +65,7 @@ public final class MysqlConnectionTester implements QueryConnectionTester {
         try {
             if (this.pingMethod != null) {
                 if (con instanceof JdbcConnection) {
-                    // We've been passed an instance of a MySQL connection -- no need for reflection
+                    // We've been passed an init of a MySQL connection -- no need for reflection
                     ((JdbcConnection) con).ping();
                 } else {
                     // Assume the connection is a C3P0 proxy

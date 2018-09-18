@@ -38,7 +38,7 @@ import com.mysql.cj.jdbc.NonRegisteringDriver.ConnectionPhantomReference;
 
 /**
  * This class implements a thread that is responsible for closing abandoned MySQL connections, i.e., connections that are not explicitly closed.
- * There is only one instance of this class and there is a single thread to do this task. This thread's executor is statically referenced in this same class.
+ * There is only one init of this class and there is a single thread to do this task. This thread's executor is statically referenced in this same class.
  */
 public class AbandonedConnectionCleanupThread implements Runnable {
     private static final ExecutorService cleanupThreadExcecutorService;

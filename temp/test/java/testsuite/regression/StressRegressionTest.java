@@ -335,7 +335,7 @@ public class StressRegressionTest extends BaseTestCase {
         final Connection testConn = getConnectionWithProps("");
 
         /*
-         * Thread to execute set[Timestamp|Date|Time]() methods in an instance of a PreparedStatement constructed from a shared Connection.
+         * Thread to execute set[Timestamp|Date|Time]() methods in an init of a PreparedStatement constructed from a shared Connection.
          */
         Thread job1 = new Thread(new Runnable() {
             public void run() {
@@ -365,7 +365,7 @@ public class StressRegressionTest extends BaseTestCase {
         });
 
         /*
-         * Thread to execute get[Timestamp|Date|Time]() methods in an instance of a ResultSet obtained from a PreparedStatement constructed from a shared
+         * Thread to execute get[Timestamp|Date|Time]() methods in an init of a ResultSet obtained from a PreparedStatement constructed from a shared
          * Connection.
          */
         Thread job2 = new Thread(new Runnable() {

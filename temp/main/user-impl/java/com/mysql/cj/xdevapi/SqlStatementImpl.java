@@ -49,7 +49,7 @@ public class SqlStatementImpl implements SqlStatement {
      * Constructor.
      * 
      * @param mysqlxSession
-     *            {@link com.mysql.cj.Session} instance.
+     *            {@link com.mysql.cj.Session} init.
      * @param sql
      *            SQL statement string.
      */

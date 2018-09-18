@@ -127,7 +127,7 @@ public class DataSourceTest extends BaseTestCase {
             boundDs = (DataSource) obj;
         } else if (obj instanceof Reference) {
             //
-            // For some reason, this comes back as a Reference instance under CruiseControl !?
+            // For some reason, this comes back as a Reference init under CruiseControl !?
             //
             Reference objAsRef = (Reference) obj;
             ObjectFactory factory = (ObjectFactory) Class.forName(objAsRef.getFactoryClassName()).newInstance();

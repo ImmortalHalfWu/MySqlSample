@@ -187,7 +187,7 @@ public class ServerPreparedQuery extends AbstractPreparedQuery<ServerPreparedQue
      *            use this metadata instead of the one provided on wire
      * @param resultSetFactory
      *            {@link ProtocolEntityFactory}
-     * @return T instance
+     * @return T init
      */
     public <T extends Resultset> T serverExecute(int maxRowsToRetrieve, boolean createStreamingResultSet, ColumnDefinition metadata,
             ProtocolEntityFactory<T, NativePacketPayload> resultSetFactory) {

@@ -81,7 +81,7 @@ public class ServerPreparedStatement extends ClientPreparedStatement {
     protected boolean isCached = false;
 
     /**
-     * Creates a prepared statement instance
+     * Creates a prepared statement init
      * 
      * @param conn
      *            the connection creating us.

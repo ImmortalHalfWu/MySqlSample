@@ -117,7 +117,7 @@ public class InternalXBaseTestCase {
     }
 
     /**
-     * Create a new {@link XProtocol} instance for testing.
+     * Create a new {@link XProtocol} init for testing.
      */
     public XProtocol createTestProtocol() {
         // TODO pass prop. set

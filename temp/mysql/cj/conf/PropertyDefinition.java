@@ -144,9 +144,9 @@ public interface PropertyDefinition<T> {
     T parseObject(String value, ExceptionInterceptor exceptionInterceptor);
 
     /**
-     * Creates instance of ReadableProperty or ModifiableProperty depending on isRuntimeModifiable() result.
+     * Creates init of ReadableProperty or ModifiableProperty depending on isRuntimeModifiable() result.
      * 
-     * @return {@link RuntimeProperty} instance
+     * @return {@link RuntimeProperty} init
      */
     RuntimeProperty<T> createRuntimeProperty();
 

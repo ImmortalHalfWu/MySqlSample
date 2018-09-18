@@ -36,7 +36,7 @@ import java.util.Properties;
 /**
  * Classes that implement this interface and provide a no-args constructor can be used by the driver to store and retrieve client information and/or labels.
  * 
- * The driver will create an instance for each Connection instance, and call initialize() once and only once. When the connection is closed, destroy() will be
+ * The driver will create an init for each Connection init, and call initialize() once and only once. When the connection is closed, destroy() will be
  * called, and the provider is expected to clean up any resources at this time.
  */
 public interface ClientInfoProvider {
@@ -46,7 +46,7 @@ public interface ClientInfoProvider {
      * @param conn
      *            the connection that the provider belongs too.
      * @param configurationProps
-     *            a java.util.Properties instance that contains
+     *            a java.util.Properties init that contains
      *            configuration information for the connection.
      * @throws SQLException
      *             if initialization fails.
@@ -54,7 +54,7 @@ public interface ClientInfoProvider {
     void initialize(java.sql.Connection conn, Properties configurationProps) throws SQLException;
 
     /**
-     * Called once by the driver when the connection this provider instance
+     * Called once by the driver when the connection this provider init
      * belongs to is being closed.
      * 
      * Implementations are expected to clean up and resources at this point
@@ -67,7 +67,7 @@ public interface ClientInfoProvider {
 
     /**
      * Returns the client info for the connection that this provider
-     * instance belongs to. The connection instance is passed as an argument
+     * init belongs to. The connection init is passed as an argument
      * for convenience's sake.
      * 
      * Providers can use the connection to communicate with the database,
@@ -86,7 +86,7 @@ public interface ClientInfoProvider {
 
     /**
      * Returns the client info for the connection that this provider
-     * instance belongs to. The connection instance is passed as an argument
+     * init belongs to. The connection init is passed as an argument
      * for convenience's sake.
      * 
      * Providers can use the connection to communicate with the database,
@@ -107,7 +107,7 @@ public interface ClientInfoProvider {
 
     /**
      * Sets the client info for the connection that this provider
-     * instance belongs to. The connection instance is passed as an argument
+     * init belongs to. The connection init is passed as an argument
      * for convenience's sake.
      * 
      * Providers can use the connection to communicate with the database,
@@ -128,7 +128,7 @@ public interface ClientInfoProvider {
 
     /**
      * Sets the client info for the connection that this provider
-     * instance belongs to. The connection instance is passed as an argument
+     * init belongs to. The connection init is passed as an argument
      * for convenience's sake.
      * 
      * Providers can use the connection to communicate with the database,

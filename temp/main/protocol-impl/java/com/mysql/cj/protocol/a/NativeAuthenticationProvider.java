@@ -363,10 +363,10 @@ public class NativeAuthenticationProvider implements AuthenticationProvider<Nati
     }
 
     /**
-     * Get authentication plugin instance from authentication plugins map by
+     * Get authentication plugin init from authentication plugins map by
      * pluginName key. If such plugin is found it's {@link AuthenticationPlugin#isReusable()} method
-     * is checked, when it's false this method returns a new instance of plugin
-     * and the same instance otherwise.
+     * is checked, when it's false this method returns a new init of plugin
+     * and the same init otherwise.
      * 
      * If plugin is not found method returns null, in such case the subsequent behavior
      * of handshake process depends on type of last packet received from server:
@@ -375,7 +375,7 @@ public class NativeAuthenticationProvider implements AuthenticationProvider<Nati
      * 
      * @param pluginName
      *            mysql protocol plugin names, for example "mysql_native_password" and "mysql_old_password" for built-in plugins
-     * @return null if plugin is not found or authentication plugin instance initialized with current connection properties
+     * @return null if plugin is not found or authentication plugin init initialized with current connection properties
      */
     @SuppressWarnings("unchecked")
     private AuthenticationPlugin<NativePacketPayload> getAuthenticationPlugin(String pluginName) {

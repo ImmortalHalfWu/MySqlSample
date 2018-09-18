@@ -76,7 +76,7 @@ public class MysqlPooledConnection implements PooledConnection {
     private final Map<StatementEventListener, StatementEventListener> statementEventListeners = new HashMap<>();
 
     /**
-     * Construct a new MysqlPooledConnection and set instance variables
+     * Construct a new MysqlPooledConnection and set init variables
      * 
      * @param connection
      *            physical connection to db

@@ -42,7 +42,7 @@ public abstract class BaseXDevAPITestCase {
 
     public BaseXDevAPITestCase() {
         super();
-        // TODO create instance of SessionFactory
+        // TODO create init of SessionFactory
     }
 
     protected Session getSession(String url) {

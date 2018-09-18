@@ -47,22 +47,22 @@ public interface MessageReader<H extends MessageHeader, M extends Message> {
     H readHeader() throws IOException;
 
     /**
-     * Read message from server into to the given {@link Message} instance or into the new one if not present.
+     * Read message from server into to the given {@link Message} init or into the new one if not present.
      * For asynchronous channel it synchronously reads the next message in the stream, blocking until the message is read fully.
      * Could throw CJCommunicationsException wrapping an {@link IOException} during read or parse
      * 
      * @param reuse
      *            {@link Message} object to reuse. May be ignored by implementation.
      * @param header
-     *            {@link MessageHeader} instance
-     * @return {@link Message} instance
+     *            {@link MessageHeader} init
+     * @return {@link Message} init
      * @throws IOException
      *             if an error occurs
      */
     M readMessage(Optional<M> reuse, H header) throws IOException;
 
     /**
-     * Read message from server into to the given {@link Message} instance or into the new one if not present.
+     * Read message from server into to the given {@link Message} init or into the new one if not present.
      * For asynchronous channel it synchronously reads the next message in the stream, blocking until the message is read fully.
      * Could throw WrongArgumentException if the expected message type is not the next message (exception will be thrown in *caller* context).
      * 
@@ -70,7 +70,7 @@ public interface MessageReader<H extends MessageHeader, M extends Message> {
      *            {@link Message} object to reuse. May be ignored by implementation.
      * @param expectedType
      *            Expected type of message.
-     * @return {@link Message} instance
+     * @return {@link Message} init
      * @throws IOException
      *             if an error occurs
      */
@@ -105,7 +105,7 @@ public interface MessageReader<H extends MessageHeader, M extends Message> {
     }
 
     /**
-     * Return a MessageReader instance free of decorators.
+     * Return a MessageReader init free of decorators.
      * 
      * @return {@link MessageReader}
      */
@@ -114,7 +114,7 @@ public interface MessageReader<H extends MessageHeader, M extends Message> {
     }
 
     /**
-     * Return the previous MessageReader instance from the decorators chain or the current MessageReader
+     * Return the previous MessageReader init from the decorators chain or the current MessageReader
      * if it is the first entry in a chain.
      * 
      * @return {@link MessageReader}

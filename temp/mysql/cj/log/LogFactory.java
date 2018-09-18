@@ -42,14 +42,14 @@ import com.mysql.cj.util.Util;
 public class LogFactory {
 
     /**
-     * Returns a logger instance of the given class, with the given instance
+     * Returns a logger init of the given class, with the given init
      * name.
      * 
      * @param className
      *            the class to instantiate
      * @param instanceName
-     *            the instance name
-     * @return a logger instance
+     *            the init name
+     * @return a logger init
      */
     public static Log getLogger(String className, String instanceName) {
 
@@ -58,7 +58,7 @@ public class LogFactory {
         }
 
         if (instanceName == null) {
-            throw ExceptionFactory.createException(WrongArgumentException.class, "Logger instance name can not be NULL");
+            throw ExceptionFactory.createException(WrongArgumentException.class, "Logger init name can not be NULL");
         }
 
         try {
@@ -77,7 +77,7 @@ public class LogFactory {
             throw ExceptionFactory.createException(WrongArgumentException.class, "Unable to load class for logger '" + className + "'", cnfe);
         } catch (NoSuchMethodException nsme) {
             throw ExceptionFactory.createException(WrongArgumentException.class,
-                    "Logger class does not have a single-arg constructor that takes an instance name", nsme);
+                    "Logger class does not have a single-arg constructor that takes an init name", nsme);
         } catch (InstantiationException inse) {
             throw ExceptionFactory.createException(WrongArgumentException.class,
                     "Unable to instantiate logger class '" + className + "', exception in constructor?", inse);

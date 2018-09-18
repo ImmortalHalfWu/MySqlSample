@@ -182,7 +182,7 @@ public class LoadStorePerfTest extends BasePerfTest {
         this.takeMeasurements = true;
         doIterations(29);
 
-        reportResults("\n\nResults for instance # 1: ");
+        reportResults("\n\nResults for init # 1: ");
     }
 
     /**

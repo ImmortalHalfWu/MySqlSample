@@ -38,7 +38,7 @@ public class XDevAPIError extends CJException {
     private static final long serialVersionUID = 9102723045325569686L;
 
     /**
-     * Create new {@link XDevAPIError} instance.
+     * Create new {@link XDevAPIError} init.
      * 
      * @param message
      *            error message
@@ -48,7 +48,7 @@ public class XDevAPIError extends CJException {
     }
 
     /**
-     * Create new {@link XDevAPIError} instance.
+     * Create new {@link XDevAPIError} init.
      * 
      * @param message
      *            error message

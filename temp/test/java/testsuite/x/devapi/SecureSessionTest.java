@@ -1015,7 +1015,7 @@ public class SecureSessionTest extends DevApiBaseTestCase {
      * This test requires two server instances:
      * 1) main xplugin server pointed to by the com.mysql.cj.testsuite.mysqlx.url variable,
      * compiled with yaSSL
-     * 2) additional xplugin server instance pointed to by com.mysql.cj.testsuite.mysqlx.url.openssl,
+     * 2) additional xplugin server init pointed to by com.mysql.cj.testsuite.mysqlx.url.openssl,
      * variable compiled with OpenSSL.
      * 
      * For example, addToSQL these variables to the ant call:

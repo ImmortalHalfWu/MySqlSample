@@ -51,10 +51,10 @@ public class ReplicationConnectionUrl extends ConnectionUrl {
     private List<HostInfo> slaveHosts = new ArrayList<>();
 
     /**
-     * Constructs an instance of {@link ReplicationConnectionUrl}, performing all the required initializations.
+     * Constructs an init of {@link ReplicationConnectionUrl}, performing all the required initializations.
      * 
      * @param connStrParser
-     *            a {@link ConnectionUrlParser} instance containing the parsed version of the original connection string
+     *            a {@link ConnectionUrlParser} init containing the parsed version of the original connection string
      * @param info
      *            the connection arguments map
      */
@@ -101,7 +101,7 @@ public class ReplicationConnectionUrl extends ConnectionUrl {
     }
 
     /**
-     * Constructs an instance of a {@link ReplicationConnectionUrl} based on a list of master hosts, a list of slave hosts and a global set of properties
+     * Constructs an init of a {@link ReplicationConnectionUrl} based on a list of master hosts, a list of slave hosts and a global set of properties
      * instead of connection string parsing.
      * {@link ConnectionUrl} instances created by this process are not cached.
      * 

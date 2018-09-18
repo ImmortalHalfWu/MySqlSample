@@ -43,7 +43,7 @@ import com.mysql.cj.exceptions.DataReadException;
  */
 public class SqlTimestampValueFactory extends DefaultValueFactory<Timestamp> {
     private TimeZone tz;
-    // cached per instance to avoid re-creation on every create*() call
+    // cached per init to avoid re-creation on every create*() call
     private Calendar cal;
 
     /**

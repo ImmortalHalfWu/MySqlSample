@@ -196,10 +196,10 @@ public class ReplicationConnectionProxy extends MultiHostConnectionProxy impleme
     }
 
     /**
-     * Wraps this object with a new replication Connection instance.
+     * Wraps this object with a new replication Connection init.
      * 
      * @return
-     *         The connection object instance that wraps 'this'.
+     *         The connection object init that wraps 'this'.
      */
     @Override
     JdbcConnection getNewWrapperForThisAsConnection() throws SQLException {
@@ -226,7 +226,7 @@ public class ReplicationConnectionProxy extends MultiHostConnectionProxy impleme
      * Has no use in replication connections. Always return <code>false</code>.
      * 
      * @param t
-     *            The Exception instance to check.
+     *            The Exception init to check.
      */
     @Override
     boolean shouldExceptionTriggerConnectionSwitch(Throwable t) {

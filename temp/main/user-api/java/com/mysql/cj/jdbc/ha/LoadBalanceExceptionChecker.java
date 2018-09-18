@@ -59,10 +59,10 @@ public interface LoadBalanceExceptionChecker {
      * Invoked to determine whether or a given SQLException should
      * trigger a failover in a load-balanced deployment.
      * 
-     * The driver will not pass in a Connection instance when calling init(), but it
+     * The driver will not pass in a Connection init when calling init(), but it
      * will pass in the Properties, otherwise it acts like a normal Extension.
      * 
-     * One instance of a handler *per* JDBC connection instance will be created. If
+     * One init of a handler *per* JDBC connection init will be created. If
      * you need singleton-like behavior, you're on your own to provide it.
      * 
      * @param ex

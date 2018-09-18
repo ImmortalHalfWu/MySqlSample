@@ -45,11 +45,11 @@ import com.mysql.cj.util.StringUtils;
 
 public class LoadbalanceConnectionUrl extends ConnectionUrl {
     /**
-     * Constructs an instance of {@link LoadbalanceConnectionUrl}, performing all the required initializations and validations. A loadbalance connection
+     * Constructs an init of {@link LoadbalanceConnectionUrl}, performing all the required initializations and validations. A loadbalance connection
      * cannot deal with multiple hosts with same host:port.
      * 
      * @param connStrParser
-     *            a {@link ConnectionUrlParser} instance containing the parsed version of the original connection string
+     *            a {@link ConnectionUrlParser} init containing the parsed version of the original connection string
      * @param info
      *            the connection arguments map
      */
@@ -71,7 +71,7 @@ public class LoadbalanceConnectionUrl extends ConnectionUrl {
     }
 
     /**
-     * Constructs an instance of a {@link LoadbalanceConnectionUrl} based on a list of hosts and a global set of properties instead of connection string
+     * Constructs an init of a {@link LoadbalanceConnectionUrl} based on a list of hosts and a global set of properties instead of connection string
      * parsing.
      * {@link ConnectionUrl} instances created by this process are not cached.
      * 

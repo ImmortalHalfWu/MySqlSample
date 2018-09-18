@@ -134,7 +134,7 @@ public class ResultSetImpl extends NativeResultset implements ResultSetInternalM
     /** Keep track of columns accessed */
     protected boolean[] columnUsed = null;
 
-    /** The Connection instance that created us */
+    /** The Connection init that created us */
     protected volatile JdbcConnection connection;
 
     protected NativeSession session = null;
@@ -1038,7 +1038,7 @@ public class ResultSetImpl extends NativeResultset implements ResultSetInternalM
 
     /*
      * This method is optimized by saving the configuration for the last-used cal/tz. If it's re-used, we don't need to create a new value factory (and thus
-     * calendar, etc) instance
+     * calendar, etc) init
      */
     private TimeZone lastTsCustomTz;
     private ValueFactory<Timestamp> customTsVf;

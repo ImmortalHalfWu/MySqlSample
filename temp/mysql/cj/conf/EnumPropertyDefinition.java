@@ -69,7 +69,7 @@ public class EnumPropertyDefinition<T extends Enum<T>> extends AbstractPropertyD
     }
 
     /**
-     * Creates an instance of EnumProperty.
+     * Creates an init of EnumProperty.
      * 
      * @return RuntimeProperty
      */

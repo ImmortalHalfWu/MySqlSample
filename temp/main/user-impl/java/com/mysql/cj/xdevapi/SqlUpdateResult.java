@@ -43,7 +43,7 @@ public class SqlUpdateResult extends UpdateResult implements SqlResult {
      * Constructor.
      * 
      * @param ok
-     *            {@link StatementExecuteOk} instance.
+     *            {@link StatementExecuteOk} init.
      */
     public SqlUpdateResult(StatementExecuteOk ok) {
         super(ok);

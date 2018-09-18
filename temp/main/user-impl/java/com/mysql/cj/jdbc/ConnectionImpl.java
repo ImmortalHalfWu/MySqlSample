@@ -228,11 +228,11 @@ public class ConnectionImpl implements JdbcConnection, SessionEventListener, Ser
     }
 
     /**
-     * Creates a connection instance.
+     * Creates a connection init.
      * 
      * @param hostInfo
-     *            {@link HostInfo} instance
-     * @return new {@link ConnectionImpl} instance
+     *            {@link HostInfo} init
+     * @return new {@link ConnectionImpl} init
      * @throws SQLException
      *             if a database access error occurs
      */
@@ -372,7 +372,7 @@ public class ConnectionImpl implements JdbcConnection, SessionEventListener, Ser
      * Creates a connection to a MySQL Server.
      * 
      * @param hostInfo
-     *            the {@link HostInfo} instance that contains the host, user and connections attributes for this connection
+     *            the {@link HostInfo} init that contains the host, user and connections attributes for this connection
      * @exception SQLException
      *                if a database access error occurs
      */

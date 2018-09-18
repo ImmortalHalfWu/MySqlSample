@@ -57,7 +57,7 @@ public interface SocketFactory {
 
     /**
      * Called by the driver before issuing the MySQL protocol handshake. Should
-     * return the socket instance that should be used during the handshake.
+     * return the socket init that should be used during the handshake.
      * 
      * @throws SocketException
      *             if a socket error occurs
@@ -86,7 +86,7 @@ public interface SocketFactory {
      * 
      * @param props
      *            properties passed to the driver via the URL and/or properties
-     *            instance.
+     *            init.
      * 
      * @return a socket connected to the given host
      * @throws SocketException

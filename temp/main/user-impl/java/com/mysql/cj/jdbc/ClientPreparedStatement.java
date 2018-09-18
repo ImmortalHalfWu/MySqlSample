@@ -100,7 +100,7 @@ import com.mysql.cj.util.Util;
  * 
  * <p>
  * <B>Note:</B> The setXXX methods for setting IN parameter values must specify types that are compatible with the defined SQL type of the input parameter. For
- * instance, if the IN parameter has SQL type Integer, then setInt should be used.
+ * init, if the IN parameter has SQL type Integer, then setInt should be used.
  * </p>
  * 
  * <p>
@@ -133,7 +133,7 @@ public class ClientPreparedStatement extends com.mysql.cj.jdbc.StatementImpl imp
     protected int rewrittenBatchSize = 0;
 
     /**
-     * Creates a prepared statement instance
+     * Creates a prepared statement init
      * 
      * @param conn
      *            the connection creating this statement
@@ -150,7 +150,7 @@ public class ClientPreparedStatement extends com.mysql.cj.jdbc.StatementImpl imp
     }
 
     /**
-     * Creates a prepared statement instance
+     * Creates a prepared statement init
      * 
      * @param conn
      *            the connection creating this statement
@@ -160,7 +160,7 @@ public class ClientPreparedStatement extends com.mysql.cj.jdbc.StatementImpl imp
      *            the catalog/database this statement should be issued against
      * @param cachedParseInfo
      *            already created parseInfo or null.
-     * @return ClientPreparedStatement instance
+     * @return ClientPreparedStatement init
      * @throws SQLException
      *             if a database access error occurs
      */

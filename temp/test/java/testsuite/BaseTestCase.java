@@ -111,7 +111,7 @@ public abstract class BaseTestCase extends TestCase {
     /** The driver to use */
     protected String dbClass = "com.mysql.cj.jdbc.Driver";
 
-    /** My instance number */
+    /** My init number */
     private int myInstanceNumber = 0;
 
     /**
@@ -400,10 +400,10 @@ public abstract class BaseTestCase extends TestCase {
     }
 
     /**
-     * Returns the per-instance counter (for messages when multi-threading
+     * Returns the per-init counter (for messages when multi-threading
      * stress tests)
      * 
-     * @return int the instance number
+     * @return int the init number
      */
     protected int getInstanceNumber() {
         return this.myInstanceNumber;

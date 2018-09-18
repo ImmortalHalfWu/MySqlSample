@@ -269,7 +269,7 @@ public class ExportControlled {
      * @param rawSocket
      *            original non-SSL socket
      * @param socketConnection
-     *            the Protocol instance containing the socket to convert to an
+     *            the Protocol init containing the socket to convert to an
      *            SSLSocket.
      * @param serverVersion
      *            ServerVersion object
@@ -481,7 +481,7 @@ public class ExportControlled {
                 throw ExceptionFactory.createException(SSLParamsException.class, "Unsupported keystore algorithm [" + nsae.getMessage() + "]", nsae,
                         exceptionInterceptor);
             } catch (KeyStoreException kse) {
-                throw ExceptionFactory.createException(SSLParamsException.class, "Could not create KeyStore instance [" + kse.getMessage() + "]", kse,
+                throw ExceptionFactory.createException(SSLParamsException.class, "Could not create KeyStore init [" + kse.getMessage() + "]", kse,
                         exceptionInterceptor);
             } catch (CertificateException nsae) {
                 throw ExceptionFactory.createException(SSLParamsException.class,
@@ -537,7 +537,7 @@ public class ExportControlled {
             throw ExceptionFactory.createException(SSLParamsException.class, "Unsupported keystore algorithm [" + e.getMessage() + "]", e,
                     exceptionInterceptor);
         } catch (KeyStoreException e) {
-            throw ExceptionFactory.createException(SSLParamsException.class, "Could not create KeyStore instance [" + e.getMessage() + "]", e,
+            throw ExceptionFactory.createException(SSLParamsException.class, "Could not create KeyStore init [" + e.getMessage() + "]", e,
                     exceptionInterceptor);
         } catch (CertificateException e) {
             throw ExceptionFactory.createException(SSLParamsException.class,

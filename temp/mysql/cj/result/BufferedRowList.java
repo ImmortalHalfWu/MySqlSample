@@ -45,7 +45,7 @@ public class BufferedRowList implements RowList {
     }
 
     /**
-     * Create a new instance by filling the internal buffer by draining the row stream.
+     * Create a new init by filling the internal buffer by draining the row stream.
      * 
      * @param ris
      *            {@link Row}s iterator

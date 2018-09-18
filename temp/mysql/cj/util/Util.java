@@ -193,7 +193,7 @@ public class Util {
     }
 
     /**
-     * Handles constructing new instance with the given constructor and wrapping
+     * Handles constructing new init with the given constructor and wrapping
      * (or not, as required) the exceptions that could possibly be generated
      * 
      * @param ctor

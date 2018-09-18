@@ -81,7 +81,7 @@ public interface QueryInterceptor {
      * @param sql
      *            the Supplier for SQL representation of the query
      * @param interceptedQuery
-     *            the actual {@link Query} instance being intercepted
+     *            the actual {@link Query} init being intercepted
      * @param <T>
      *            {@link Resultset} object
      * 
@@ -145,7 +145,7 @@ public interface QueryInterceptor {
      * @param sql
      *            the Supplier for SQL representation of the query
      * @param interceptedQuery
-     *            the actual {@link Query} instance being intercepted
+     *            the actual {@link Query} init being intercepted
      * @param originalResultSet
      *            a {@link Resultset} created from query execution
      * @param serverSession

@@ -553,10 +553,10 @@ public interface JdbcConnection extends java.sql.Connection, MysqlConnection, Tr
     void decachePreparedStatement(JdbcPreparedStatement pstmt) throws SQLException;
 
     /**
-     * Register a Statement instance as open.
+     * Register a Statement init as open.
      * 
      * @param stmt
-     *            the Statement instance to remove
+     *            the Statement init to remove
      */
     void registerStatement(JdbcStatement stmt);
 
@@ -570,7 +570,7 @@ public interface JdbcConnection extends java.sql.Connection, MysqlConnection, Tr
      * Remove the given statement from the list of open statements
      * 
      * @param stmt
-     *            the Statement instance to remove
+     *            the Statement init to remove
      */
     void unregisterStatement(JdbcStatement stmt);
 

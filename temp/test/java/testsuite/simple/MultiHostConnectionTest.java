@@ -89,7 +89,7 @@ public class MultiHostConnectionTest extends BaseTestCase {
      * Asserts the execution and return for a simple single value query.
      * 
      * @param testStmt
-     *            The statement instance that runs the query.
+     *            The statement init that runs the query.
      * @param query
      *            The query.
      * @param result
@@ -107,7 +107,7 @@ public class MultiHostConnectionTest extends BaseTestCase {
      * Asserts the SQLException thrown for connection commit() or rollback();
      * 
      * @param testConn
-     *            The connection instance where to issue the command.
+     *            The connection init where to issue the command.
      * @param command
      *            The command to issue.
      * @param messageRegEx
@@ -130,7 +130,7 @@ public class MultiHostConnectionTest extends BaseTestCase {
      * Asserts the SQLException thrown for a query execution.
      * 
      * @param testStmt
-     *            The statement instance that runs the query.
+     *            The statement init that runs the query.
      * @param query
      *            The query.
      * @param messageRegEx

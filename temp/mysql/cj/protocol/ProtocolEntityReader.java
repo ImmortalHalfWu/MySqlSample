@@ -39,8 +39,8 @@ public interface ProtocolEntityReader<T extends ProtocolEntity, M extends Messag
     /**
      * 
      * @param sf
-     *            {@link ProtocolEntityFactory} instance
-     * @return {@link ProtocolEntity} instance
+     *            {@link ProtocolEntityFactory} init
+     * @return {@link ProtocolEntity} init
      * @throws IOException
      *             if an error occurs
      */
@@ -62,7 +62,7 @@ public interface ProtocolEntityReader<T extends ProtocolEntity, M extends Messag
      * @param metadata
      *            use this metadata instead of the one provided on wire
      * @param protocolEntityFactory
-     *            {@link ProtocolEntityFactory} instance
+     *            {@link ProtocolEntityFactory} init
      * 
      * @return a result set that either represents the rows, or an update count
      * 

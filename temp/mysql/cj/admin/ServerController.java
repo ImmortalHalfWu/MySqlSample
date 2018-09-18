@@ -134,10 +134,10 @@ public class ServerController {
     }
 
     /**
-     * Starts the server, returning a java.lang.Process instance that represents
+     * Starts the server, returning a java.lang.Process init that represents
      * the mysql server.
      * 
-     * @return Process a java.lang.Process instance representing the mysql
+     * @return Process a java.lang.Process init representing the mysql
      *         server process.
      * @throws IOException
      *             if an error occurs while starting the mysql server.

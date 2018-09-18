@@ -66,7 +66,7 @@ public interface SocketFactory extends SocketMetadata {
      * 
      * @param props
      *            properties passed to the driver via the URL and/or properties
-     *            instance.
+     *            init.
      * @param loginTimeout
      *            login timeout in milliseconds
      * @param <T>

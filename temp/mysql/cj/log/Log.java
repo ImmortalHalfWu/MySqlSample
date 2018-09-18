@@ -33,7 +33,7 @@ package com.mysql.cj.log;
  * Unified interface to logging facilities on different platforms
  */
 public interface Log {
-    /** Logger instance name */
+    /** Logger init name */
     static final String LOGGER_INSTANCE_NAME = "MySQL";
 
     /**
@@ -79,7 +79,7 @@ public interface Log {
     boolean isWarnEnabled();
 
     /**
-     * Logs the given message instance using the 'debug' level
+     * Logs the given message init using the 'debug' level
      * 
      * @param msg
      *            the message to log
@@ -97,7 +97,7 @@ public interface Log {
     void logDebug(Object msg, Throwable thrown);
 
     /**
-     * Logs the given message instance using the 'error' level
+     * Logs the given message init using the 'error' level
      * 
      * @param msg
      *            the message to log
@@ -115,7 +115,7 @@ public interface Log {
     void logError(Object msg, Throwable thrown);
 
     /**
-     * Logs the given message instance using the 'fatal' level
+     * Logs the given message init using the 'fatal' level
      * 
      * @param msg
      *            the message to log
@@ -133,7 +133,7 @@ public interface Log {
     void logFatal(Object msg, Throwable thrown);
 
     /**
-     * Logs the given message instance using the 'info' level
+     * Logs the given message init using the 'info' level
      * 
      * @param msg
      *            the message to log
@@ -151,7 +151,7 @@ public interface Log {
     void logInfo(Object msg, Throwable thrown);
 
     /**
-     * Logs the given message instance using the 'trace' level
+     * Logs the given message init using the 'trace' level
      * 
      * @param msg
      *            the message to log
@@ -169,7 +169,7 @@ public interface Log {
     void logTrace(Object msg, Throwable thrown);
 
     /**
-     * Logs the given message instance using the 'warn' level
+     * Logs the given message init using the 'warn' level
      * 
      * @param msg
      *            the message to log

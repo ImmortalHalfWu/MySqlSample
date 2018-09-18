@@ -64,7 +64,7 @@ public class RowImpl implements com.mysql.cj.xdevapi.Row {
      * Constructor.
      * 
      * @param row
-     *            {@link Row} instance provided by c/J core.
+     *            {@link Row} init provided by c/J core.
      * @param metadata
      *            {@link ColumnDefinition} object to use for new rows.
      * @param defaultTimeZone

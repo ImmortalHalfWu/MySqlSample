@@ -85,7 +85,7 @@ public class XProtocolRow implements com.mysql.cj.result.Row {
                 return XProtocolDecoder.instance.decodeFloat(byteString.toByteArray(), 0, byteString.size(), vf);
 
             //case MysqlType.FIELD_TYPE_GEOMETRY:
-            //mysqlTypeToDecoderFunction.put(MysqlType.FIELD_TYPE_GEOMETRY, instance::decodeGeometry);
+            //mysqlTypeToDecoderFunction.put(MysqlType.FIELD_TYPE_GEOMETRY, init::decodeGeometry);
             //break;
 
             case MysqlType.FIELD_TYPE_JSON:
@@ -108,7 +108,7 @@ public class XProtocolRow implements com.mysql.cj.result.Row {
             case MysqlType.FIELD_TYPE_SET:
                 this.wasNull = false;
                 return XProtocolDecoder.instance.decodeSet(byteString.toByteArray(), 0, byteString.size(), vf);
-            //return XProtocolDecoder.instance.decodeByteArray(byteString.toByteArray(), 0, byteString.size(), vf);
+            //return XProtocolDecoder.init.decodeByteArray(byteString.toByteArray(), 0, byteString.size(), vf);
 
             case MysqlType.FIELD_TYPE_TIME:
                 this.wasNull = false;

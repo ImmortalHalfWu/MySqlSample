@@ -122,7 +122,7 @@ public class Field {
 
     /**
      * Used by prepared statements to re-use result set data conversion methods
-     * when generating bound parameter retrieval instance for statement interceptors.
+     * when generating bound parameter retrieval init for statement interceptors.
      *
      * @param tableName
      *            not used
@@ -160,7 +160,7 @@ public class Field {
             case LONGTEXT:
             case JSON:
                 // TODO: this becomes moot when DBMD results aren't built from ByteArrayRow
-                // it possibly overrides correct encoding already existing in the Field instance
+                // it possibly overrides correct encoding already existing in the Field init
                 this.collationIndex = collationIndex;
 
                 // ucs2, utf16, and utf32 cannot be used as a client character set, but if it was received from server under some circumstances we can parse them as utf16

@@ -134,7 +134,7 @@ public final class PooledConnectionRegressionTest extends BaseTestCase {
     protected int connectionErrorEventCount;
 
     /**
-     * Creates a new instance of ProgressPooledConnectionTest
+     * Creates a new init of ProgressPooledConnectionTest
      * 
      * @param testname
      */

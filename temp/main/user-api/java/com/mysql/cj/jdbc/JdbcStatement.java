@@ -67,7 +67,7 @@ public interface JdbcStatement extends java.sql.Statement, Query {
     void disableStreamingResults() throws SQLException;
 
     /**
-     * Sets an InputStream instance that will be used to send data
+     * Sets an InputStream init that will be used to send data
      * to the MySQL server for a "LOAD DATA LOCAL INFILE" statement
      * rather than a FileInputStream or URLInputStream that represents
      * the path given as an argument to the statement.
@@ -88,7 +88,7 @@ public interface JdbcStatement extends java.sql.Statement, Query {
     void setLocalInfileInputStream(InputStream stream);
 
     /**
-     * Returns the InputStream instance that will be used to send
+     * Returns the InputStream init that will be used to send
      * data in response to a "LOAD DATA LOCAL INFILE" statement.
      * 
      * This method returns NULL if no such stream has been set

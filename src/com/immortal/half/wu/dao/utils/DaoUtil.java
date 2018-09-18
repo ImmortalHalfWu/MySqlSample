@@ -1,8 +1,6 @@
 package com.immortal.half.wu.dao.utils;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.PropertyFilter;
+import com.google.gson.*;
 import com.immortal.half.wu.bean.SqlQueryBean;
 import com.sun.istack.internal.NotNull;
 
@@ -12,17 +10,37 @@ import java.util.Set;
 
 public class DaoUtil {
 
-    private static Map<String, Object> object2Map(@NotNull Object object) {
+    public static Map<String, Object> object2Map(@NotNull Object object) {
 
-        PropertyFilter propertyFilter = (o, s, o1) -> o1 != null && !o1.getClass().isEnum();
-        String objectJson = JSON.toJSONString(object, propertyFilter);
+        Gson gson = new GsonBuilder().addSerializationExclusionStrategy(new ExclusionStrategy() {
+            @Override
+            public boolean shouldSkipField(FieldAttributes fieldAttributes) {
+                return false;
+            }
 
-        JSONObject jsonObject =  (JSONObject) JSON.parse(objectJson);
-        Set<Map.Entry<String,Object>> entrySet = jsonObject.entrySet();
+            @Override
+            public boolean shouldSkipClass(Class<?> aClass) {
+                return aClass.isEnum();
+            }
+        }).create();
+        JsonElement jsonElement = gson.toJsonTree(object);
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         Map<String, Object> map = new HashMap<>();
-        for (Map.Entry<String, Object> entry : entrySet) {
-            map.put(entry.getKey(), entry.getValue());
+        for (Map.Entry<String, JsonElement> entry : entries) {
+            map.put(entry.getKey(), entry.getValue().getAsString());
         }
+
+
+//        PropertyFilter propertyFilter = (o, s, o1) -> o1 != null && !o1.getClass().isEnum();
+//        String objectJson = JSON.toJSONString(object, propertyFilter);
+//
+//        JSONObject jsonObject =  (JSONObject) JSON.parse(objectJson);
+//        Set<Map.Entry<String,Object>> entrySet = jsonObject.entrySet();
+
+//        Map<String, Object> map = new HashMap<>();
+//        for (Map.Entry<String, Object> entry : entrySet) {
+//            map.put(entry.getKey(), entry.getValue());
+//        }
 
         return map;
 

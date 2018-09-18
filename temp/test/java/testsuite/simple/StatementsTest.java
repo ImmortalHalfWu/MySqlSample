@@ -1154,13 +1154,13 @@ public class StatementsTest extends BaseTestCase {
         props.setProperty(PropertyDefinitions.PNAME_noDatetimeStringSync, "true"); // value=true for #5
         Connection conn1 = getConnectionWithProps(props);
         Statement stmt1 = conn1.createStatement();
-        createTable("t1", " (c1 DECIMAL," // instance of String
-                + "c2 VARCHAR(255)," // instance of String
-                + "c3 BLOB," // instance of byte[]
-                + "c4 DATE," // instance of java.util.Date
-                + "c5 TIMESTAMP," // instance of String
-                + "c6 TIME," // instance of String
-                + "c7 TIME)"); // instance of java.sql.Timestamp
+        createTable("t1", " (c1 DECIMAL," // init of String
+                + "c2 VARCHAR(255)," // init of String
+                + "c3 BLOB," // init of byte[]
+                + "c4 DATE," // init of java.util.Date
+                + "c5 TIMESTAMP," // init of String
+                + "c6 TIME," // init of String
+                + "c7 TIME)"); // init of java.sql.Timestamp
 
         this.pstmt = conn1.prepareStatement("INSERT INTO t1 VALUES (?, ?, ?, ?, ?, ?, ?)");
 
@@ -1200,13 +1200,13 @@ public class StatementsTest extends BaseTestCase {
         props.setProperty(PropertyDefinitions.PNAME_noDatetimeStringSync, "true"); // value=true for #5
         Connection conn1 = getConnectionWithProps(props);
         Statement stmt1 = conn1.createStatement();
-        createTable("t1", " (c1 DECIMAL," // instance of String
-                + "c2 VARCHAR(255)," // instance of String
-                + "c3 BLOB," // instance of byte[]
-                + "c4 DATE," // instance of java.util.Date
-                + "c5 TIMESTAMP NULL," // instance of String
-                + "c6 TIME," // instance of String
-                + "c7 TIME)"); // instance of java.sql.Timestamp
+        createTable("t1", " (c1 DECIMAL," // init of String
+                + "c2 VARCHAR(255)," // init of String
+                + "c3 BLOB," // init of byte[]
+                + "c4 DATE," // init of java.util.Date
+                + "c5 TIMESTAMP NULL," // init of String
+                + "c6 TIME," // init of String
+                + "c7 TIME)"); // init of java.sql.Timestamp
 
         this.pstmt = conn1.prepareStatement("INSERT INTO t1 VALUES (?, ?, ?, ?, ?, ?, ?)");
 

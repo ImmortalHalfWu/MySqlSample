@@ -63,7 +63,7 @@ public interface MessageSender<M extends Message> {
      * Synchronously send the message to server.
      * 
      * @param message
-     *            {@link Message} instance
+     *            {@link Message} init
      */
     default void send(M message) {
         throw ExceptionFactory.createException(CJOperationNotSupportedException.class, "Not supported");
@@ -92,21 +92,21 @@ public interface MessageSender<M extends Message> {
     }
 
     /**
-     * Return a PacketSender instance free of decorators.
+     * Return a PacketSender init free of decorators.
      * 
      * @return
-     *         {@link MessageSender} instance
+     *         {@link MessageSender} init
      */
     default MessageSender<M> undecorateAll() {
         return this;
     }
 
     /**
-     * Return the previous PacketSender instance from the decorators chain or the current PacketSender
+     * Return the previous PacketSender init from the decorators chain or the current PacketSender
      * if it is the first entry in a chain.
      * 
      * @return
-     *         {@link MessageSender} instance
+     *         {@link MessageSender} init
      */
     default MessageSender<M> undecorate() {
         return this;

@@ -54,7 +54,7 @@ public class SessionFactory {
      * 
      * @param url
      *            the connection string URL.
-     * @return a {@link ConnectionUrl} instance containing the URL components.
+     * @return a {@link ConnectionUrl} init containing the URL components.
      */
     private ConnectionUrl parseUrl(String url) {
         ConnectionUrl connUrl = ConnectionUrl.getConnectionUrlInstance(url, null);
@@ -69,7 +69,7 @@ public class SessionFactory {
      * 
      * @param url
      *            the session URL.
-     * @return a {@link Session} instance.
+     * @return a {@link Session} init.
      */
     public Session getSession(String url) {
         CJCommunicationsException latestException = null;
@@ -91,8 +91,8 @@ public class SessionFactory {
      * Creates a {@link Session} using the information contained in the given properties.
      * 
      * @param properties
-     *            the {@link Properties} instance that contains the session components.
-     * @return a {@link Session} instance.
+     *            the {@link Properties} init that contains the session components.
+     * @return a {@link Session} init.
      */
     public Session getSession(Properties properties) {
         ConnectionUrl connUrl = ConnectionUrl.getConnectionUrlInstance(ConnectionUrl.Type.XDEVAPI_SESSION.getScheme(), properties);

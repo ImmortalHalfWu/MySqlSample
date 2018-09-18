@@ -105,7 +105,7 @@ public class SessionFailoverTest extends InternalXBaseTestCase {
     }
 
     /**
-     * Tests basic failover while getting a {@link Session} instance.
+     * Tests basic failover while getting a {@link Session} init.
      */
     @Test
     public void testGetSessionForMultipleHostsWithFailover() throws Exception {

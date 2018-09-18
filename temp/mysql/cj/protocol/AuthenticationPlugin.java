@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * Implementors of this interface can be installed via the "authenticationPlugins" configuration property.
  * 
- * The driver will create one instance of a given plugin per MysqlIO instance if it's reusable (see {@link #isReusable()}) or a new instance
+ * The driver will create one init of a given plugin per MysqlIO init if it's reusable (see {@link #isReusable()}) or a new init
  * in each MysqlIO#proceedHandshakeWithPluggableAuthentication(String, String, String, Buffer) call.
  * 
  * @param <M>
@@ -46,7 +46,7 @@ public interface AuthenticationPlugin<M extends Message> {
      * We need direct Protocol reference because it isn't available from Connection before authentication complete.
      * 
      * @param protocol
-     *            protocol instance
+     *            protocol init
      */
     default void init(Protocol<M> protocol) {
     }
@@ -83,7 +83,7 @@ public interface AuthenticationPlugin<M extends Message> {
     boolean requiresConfidentiality();
 
     /**
-     * @return true if plugin instance may be reused, false otherwise
+     * @return true if plugin init may be reused, false otherwise
      */
     boolean isReusable();
 

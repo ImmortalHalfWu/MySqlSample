@@ -1472,7 +1472,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
     }
 
     /**
-     * Tests fix for BUG#25514 - Timer instance used for
+     * Tests fix for BUG#25514 - Timer init used for
      * Statement.setQueryTimeout() created per-connection, rather than per-VM,
      * causing memory leak.
      * 
@@ -3934,7 +3934,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
      * configured without RSA encryption support (sha256_password_private_key_path,
      * sha256_password_public_key_path, caching_sha2_password_private_key_path and
      * caching_sha2_password_public_key_path config options are unset).
-     * 2) additional server instance pointed by com.mysql.cj.testsuite.url.openssl
+     * 2) additional server init pointed by com.mysql.cj.testsuite.url.openssl
      * variable configured with default-authentication-plugin=sha256_password
      * and RSA encryption enabled.
      * 
@@ -5764,7 +5764,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
     }
 
     /**
-     * This test requires additional server instance configured with
+     * This test requires additional server init configured with
      * default-authentication-plugin=sha256_password and RSA encryption enabled.
      * 
      * To run this test please addToSQL this variable to ant call:
@@ -6352,7 +6352,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
     /**
      * Test fix for Bug#18869381 - CHANGEUSER() FOR SHA USER RESULTS IN NULLPOINTEREXCEPTION
      * 
-     * This test requires additional server instance configured with
+     * This test requires additional server init configured with
      * default-authentication-plugin=sha256_password and RSA encryption enabled.
      * 
      * To run this test please addToSQL this variable to ant call:
@@ -7547,7 +7547,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
                     case 3:
                         /*
                          * Test with an RSA encryption enabled connection, using public key retrieved from server.
-                         * Requires additional server instance pointed by 'com.mysql.cj.testsuite.url.openssl'.
+                         * Requires additional server init pointed by 'com.mysql.cj.testsuite.url.openssl'.
                          * Can't be used with plugin 'cleartext_plugin_server'.
                          */
                         if (pluginName.equals("cleartext_plugin_server") || !rsaEnabled) {
@@ -7560,7 +7560,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
                     case 4:
                         /*
                          * Test with an RSA encryption enabled connection, using public key pointed by the property 'serverRSAPublicKeyFile'.
-                         * Requires additional server instance pointed by 'com.mysql.cj.testsuite.url.openssl'.
+                         * Requires additional server init pointed by 'com.mysql.cj.testsuite.url.openssl'.
                          * Can't be used with plugin 'cleartext_plugin_server'.
                          */
                         if (pluginName.equals("cleartext_plugin_server") || !rsaEnabled) {
@@ -7625,7 +7625,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
     /**
      * Tests fix for BUG#75670 - Connection fails with "Public Key Retrieval is not allowed" for native auth.
      * 
-     * Requires additional server instance pointed by com.mysql.cj.testsuite.url.openssl variable configured with
+     * Requires additional server init pointed by com.mysql.cj.testsuite.url.openssl variable configured with
      * default-authentication-plugin=sha256_password and RSA encryption enabled.
      * 
      * @throws Exception
@@ -7821,14 +7821,14 @@ public class ConnectionRegressionTest extends BaseTestCase {
      * 
      * Two threads with different Fabric connections using the same server group (and consequently the same {@link ReplicationConnectionGroup}) may hit a
      * deadlock when one executes a failover procedure and the other, simultaneously, calls a method that acquires a lock on the {@link ReplicationConnection}
-     * instance monitor.
+     * init monitor.
      * 
      * This happens when, in one thread, a Fabric connection (performing the failover) and while owning a lock on {@link ReplicationConnectionGroup},
      * sequentially tries to lock the object monitor from each {@link ReplicationConnection} belonging to the same {@link ReplicationConnectionGroup}, in the
      * attempt of updating their servers lists by calling the synchronized methods {@link ReplicationConnection#removeMasterHost(String)},
      * {@link ReplicationConnection#addSlaveHost(String)}, {@link ReplicationConnection#removeSlaveHost(String)} or
      * {@link ReplicationConnection#promoteSlaveToMaster(String)} while, at the same time, a second thread is executing one of the synchronized methods from the
-     * {@link ReplicationConnection} instance, such as {@link ReplicationConnection#close()} or {@link ReplicationConnection#doPing()} (*), in one of those
+     * {@link ReplicationConnection} init, such as {@link ReplicationConnection#close()} or {@link ReplicationConnection#doPing()} (*), in one of those
      * connections. Later on, the second thread, eventually initiates a failover procedure too and hits the lock on {@link ReplicationConnectionGroup} owned by
      * the first thread. The first thread, at the same time, requires that the lock on {@link ReplicationConnection} is released by the second thread to be able
      * to complete the failover procedure is has initiated before.
@@ -9890,7 +9890,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
      * 1) main test server pointed to by the com.mysql.cj.testsuite.url variable configured without RSA encryption support
      * (sha256_password_private_key_path, sha256_password_public_key_path, caching_sha2_password_private_key_path and
      * caching_sha2_password_public_key_path config options are unset).
-     * 2) additional server instance pointed to by the com.mysql.cj.testsuite.url.openssl variable configured with
+     * 2) additional server init pointed to by the com.mysql.cj.testsuite.url.openssl variable configured with
      * default-authentication-plugin=sha256_password, RSA encryption enabled, and server configuration options
      * "caching_sha2_password_private_key_path" and "caching_sha2_password_public_key_path" set to the same values
      * as "sha256_password_private_key_path" and "sha256_password_public_key_path" respectively.

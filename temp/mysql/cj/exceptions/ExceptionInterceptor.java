@@ -48,7 +48,7 @@ public interface ExceptionInterceptor {
      *            DataSource. Extension properties are not exposed via
      *            accessor/mutator methods on DataSources.
      * @param log
-     *            logger instance
+     *            logger init
      * @return {@link ExceptionInterceptor}
      */
 

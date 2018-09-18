@@ -37,7 +37,7 @@ public interface ProtocolEntityFactory<T, M extends Message> {
     /**
      * 
      * @param message
-     *            {@link Message} instance
+     *            {@link Message} init
      * @return T
      */
     default T createFromMessage(M message) {

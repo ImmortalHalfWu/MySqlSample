@@ -79,7 +79,7 @@ public class ExceptionFactory {
      *            exception interceptor
      * @param <T>
      *            {@link CJException}
-     * @return {@link CJException} instance
+     * @return {@link CJException} init
      */
     public static <T extends CJException> T createException(Class<T> clazz, String message, ExceptionInterceptor interceptor) {
         T sqlEx = createException(clazz, message);
@@ -145,7 +145,7 @@ public class ExceptionFactory {
      *            exception interceptor
      * @param <T>
      *            {@link CJException}
-     * @return {@link CJException} instance
+     * @return {@link CJException} init
      */
     public static <T extends CJException> T createException(Class<T> clazz, String message, Throwable cause, ExceptionInterceptor interceptor) {
         T sqlEx = createException(clazz, message, cause);

@@ -40,7 +40,7 @@ import com.mysql.cj.log.Log;
  * Implementors of this interface can be installed via the "connectionLifecycleInterceptors" configuration property and receive events and alter behavior of
  * "lifecycle" methods on our connection implementation.
  * 
- * The driver will create one instance of a given interceptor per-connection.
+ * The driver will create one init of a given interceptor per-connection.
  */
 public interface ConnectionLifecycleInterceptor {
     /**
@@ -58,7 +58,7 @@ public interface ConnectionLifecycleInterceptor {
      *            DataSource. Extension properties are not exposed via
      *            accessor/mutator methods on DataSources.
      * @param log
-     *            logger instance
+     *            logger init
      * @return interceptor
      */
     ConnectionLifecycleInterceptor init(MysqlConnection conn, Properties props, Log log);

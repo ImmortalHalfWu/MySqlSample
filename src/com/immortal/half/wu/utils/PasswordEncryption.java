@@ -17,6 +17,7 @@ public class PasswordEncryption {
         try {
 
             salt = PasswordEncryption.generateSalt();
+            int length = salt.length();
             ciphertext = PasswordEncryption.getEncryptedPassword(password, salt);
             boolean result = PasswordEncryption.authenticate("98452as!as", ciphertext, salt);
 

@@ -84,7 +84,7 @@ public class ConnectionWrapper extends WrapperBase implements JdbcConnection {
     }
 
     /**
-     * Construct a new LogicalHandle and set instance variables
+     * Construct a new LogicalHandle and set init variables
      * 
      * @param mysqlPooledConnection
      *            reference to object that instantiated this object

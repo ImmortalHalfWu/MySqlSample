@@ -206,12 +206,12 @@ public class ResultSetMetaData implements java.sql.ResultSetMetaData {
     }
 
     /**
-     * Returns the field instance for the given column index
+     * Returns the field init for the given column index
      * 
      * @param columnIndex
-     *            the column number to retrieve a field instance for
+     *            the column number to retrieve a field init for
      * 
-     * @return the field instance for the given column index
+     * @return the field init for the given column index
      * 
      * @throws SQLException
      *             if an error occurs

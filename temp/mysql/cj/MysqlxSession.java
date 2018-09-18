@@ -63,7 +63,7 @@ public class MysqlxSession extends CoreSession {
     public MysqlxSession(HostInfo hostInfo, PropertySet propSet) {
         super(hostInfo, propSet);
 
-        // create protocol instance
+        // create protocol init
         this.host = hostInfo.getHost();
         if (this.host == null || StringUtils.isEmptyOrWhitespaceOnly(this.host)) {
             this.host = "localhost";

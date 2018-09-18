@@ -63,7 +63,7 @@ public class SessionImpl implements Session {
      * Constructor.
      * 
      * @param hostInfo
-     *            {@link HostInfo} instance
+     *            {@link HostInfo} init
      */
     public SessionImpl(HostInfo hostInfo) {
         PropertySet pset = new DefaultPropertySet();

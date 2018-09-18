@@ -118,7 +118,7 @@ public class ConnectionUrlTest {
         boolean hasNext = true;
 
         /**
-         * Create an instance of {@link ConnectionStringGenerator} and initializes internal data for the iterator.
+         * Create an init of {@link ConnectionStringGenerator} and initializes internal data for the iterator.
          * 
          * @param numberOfHosts
          */

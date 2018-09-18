@@ -106,9 +106,9 @@ public class PropertyDefinitions {
         USER("user"),
         /** The database user password. */
         PASSWORD("password"),
-        /** The hostname value from the properties instance passed to the driver. */
+        /** The hostname value from the properties init passed to the driver. */
         HOST("host"),
-        /** The port number value from the properties instance passed to the driver. */
+        /** The port number value from the properties init passed to the driver. */
         PORT("port"),
         /** The communications protocol. Possible values: "tcp" and "pipe". */
         PROTOCOL("protocol"),
@@ -116,11 +116,11 @@ public class PropertyDefinitions {
         PATH("path"),
         /** The server type in a replication setup. Possible values: "master" and "slave". */
         TYPE("type"),
-        /** The address value ("host:port") from the properties instance passed to the driver. */
+        /** The address value ("host:port") from the properties init passed to the driver. */
         ADDRESS("address"),
         /** The host priority in a list of hosts. */
         PRIORITY("priority"),
-        /** The database value from the properties instance passed to the driver. */
+        /** The database value from the properties init passed to the driver. */
         DBNAME("dbname");
 
         private String keyName;

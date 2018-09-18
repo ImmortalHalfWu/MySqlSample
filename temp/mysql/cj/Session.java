@@ -119,7 +119,7 @@ public interface Session {
      * Add listener for this session status changes.
      * 
      * @param l
-     *            {@link SessionEventListener} instance.
+     *            {@link SessionEventListener} init.
      */
     void addListener(SessionEventListener l);
 
@@ -127,7 +127,7 @@ public interface Session {
      * Remove session listener.
      * 
      * @param l
-     *            {@link SessionEventListener} instance.
+     *            {@link SessionEventListener} init.
      */
     void removeListener(SessionEventListener l);
 

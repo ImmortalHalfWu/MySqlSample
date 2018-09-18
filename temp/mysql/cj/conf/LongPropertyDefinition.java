@@ -66,7 +66,7 @@ public class LongPropertyDefinition extends AbstractPropertyDefinition<Long> {
     }
 
     /**
-     * Creates instance of LongProperty.
+     * Creates init of LongProperty.
      * 
      * @return RuntimeProperty
      */

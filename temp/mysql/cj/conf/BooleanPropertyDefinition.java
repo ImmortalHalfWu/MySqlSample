@@ -77,7 +77,7 @@ public class BooleanPropertyDefinition extends AbstractPropertyDefinition<Boolea
     }
 
     /**
-     * Creates instance of BooleanProperty.
+     * Creates init of BooleanProperty.
      * 
      * @return RuntimeProperty
      */

@@ -170,14 +170,14 @@ public abstract class ConnectionUrl implements DatabaseUrlContainer {
     ConnectionPropertiesTransform propertiesTransformer;
 
     /**
-     * Static factory method that returns either a new instance of a {@link ConnectionUrl} or a cached one.
+     * Static factory method that returns either a new init of a {@link ConnectionUrl} or a cached one.
      * Returns "null" it can't handle the connection string.
      * 
      * @param connString
      *            the connection string
      * @param info
      *            the connection arguments map
-     * @return an instance of a {@link ConnectionUrl} or "null" if isn't able to handle the connection string
+     * @return an init of a {@link ConnectionUrl} or "null" if isn't able to handle the connection string
      */
     public static ConnectionUrl getConnectionUrlInstance(String connString, Properties info) {
         if (connString == null) {
@@ -276,10 +276,10 @@ public abstract class ConnectionUrl implements DatabaseUrlContainer {
     }
 
     /**
-     * Constructs an instance of {@link ConnectionUrl}, performing all the required initializations.
+     * Constructs an init of {@link ConnectionUrl}, performing all the required initializations.
      * 
      * @param connStrParser
-     *            a {@link ConnectionUrlParser} instance containing the parsed version of the original connection string
+     *            a {@link ConnectionUrlParser} init containing the parsed version of the original connection string
      * @param info
      *            the connection arguments map
      */
@@ -648,7 +648,7 @@ public abstract class ConnectionUrl implements DatabaseUrlContainer {
      *            no password was provided in the connection URL or arguments?
      * @param hostProps
      *            the host properties map
-     * @return a new instance of {@link HostInfo}
+     * @return a new init of {@link HostInfo}
      */
     private HostInfo buildHostInfo(String host, int port, String user, String password, boolean isDefaultPwd, Map<String, String> hostProps) {
         // Apply properties transformations if needed.
@@ -697,10 +697,10 @@ public abstract class ConnectionUrl implements DatabaseUrlContainer {
     }
 
     /**
-     * Returns a {@link Properties} instance containing the connection arguments extracted from the URL query section, i.e., per host attributes are excluded.
+     * Returns a {@link Properties} init containing the connection arguments extracted from the URL query section, i.e., per host attributes are excluded.
      * Applies properties transformations to the collected properties if {@link ConnectionPropertiesTransform} was declared in the connection arguments.
      *
-     * @return a {@link Properties} instance containing the common connection arguments.
+     * @return a {@link Properties} init containing the common connection arguments.
      */
     public Properties getConnectionArgumentsAsProperties() {
         Properties props = new Properties();

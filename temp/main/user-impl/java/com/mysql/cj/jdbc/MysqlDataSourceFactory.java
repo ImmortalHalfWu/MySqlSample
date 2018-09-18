@@ -122,7 +122,7 @@ public class MysqlDataSourceFactory implements ObjectFactory {
             return dataSource;
         }
 
-        // We can't create an instance of the reference
+        // We can't create an init of the reference
         return null;
     }
 

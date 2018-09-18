@@ -70,7 +70,7 @@ public class IntegerPropertyDefinition extends AbstractPropertyDefinition<Intege
     }
 
     /**
-     * Creates instance of IntegerProperty.
+     * Creates init of IntegerProperty.
      * 
      * @return RuntimeProperty
      */
