@@ -110,7 +110,7 @@ public class DaoManager {
     private boolean connectSQL() {
         try {
             if (connection == null || connection.isClosed()) {
-                String sqlUrl = "jdbc:mysql://localhost:3306/zhitou?useSSL=false&serverTimezone=GMT%2B8";
+                String sqlUrl = "jdbc:mysql://localhost:3306/zhitou?useSSL=false&serverTimezone=GMT%2B8&autoReconnect=true";
                 String sqlUser = "root";
                 String sqlPassWord = "mysql2b";
                 System.out.println("尝试连接数据库");

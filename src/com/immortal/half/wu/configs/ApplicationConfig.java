@@ -27,7 +27,7 @@ public class ApplicationConfig {
         return applicationConfigBean;
     }
 
-    public void uploadToFile() {
+    public synchronized void uploadToFile() {
 
         if (applicationConfigBean == null) {
             return;
@@ -36,88 +36,87 @@ public class ApplicationConfig {
         PropertieUtil.mapToPropertie(stringObjectMap, CONFIG_PROPERTIES_PATH);
     }
 
-    private long PayKDT_ID;
-    private long PayTokenEndTime;
-    private String PayToken;
-    private String SMSUrlHost;
-    private String SMSUrlPath;
-    private String PayClientSecret;
-    private boolean IsDebug;
-    private String SMSAppCode;
-    private String PayClientId;
-
-    public long getPayKDT_ID() {
-        return PayKDT_ID;
-    }
-
-    public void setPayKDT_ID(long payKDT_ID) {
-        PayKDT_ID = payKDT_ID;
-    }
-
-    public long getPayTokenEndTime() {
-        return PayTokenEndTime;
-    }
-
-    public void setPayTokenEndTime(long payTokenEndTime) {
-        PayTokenEndTime = payTokenEndTime;
-    }
-
-    public String getPayToken() {
-        return PayToken;
-    }
-
-    public void setPayToken(String payToken) {
-        PayToken = payToken;
-    }
-
-    public String getSMSUrlHost() {
-        return SMSUrlHost;
-    }
-
-    public void setSMSUrlHost(String SMSUrlHost) {
-        this.SMSUrlHost = SMSUrlHost;
-    }
-
-    public String getSMSUrlPath() {
-        return SMSUrlPath;
-    }
-
-    public void setSMSUrlPath(String SMSUrlPath) {
-        this.SMSUrlPath = SMSUrlPath;
-    }
-
-    public String getPayClientSecret() {
-        return PayClientSecret;
-    }
-
-    public void setPayClientSecret(String payClientSecret) {
-        PayClientSecret = payClientSecret;
-    }
+    private boolean debug;
+    private String payClientId;
+    private String payClientSecret;
+    private int payKDT_ID;
+    private String payToken;
+    private long payTokenEndTime;
+    private String sMSAppCode;
+    private String sMSUrlHost;
+    private String sMSUrlPath;
 
     public boolean isDebug() {
-        return IsDebug;
+        return debug;
     }
 
     public void setDebug(boolean debug) {
-        IsDebug = debug;
-    }
-
-    public String getSMSAppCode() {
-        return SMSAppCode;
-    }
-
-    public void setSMSAppCode(String SMSAppCode) {
-        this.SMSAppCode = SMSAppCode;
+        this.debug = debug;
     }
 
     public String getPayClientId() {
-        return PayClientId;
+        return payClientId;
     }
 
     public void setPayClientId(String payClientId) {
-        PayClientId = payClientId;
+        this.payClientId = payClientId;
     }
 
+    public String getPayClientSecret() {
+        return payClientSecret;
+    }
+
+    public void setPayClientSecret(String payClientSecret) {
+        this.payClientSecret = payClientSecret;
+    }
+
+    public long getPayKDT_ID() {
+        return payKDT_ID;
+    }
+
+    public void setPayKDT_ID(int payKDT_ID) {
+        this.payKDT_ID = payKDT_ID;
+    }
+
+    public String getPayToken() {
+        return payToken;
+    }
+
+    public void setPayToken(String payToken) {
+        this.payToken = payToken;
+    }
+
+    public long getPayTokenEndTime() {
+        return payTokenEndTime;
+    }
+
+    public void setPayTokenEndTime(long payTokenEndTime) {
+        this.payTokenEndTime = payTokenEndTime;
+    }
+
+    public String getSMSAppCode() {
+        return sMSAppCode;
+    }
+
+    public void setSMSAppCode(String sMSAppCode) {
+        this.sMSAppCode = sMSAppCode;
+    }
+
+    public String getSMSUrlHost() {
+        return sMSUrlHost;
+    }
+
+    public void setSMSUrlHost(String sMSUrlHost) {
+        this.sMSUrlHost = sMSUrlHost;
+    }
+
+    public String getSMSUrlPath() {
+        return sMSUrlPath;
+    }
+
+    public void setSMSUrlPath(String sMSUrlPath) {
+        this.sMSUrlPath = sMSUrlPath;
+    }
 
 
 }
