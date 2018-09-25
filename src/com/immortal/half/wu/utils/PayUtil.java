@@ -78,24 +78,29 @@ public class PayUtil {
         yzClient = new DefaultYZClient(new Token(applicationConfig.getPayToken()));
     }
 
-    private void payTest() {
-
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("lab1", "11");
-        jsonObject.addProperty("lab2", "22");
+    public String payTest() {
 
         YouzanPayQrcodeCreate youzanPayQrcodeCreate = new YouzanPayQrcodeCreate();
         YouzanPayQrcodeCreateParams youzanPayQrcodeCreateParams = new YouzanPayQrcodeCreateParams();
-        youzanPayQrcodeCreateParams.setLabelIds("[1,2,3]");
-        youzanPayQrcodeCreateParams.setQrName("测试生成收款二维码");
+
         youzanPayQrcodeCreateParams.setQrPrice("1");
-        youzanPayQrcodeCreateParams.setQrSource("this is QR source");
+        //二维码类型. QR_TYPE_FIXED_BY_PERSON ：无金额二维码，扫码后用户需自己输入金额； QR_TYPE_NOLIMIT ： 确定金额二维码，可以重复支付; QR_TYPE_DYNAMIC：确定金额二维码，只能被支付一次
+
+//        youzanPayQrcodeCreateParams.setQrName("可重复使用。09211029");
+//        youzanPayQrcodeCreateParams.setQrType("QR_TYPE_NOLIMIT");
+
         youzanPayQrcodeCreateParams.setQrType("QR_TYPE_DYNAMIC");
+        // 备注长度不能大于60，  手机+会员类型+金额+base64
+        youzanPayQrcodeCreateParams.setQrName("一次性支付。09211029eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMzYxMzU3MTMzMSIsInBob25lIjoiMTM2MTM1NzEzMzEiLCJtSXNzdWVyIjoiaW1tb3J0YWxIYWxmV3UxNTM3MzQ3MTE4NjM5IiwiaXNzIjoiaW1tb3J0YWxIYWxmV3UxNTM3MzQ3MTE4NjM5IiwiZXhwIjoxODUyMjc0NjY2LCJ1c2VySWQiOjI0fQ.cWD1IknA6HX_u-3USw1xVtys4Nr3DqgN8Q17UdKSD1U");
+
 
         youzanPayQrcodeCreate.setAPIParams(youzanPayQrcodeCreateParams);
 
         YouzanPayQrcodeCreateResult result = yzClient.invoke(youzanPayQrcodeCreate);
-        System.out.println(JsonUtils.toJson(result));
+        String s = JsonUtils.toJson(result);
+        System.out.println(s);
+
+        return s;
     }
 
 }
