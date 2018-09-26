@@ -1,17 +1,23 @@
 package com.immortal.half.wu;
 
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.immortal.half.wu.bean.*;
 import com.immortal.half.wu.bean.enums.*;
 import com.immortal.half.wu.configs.ApplicationConfig;
 import com.immortal.half.wu.dao.DaoManager;
 import com.immortal.half.wu.utils.*;
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -80,8 +86,11 @@ public class Main {
             e1.printStackTrace();
         }
 
+        testQRName();
+        testQrBean();
+
 //        testQrCodeSql();
-        testPayInfiSql();
+//        testPayInfiSql();
 //        String ss = "一次性支付。09211029eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMzYxMzU3MTMzM";
 //        System.out.println(ss.length());
 
@@ -204,6 +213,23 @@ public class Main {
 
 
         DaoManager.instance().release();
+
+    }
+
+    private static void testQrBean() {
+
+        PayQRcodeBean senior1YearBean = PayQRcodeBean.createSenior1YearBean(123);
+        System.out.println(senior1YearBean.toString());
+        PayQRcodeBean senior3MonthBean = PayQRcodeBean.createSenior3MonthBean(123);
+        System.out.println(senior3MonthBean.toString());
+        PayQRcodeBean senior1MonthBean = PayQRcodeBean.createSenior1MonthBean(123);
+        System.out.println(senior1MonthBean.toString());
+        PayQRcodeBean super1YearBean = PayQRcodeBean.createSuper1YearBean(123);
+        System.out.println(super1YearBean.toString());
+        PayQRcodeBean super3MonthBean = PayQRcodeBean.createSuper3MonthBean(123);
+        System.out.println(super3MonthBean.toString());
+        PayQRcodeBean super1MonthBean = PayQRcodeBean.createSuper1MonthBean(123);
+        System.out.println(super1MonthBean.toString());
 
     }
 
@@ -342,4 +368,48 @@ public class Main {
     }
 
 
+    private static void testQRName() {
+        String qrName = createQRName("112", "1200");
+        System.out.println(qrName);
+        boolean b = authQRName(qrName, "112", "1200");
+        System.out.println(b);
+    }
+
+    public static String createQRName(String userId, String money) {
+
+        String qrName = userId + money;
+
+        PayQRcodeBean payQRcodeBean = new PayQRcodeBean(null, 112);
+        payQRcodeBean.setVipType(23);
+//        payQRcodeBean.setTimeNum(1);
+//        payQRcodeBean.setTimeUnit("月");
+        payQRcodeBean.setTimeLong(31L * 24 * 60 * 60 * 1000 + "");
+        payQRcodeBean.setAllMoney(1200);
+//        payQRcodeBean.setMonthMoney(1200);
+//        payQRcodeBean.setCreateTime(System.currentTimeMillis() + "");
+
+        String s = new Gson().toJson(payQRcodeBean);
+        qrName = ZipUtils.zip(s);
+
+
+//        try {
+//            qrName = MD5Util.EncoderByMd5(qrName);
+//        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+//        BASE64Encoder base64Encoder = new BASE64Encoder();
+//        qrName = base64Encoder.encode(s.getBytes());
+        System.out.println(qrName + "__" + qrName.length());
+        return qrName;
+    }
+
+    public static boolean authQRName(String qrNameForMD5, String userId, String money) {
+        //            return MD5Util.checkpassword(userId + money, qrNameForMD5);
+//            BASE64Decoder base64Decoder = new BASE64Decoder();
+//            byte[] bytes = base64Decoder.decodeBuffer(qrNameForMD5);
+//            System.out.println(new String(bytes));
+        String gunzip = ZipUtils.unzip(qrNameForMD5);
+        System.out.println(gunzip);
+        return false;
+    }
 }

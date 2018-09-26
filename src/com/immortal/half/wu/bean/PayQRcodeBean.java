@@ -16,24 +16,47 @@ public class PayQRcodeBean extends BaseBean {
     private Integer allMoney;     // 此二维码支付金额，单位分
     private Integer monthMoney;    // 对应一个月多少钱，单位分
     private String createTime;  // 创建时间
+    private Integer saveMoney;   // 节省了多少钱，单位分
+
+
+    public static PayQRcodeBean createSuper1YearBean(Integer userId) {
+        return createPayQRcodeBean(userId,  PayCodeVipTypeInfoBean.VIP_TYPE_SUPER_1YEAR);
+    }
+
+    public static PayQRcodeBean createSuper3MonthBean(Integer userId) {
+        return createPayQRcodeBean(userId,  PayCodeVipTypeInfoBean.VIP_TYPE_SUPER_3MONTH);
+    }
+
+    public static PayQRcodeBean createSuper1MonthBean(Integer userId) {
+        return createPayQRcodeBean(userId,  PayCodeVipTypeInfoBean.VIP_TYPE_SUPER_1MONTH);
+    }
+
+    public static PayQRcodeBean createSenior1YearBean(Integer userId) {
+        return createPayQRcodeBean(userId,  PayCodeVipTypeInfoBean.VIP_TYPE_SENIOR_1YEAR);
+    }
+
+    public static PayQRcodeBean createSenior3MonthBean(Integer userId) {
+        return createPayQRcodeBean(userId,  PayCodeVipTypeInfoBean.VIP_TYPE_SENIOR_3MONTH);
+    }
+
+    public static PayQRcodeBean createSenior1MonthBean(Integer userId) {
+        return createPayQRcodeBean(userId,  PayCodeVipTypeInfoBean.VIP_TYPE_SENIOR_1MONTH);
+    }
+
+    private static PayQRcodeBean createPayQRcodeBean(Integer userId, PayCodeVipTypeInfoBean.QRCodeVipTypeInfo vipTypeInfo) {
+        PayQRcodeBean payQRcodeBean = new PayQRcodeBean(null, userId);
+        payQRcodeBean.setAllMoney(vipTypeInfo.getAllMoney());
+        payQRcodeBean.setMonthMoney(vipTypeInfo.getMonthMoney());
+        payQRcodeBean.setSaveMoney(vipTypeInfo.getSaveMoney());
+        payQRcodeBean.setTimeLong(vipTypeInfo.getTimeLong());
+        payQRcodeBean.setTimeNum(vipTypeInfo.getTimeNum());
+        payQRcodeBean.setTimeUnit(vipTypeInfo.getTimeUnit());
+        payQRcodeBean.setVipType(vipTypeInfo.getVipType());
+        return payQRcodeBean;
+    }
 
     public PayQRcodeBean(Integer id, Integer userId) {
         super(id, userId);
-    }
-
-    public PayQRcodeBean(Integer id, Integer userId, Integer qrId, String qrImg, String qrName, Integer vipType, VIP_TYPE enumVipType, Integer timeNum, String timeUnit, String timeLong, Integer allMoney, Integer monthMoney, String createTime) {
-        super(id, userId);
-        this.qrId = qrId;
-        this.qrImg = qrImg;
-        this.qrName = qrName;
-        this.vipType = vipType;
-        this.enumVipType = enumVipType;
-        this.timeNum = timeNum;
-        this.timeUnit = timeUnit;
-        this.timeLong = timeLong;
-        this.allMoney = allMoney;
-        this.monthMoney = monthMoney;
-        this.createTime = createTime;
     }
 
     public Integer getQrId() {
@@ -66,7 +89,7 @@ public class PayQRcodeBean extends BaseBean {
 
     public void setVipType(Integer vipType) {
         // 超级会员年11，6月12,1月13，高级会员，年21, 6月22，1月23
-        enumVipType = vipType / 10 == 1 ? VIP_TYPE.VIP_TYPE_SUPER : VIP_TYPE.VIP_TYPE_SENIOR;
+        enumVipType = VIP_TYPE.valueOf(vipType / 10);
         this.vipType = vipType;
     }
 
@@ -119,9 +142,17 @@ public class PayQRcodeBean extends BaseBean {
     }
 
     public VIP_TYPE getEnumVipType() {
-        return enumVipType;
+        // 超级会员年11，6月12,1月13，高级会员，年21, 6月22，1月23
+        return enumVipType == null ? enumVipType = VIP_TYPE.valueOf(vipType / 10) : enumVipType;
     }
 
+    public Integer getSaveMoney() {
+        return saveMoney;
+    }
+
+    public void setSaveMoney(Integer saveMoney) {
+        this.saveMoney = saveMoney;
+    }
 
     @Override
     public String toString() {
@@ -137,6 +168,7 @@ public class PayQRcodeBean extends BaseBean {
                 ", allMoney=" + allMoney +
                 ", monthMoney=" + monthMoney +
                 ", createTime='" + createTime + '\'' +
+                ", saveMoney='" + saveMoney + '\'' +
                 '}';
     }
 }
